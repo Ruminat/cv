@@ -4,7 +4,7 @@ head
 
   title Влад Фурман. Веб-разработчик
 
-  link(rel="icon", href='static/rubik.png')
+  link(rel="icon", href='img/rubik.png')
   link(rel="stylesheet", href='styles/main.css')
 body
 
@@ -16,6 +16,10 @@ body
   mixin skill(text, src)
     .skill
       +chipImg(text, src)
+
+  mixin language(text, src, score, maxScore=10)
+    .language
+      +chipImg(`${text} — ${score}/${maxScore}`, src)
 
   mixin contact(text, src, link)
     .contact: a(href=link)
@@ -32,40 +36,42 @@ body
         .contacts
           .contacts-wrapper
             +contact('WhatIsLove_Furman', 'img/icons/vk.svg', 'https://vk.com/whatislove_furman')
-            +contact('Blowlyge@gmail.com', 'img/icons/email.svg', 'mailto:blowlyge@gmail.com')
+            +contact('Blowlyge@gmail.com', 'img/icons/gmail.svg', 'mailto:blowlyge@gmail.com')
             +contact('Ruminat', 'img/icons/telegram.svg', 'https://t.me/ruminat')
             +contact('Ruminat', 'img/icons/github.svg', 'https://github.com/Ruminat')
 
-  .main(style="padding: 1rem;")
+  .main
     .skills
-      h4 Знаю
-      .skills-list
-        +skill('SQL', 'img/icons/sql.svg')
-        +skill('PL/SQL', 'img/icons/database.svg')
-      h4 Знаком с
-      .skills-list
-        +skill('C#', 'img/icons/csharp.svg')
-        +skill('Kotlin', 'img/icons/kotlin.svg')
-        +skill('Haskell', 'img/icons/haskell.svg')
-
-      h4 Использую
-      .skills-list
-        +skill('HTML', 'img/icons/html.svg')
-        +skill('Pug', 'img/icons/pug.svg')
-        +skill('LaTeX', 'img/icons/latex.svg')
-        +skill('Markdown', 'img/icons/markdown.svg')
-      .skills-list
-        +skill('CSS', 'img/icons/css.svg')
-        +skill('SASS', 'img/icons/sass.svg')
-      .skills-list
-        +skill('JavaScript', 'img/icons/js.svg')
-        +skill('Vue', 'img/icons/vue.svg')
-        +skill('Electron', 'img/icons/electron.svg')
-        +skill('NodeJS', 'img/icons/nodejs.svg')
-      .skills-list
-        +skill('Python', 'img/icons/python.svg')
-      .skills-list
-        +skill('Git', 'img/icons/git.svg')
+      .skills-column.use-skills
+        h4.skills-title Использую
+        .skills-list
+          +skill('HTML', 'img/icons/html.svg')
+          +skill('Pug', 'img/icons/pug.svg')
+          +skill('LaTeX', 'img/icons/latex.svg')
+          +skill('Markdown', 'img/icons/markdown.svg')
+        .skills-list
+          +skill('JavaScript', 'img/icons/js.svg')
+          +skill('Python', 'img/icons/python.svg')
+          +skill('Git', 'img/icons/git.svg')
+        .skills-list
+          +skill('Vue', 'img/icons/vue.svg')
+          +skill('Electron', 'img/icons/electron.svg')
+          +skill('NodeJS', 'img/icons/nodejs.svg')
+        .skills-list
+          +skill('CSS', 'img/icons/css.svg')
+          +skill('SASS', 'img/icons/sass.svg')
+      .skills-column.know-skills
+        h4.skills-title Знаю
+        .skills-list
+          +skill('SQL', 'img/icons/sql.svg')
+          +skill('PL/SQL', 'img/icons/database.svg')
+      .skills-column.aware-skills
+        h4.skills-title Знаком с
+        .skills-list
+          +skill('Haskell', 'img/icons/haskell.svg')
+          +skill('C#', 'img/icons/csharp.svg')
+          +skill('C++', 'img/icons/cpp.svg')
+          +skill('Kotlin', 'img/icons/kotlin.svg')
 
     h4 Мои проекты
     ul
@@ -80,23 +86,32 @@ body
           li: a(href="https://github.com/Ruminat/PL-SQL-labs") PL/SQL labs (2019)
           li: a(href="https://github.com/Ruminat/DM-2019-online-course") DM online course (2019)
 
-    h4 Образование
-    h5 Бакалавриат 2016–2020
-    ul
-      li Санкт-Петербургский политехнический университет Петра Великого
-      li Институт: ИКНТ
-      li Кафедра: КИТ
-      li Специальность: Математическое обеспечение и администрирование информационных систем
+    .education
+      h4.title Образование
+      .card.education-card
+        .card-image
+          img.polykek-image(src="img/polykek.svg")
+        .card-header
+          .card-title.h6 Бакалавриат 2016–2020
+          .card-subtitle.text-gray Факультет — ИКНТ, кафедра — ВШИСиСТ (бывш. КИТ)
+        .card-body
+          | Специальность: Математическое обеспечение и базы данных
+      .card.education-card
+        .card-image
+          img.polykek-image(src="img/polykek.svg")
+        .card-header
+          .card-title.h6 Магистратура 2020–...
+          .card-subtitle.text-gray Факультет — ИКНТ, кафедра — ВШИСиСТ (бывш. КИТ)
+        .card-body
+          | Специальность: Математическое обеспечение и администрирование корпоративных систем
 
-    h4 Языки
-    ul
-      li Русский — 10/10 (родной язык)
-      li Английский — 8/10
-      li Японский — 6/10
+    h4.title Языки
+    .languages
+      +language('Русский', 'img/flags/Russia.svg', 10)
+      +language('Английский', 'img/flags/UK.svg', 8)
+      +language('Японский', 'img/flags/Japan.svg', 6)
 
-    h4 Интересы
-    ul
-      li Веб-разработка
-      li Спидкубинг
-      li Языки и их изучение
-
+    h4.title Интересы
+    +skill('Веб-разработка', 'img/icons/mobile-phone.svg')
+    +skill('Спидкубинг', 'img/icons/rubik.svg')
+    +skill('Языки', 'img/icons/translate.svg')
