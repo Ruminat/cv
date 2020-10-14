@@ -85,42 +85,50 @@ body
       .projects-wrapper
         .card.project-card
           .card-header
-            .card-title #[a(href="https://github.com/Ruminat/Lyra") Lyra] 
-              | #[span.text-gray (2016)]
-            .card-subtitle #[+tags('HTML, CSS, JS, Electron')]
-          .card-body Разработанный мной ещё в школе музыкальный плеер, работающий с VK API.
+            .card-title #[a(href="https://github.com/Ruminat/Asq-App") Asq] 
+              | #[span.text-gray (2020)]
+            .card-subtitle #[+tags('Pug, SASS, JS, Vue, Electron, Python')]
+          .card-body Моя дипломная работа в бакалавриате. 
+            | #[a(href="https://github.com/Ruminat/Asq-App") Приложение] 
+            | с 
+            | #[a(href="https://github.com/Ruminat/Asq-server") сервером] для трансляции запросов на русском языке в SQL-код.
+
+        .card.project-card
+          .card-header
+            .card-title #[a(href="https://github.com/kit-software-development/exam-Ruminat") Chi] 
+              | #[span.text-gray (2019)]
+            .card-subtitle #[+tags('Pug, SASS, JS, Vue, Electron, Python')]
+          .card-body Курсовая работа на 3-ем курсе. Приложение с сервером для изучения языков по карточкам со словами наподобие 
+            | #[a(href="https://apps.ankiweb.net/") Anki].
+
+        .card.project-card
+          .card-header
+            .card-title #[a(href="https://ruminat.github.io/PL-SQL-labs/") PL/SQL labs] 
+              | #[span.text-gray (2019)]
+            .card-subtitle #[+tags('Pug, SASS, JS')]
+          .card-body Пример вёрстки. Лабараторные работы по PL/SQL.
+        
+        .card.project-card
+          .card-header
+            .card-title #[a(href="https://github.com/Ruminat/DM-2019-online-course") DM online-course] 
+              | #[span.text-gray (2019)]
+            .card-subtitle #[+tags('HTML, CSS')]
+          .card-body Пример вёрстки. Страница с заданиями онлайн-курса по дискретной математике.
+
         .card.project-card
           .card-header
             .card-title #[a(href="https://github.com/Ruminat/Linteum") Linteum] 
               | #[span.text-gray (2017)]
             .card-subtitle #[+tags('C++, QT')]
           .card-body Построитель графиков на C++. Учебный проект на 2-ом курсе в Политехе.
+        
         .card.project-card
           .card-header
-            .card-title #[a(href="https://github.com/kit-software-development/exam-Ruminat") Chi] 
-              | #[span.text-gray (2019)]
-            .card-subtitle #[+tags('Pug, SASS, JS, Vue, Electron, Python')]
-          .card-body Приложение с сервером для изучения языков по карточкам со словами наподобие 
-            | #[a(href="https://apps.ankiweb.net/") Anki].
-        .card.project-card
-          .card-header
-            .card-title #[a(href="https://github.com/Ruminat/Asq-App") Asq] 
-              | #[span.text-gray (2020)]
-            .card-subtitle #[+tags('Pug, SASS, JS, Vue, Electron, Python')]
-          .card-body Моя дипломная работа в бакалавриате.
-            | Приложение с сервером для трансляции запросов на русском языке в SQL-код.
-        .card.project-card
-          .card-header
-            .card-title #[a(href="https://github.com/Ruminat/PL-SQL-labs") PL/SQL labs] 
-              | #[span.text-gray (2019)]
+            .card-title #[a(href="https://github.com/Ruminat/Lyra") Lyra] 
+              | #[span.text-gray (2016)]
             .card-subtitle #[+tags('HTML, CSS, JS, Electron')]
           .card-body Разработанный мной ещё в школе музыкальный плеер, работающий с VK API.
-        .card.project-card
-          .card-header
-            .card-title #[a(href="https://github.com/Ruminat/DM-2019-online-course") DM online-course] 
-              | #[span.text-gray (2019)]
-            .card-subtitle #[+tags('HTML, CSS, JS, Electron')]
-          .card-body Разработанный мной ещё в школе музыкальный плеер, работающий с VK API.
+
 
     .education
       h4.title Образование
@@ -131,14 +139,17 @@ body
           .card-header
             .card-title.h6 Бакалавриат 2016–2020
             .card-subtitle.text-gray Факультет — ИКНТ, кафедра — ВШИСиСТ (бывш. КИТ)
-          .card-body Специальность: Математическое обеспечение и базы данных
+          .card-body Специальность: Математическое обеспечение и базы данных<br>
+            | Дипломная работа: «Разработка и исследование системы трансляции запросов на русском языке в SQL-код»<br>
+            | Закончил с красным дипломом
         .card.education-card
           .card-image
             img.polykek-image(src="img/polykek.svg")
           .card-header
             .card-title.h6 Магистратура 2020–...
             .card-subtitle.text-gray Факультет — ИКНТ, кафедра — ВШИСиСТ (бывш. КИТ)
-          .card-body Специальность: Математическое обеспечение и администрирование корпоративных систем
+          .card-body Специальность: Математическое обеспечение и администрирование корпоративных систем<br>
+            | Тема диссертации: «Автоматическая обработка и генерация текста на естественных языках с применением искусственных нейронных сетей»
 
     .rest
       .rest-box.languages
