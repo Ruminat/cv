@@ -1,0 +1,5 @@
+prepros.config
+trash
+trash/*
+node_modules
+node_modules/*
