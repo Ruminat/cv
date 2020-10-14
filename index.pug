@@ -13,58 +13,68 @@ body
       img.avatar.avatar-sm(src=src)
       = text
 
+  mixin contact(text, src, link)
+    .contact: a(href=link)
+      +chipImg(text, src)
+
+
   div.top
-    h3 Влад Фурман<br>Веб-разработчик
-    img.image.me(src="img/me.jpg")
-    p
-      div: a(href="https://vk.com/whatislove_furman")
-        +chipImg('WhatIsLove_Furman', 'img/vk.svg')
-      div: a(href="mailto:blowlyge@gmail.com")
-        +chipImg('Blowlyge@gmail.com', 'img/email.svg')
-      div: a(href="https://t.me/ruminat")
-        +chipImg('@Ruminat', 'img/telegram.svg')
+    h3.title Влад Фурман<br>
+      | Веб-разработчик
+    .picture-contacts-container
+      .picture-contacts
+        .my-image
+          img.image.me(src="img/me.jpg")
+        .contacts
+          .contacts-wrapper
+            +contact('WhatIsLove_Furman', 'img/vk.svg', 'https://vk.com/whatislove_furman')
+            +contact('Blowlyge@gmail.com', 'img/email.svg', 'mailto:blowlyge@gmail.com')
+            +contact('Ruminat', 'img/telegram.svg', 'https://t.me/ruminat')
+            +contact('Ruminat', 'img/github.svg', 'https://github.com/Ruminat')
 
-  h4 Я знаю
-  ul
-    li #[.chip Oracle SQL]#[.chip PL/SQL]
-    li немного #[.chip C#] и #[.chip Haskell].
+  .main(style="padding: 1rem;")
+    h4 Я знаю
+    ul
+      li #[.chip Oracle SQL]#[.chip PL/SQL]
+      li немного #[.chip C#] и #[.chip Haskell].
 
-  h4 Я использую
-  ul
-    li HTML, Pug, LaTeX, Markdown;
-    li CSS, SASS;
-    li JavaScript, Vue, Electron;
-    li Python.
+    h4 Я использую
+    ul
+      li HTML, Pug, LaTeX, Markdown;
+      li CSS, SASS;
+      li JS, Vue, Electron, NodeJS;
+      li Python.
 
-  h4 Мои проекты
-  ul
-    li: a(href="https://github.com/Ruminat/Lyra") Lyra
-    li: a(href="https://github.com/Ruminat/Linteum") Linteum
-    li: a(href="https://github.com/kit-software-development/exam-Ruminat") Chi
-    li Asq — 
-      | #[a(href="https://github.com/Ruminat/Asq-App") приложение]
-      | и #[a(href="https://github.com/Ruminat/Asq-Server") сервер]
-    li Вёрстка
-      ul
-        li: a(href="https://github.com/Ruminat/PL-SQL-labs") PL/SQL labs
-        li: a(href="https://github.com/Ruminat/DM-2019-online-course") DM online course
+    h4 Мои проекты
+    ul
+      li: a(href="https://github.com/Ruminat/Lyra") Lyra
+      li: a(href="https://github.com/Ruminat/Linteum") Linteum
+      li: a(href="https://github.com/kit-software-development/exam-Ruminat") Chi
+      li Asq — 
+        | #[a(href="https://github.com/Ruminat/Asq-App") приложение]
+        | и #[a(href="https://github.com/Ruminat/Asq-Server") сервер]
+      li Вёрстка
+        ul
+          li: a(href="https://github.com/Ruminat/PL-SQL-labs") PL/SQL labs
+          li: a(href="https://github.com/Ruminat/DM-2019-online-course") DM online course
 
-  h4 Образование
-  h5 Бакалавриат 2016–2020
-  ul
-    li Санкт-Петербургский политехнический университет Петра Великого
-    li Институт: ИКНТ
-    li Кафедра: КИТ
-    li Специальность: Математическое обеспечение и администрирование информационных систем
+    h4 Образование
+    h5 Бакалавриат 2016–2020
+    ul
+      li Санкт-Петербургский политехнический университет Петра Великого
+      li Институт: ИКНТ
+      li Кафедра: КИТ
+      li Специальность: Математическое обеспечение и администрирование информационных систем
 
-  h4 Языки
-  ul
-    li Русский — 10/10 (родной язык)
-    li Английский — 8/10
-    li Японский — 6/10
+    h4 Языки
+    ul
+      li Русский — 10/10 (родной язык)
+      li Английский — 8/10
+      li Японский — 6/10
 
-  h4 Интересы
-  ul
-    li Веб-разработка
-    li Спидкубинг
-    li Языки и их изучение
+    h4 Интересы
+    ul
+      li Веб-разработка
+      li Спидкубинг
+      li Языки и их изучение
+

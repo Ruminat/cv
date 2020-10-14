@@ -1,0 +1,42 @@
+.top
+  text-align: center
+  margin-top: 0.5rem
+
+// .picture-contacts
+//   @extend .row
+.picture-contacts-container
+  @extend .container
+  margin: 0.5rem 0 0 0
+  padding: 0
+.picture-contacts
+  @extend .columns
+
+.image.me
+  width: 8rem
+  height: 8rem
+  border-radius: 100%
+
+.my-image
+  @extend .column, .col-6
+  text-align: right
+
+.contacts
+  @extend .column, .col-6
+  text-align: left
+  display: flex
+  align-items: center
+.contacts-wrapper
+  display: inline
+  // flex-direction: column
+
+.contact
+  .chip
+    width: 10rem
+
+@media (max-width: $size-sm)
+  .my-image, .contacts
+    width: 100%
+    text-align: center
+  .contacts
+    margin-top: 0.5rem
+    justify-content: center
