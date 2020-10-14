@@ -18,7 +18,7 @@ body
       +chipImg(text, src)
 
   mixin language(text, src, score, maxScore=10)
-    .language
+    .skill
       +chipImg(`${text} — ${score}/${maxScore}`, src)
 
   mixin contact(text, src, link)
@@ -48,7 +48,6 @@ body
           +skill('HTML', 'img/icons/html.svg')
           +skill('Pug', 'img/icons/pug.svg')
           +skill('LaTeX', 'img/icons/latex.svg')
-          +skill('Markdown', 'img/icons/markdown.svg')
         .skills-list
           +skill('JavaScript', 'img/icons/js.svg')
           +skill('Python', 'img/icons/python.svg')
@@ -60,6 +59,7 @@ body
         .skills-list
           +skill('CSS', 'img/icons/css.svg')
           +skill('SASS', 'img/icons/sass.svg')
+          +skill('Markdown', 'img/icons/markdown.svg')
       .skills-column.know-skills
         h4.skills-title Знаю
         .skills-list
@@ -69,9 +69,9 @@ body
         h4.skills-title Знаком с
         .skills-list
           +skill('Haskell', 'img/icons/haskell.svg')
+          +skill('Kotlin', 'img/icons/kotlin.svg')
           +skill('C#', 'img/icons/csharp.svg')
           +skill('C++', 'img/icons/cpp.svg')
-          +skill('Kotlin', 'img/icons/kotlin.svg')
 
     .projects
       h4.title Мои проекты
