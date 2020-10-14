@@ -73,45 +73,49 @@ body
           +skill('C++', 'img/icons/cpp.svg')
           +skill('Kotlin', 'img/icons/kotlin.svg')
 
-    h4 Мои проекты
-    ul
-      li: a(href="https://github.com/Ruminat/Lyra") Lyra (2016)
-      li: a(href="https://github.com/Ruminat/Linteum") Linteum (2017)
-      li: a(href="https://github.com/kit-software-development/exam-Ruminat") Chi (2019)
-      li Asq (2020) — 
-        | #[a(href="https://github.com/Ruminat/Asq-App") приложение]
-        | и #[a(href="https://github.com/Ruminat/Asq-Server") сервер]
-      li Вёрстка
-        ul
-          li: a(href="https://github.com/Ruminat/PL-SQL-labs") PL/SQL labs (2019)
-          li: a(href="https://github.com/Ruminat/DM-2019-online-course") DM online course (2019)
+    .projects
+      h4.title Мои проекты
+      ul
+        li: a(href="https://github.com/Ruminat/Lyra") Lyra (2016)
+        li: a(href="https://github.com/Ruminat/Linteum") Linteum (2017)
+        li: a(href="https://github.com/kit-software-development/exam-Ruminat") Chi (2019)
+        li Asq (2020) — 
+          | #[a(href="https://github.com/Ruminat/Asq-App") приложение]
+          | и #[a(href="https://github.com/Ruminat/Asq-Server") сервер]
+        li Вёрстка
+          ul
+            li: a(href="https://github.com/Ruminat/PL-SQL-labs") PL/SQL labs (2019)
+            li: a(href="https://github.com/Ruminat/DM-2019-online-course") DM online course (2019)
 
     .education
       h4.title Образование
-      .card.education-card
-        .card-image
-          img.polykek-image(src="img/polykek.svg")
-        .card-header
-          .card-title.h6 Бакалавриат 2016–2020
-          .card-subtitle.text-gray Факультет — ИКНТ, кафедра — ВШИСиСТ (бывш. КИТ)
-        .card-body
-          | Специальность: Математическое обеспечение и базы данных
-      .card.education-card
-        .card-image
-          img.polykek-image(src="img/polykek.svg")
-        .card-header
-          .card-title.h6 Магистратура 2020–...
-          .card-subtitle.text-gray Факультет — ИКНТ, кафедра — ВШИСиСТ (бывш. КИТ)
-        .card-body
-          | Специальность: Математическое обеспечение и администрирование корпоративных систем
+      .education-wrapper
+        .card.education-card
+          .card-image
+            img.polykek-image(src="img/polykek.svg")
+          .card-header
+            .card-title.h6 Бакалавриат 2016–2020
+            .card-subtitle.text-gray Факультет — ИКНТ, кафедра — ВШИСиСТ (бывш. КИТ)
+          .card-body
+            | Специальность: Математическое обеспечение и базы данных
+        .card.education-card
+          .card-image
+            img.polykek-image(src="img/polykek.svg")
+          .card-header
+            .card-title.h6 Магистратура 2020–...
+            .card-subtitle.text-gray Факультет — ИКНТ, кафедра — ВШИСиСТ (бывш. КИТ)
+          .card-body
+            | Специальность: Математическое обеспечение и администрирование корпоративных систем
 
-    h4.title Языки
-    .languages
-      +language('Русский', 'img/flags/Russia.svg', 10)
-      +language('Английский', 'img/flags/UK.svg', 8)
-      +language('Японский', 'img/flags/Japan.svg', 6)
+    .rest
+      .rest-box.languages
+        h4.languages-title Языки
+        +language('Русский', 'img/flags/Russia.svg', 10)
+        +language('Английский', 'img/flags/UK.svg', 8)
+        +language('Японский', 'img/flags/Japan.svg', 6)
 
-    h4.title Интересы
-    +skill('Веб-разработка', 'img/icons/mobile-phone.svg')
-    +skill('Спидкубинг', 'img/icons/rubik.svg')
-    +skill('Языки', 'img/icons/translate.svg')
+      .rest-box.hobbies
+        h4.hobbies-title Интересы
+        +skill('Веб-разработка', 'img/icons/mobile-phone.svg')
+        +skill('Спидкубинг', 'img/icons/rubik.svg')
+        +skill('Языки', 'img/icons/translate.svg')

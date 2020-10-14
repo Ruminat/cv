@@ -1,9 +1,17 @@
 .skills
-  @extend .columns
+  @extend .columns, .top-padding, .bottom-delimiter
 
 .skills-column
-  @extend .column, .col-4
+  @extend .column
   text-align: center
+.skills-column + .skills-column
+  border-left: 1px solid #eee
+.know-skills
+  @extend .col-3
+.aware-skills
+  @extend .col-4
+.use-skills
+  @extend .col-5
 
 .skill
   display: inline
@@ -25,3 +33,6 @@
     display: inline
   .know-skills, .aware-skills, .use-skills
     width: 100%
+  .skills-column + .skills-column
+    margin-top: 0.5rem
+    border-left: none
