@@ -13,6 +13,10 @@ body
       img.avatar.avatar-sm(src=src)
       = text
 
+  mixin skill(text, src)
+    .skill
+      +chipImg(text, src)
+
   mixin contact(text, src, link)
     .contact: a(href=link)
       +chipImg(text, src)
@@ -36,32 +40,32 @@ body
     .skills
       h4 Знаю
       .skills-list
-        +chipImg('SQL', 'img/icons/sql.svg')
-        +chipImg('PL/SQL', 'img/icons/database.svg')
+        +skill('SQL', 'img/icons/sql.svg')
+        +skill('PL/SQL', 'img/icons/database.svg')
       h4 Знаком с
       .skills-list
-        +chipImg('C#', 'img/icons/csharp.svg')
-        +chipImg('Kotlin', 'img/icons/kotlin.svg')
-        +chipImg('Haskell', 'img/icons/haskell.svg')
+        +skill('C#', 'img/icons/csharp.svg')
+        +skill('Kotlin', 'img/icons/kotlin.svg')
+        +skill('Haskell', 'img/icons/haskell.svg')
 
       h4 Использую
       .skills-list
-        +chipImg('HTML', 'img/icons/html.svg')
-        +chipImg('Pug', 'img/icons/pug.svg')
-        +chipImg('LaTeX', 'img/icons/latex.svg')
-        +chipImg('Markdown', 'img/icons/markdown.svg')
+        +skill('HTML', 'img/icons/html.svg')
+        +skill('Pug', 'img/icons/pug.svg')
+        +skill('LaTeX', 'img/icons/latex.svg')
+        +skill('Markdown', 'img/icons/markdown.svg')
       .skills-list
-        +chipImg('CSS', 'img/icons/css.svg')
-        +chipImg('SASS', 'img/icons/sass.svg')
+        +skill('CSS', 'img/icons/css.svg')
+        +skill('SASS', 'img/icons/sass.svg')
       .skills-list
-        +chipImg('JavaScript', 'img/icons/js.svg')
-        +chipImg('Vue', 'img/icons/vue.svg')
-        +chipImg('Electron', 'img/icons/electron.svg')
-        +chipImg('NodeJS', 'img/icons/nodejs.svg')
+        +skill('JavaScript', 'img/icons/js.svg')
+        +skill('Vue', 'img/icons/vue.svg')
+        +skill('Electron', 'img/icons/electron.svg')
+        +skill('NodeJS', 'img/icons/nodejs.svg')
       .skills-list
-        +chipImg('Python', 'img/icons/python.svg')
+        +skill('Python', 'img/icons/python.svg')
       .skills-list
-        +chipImg('Git', 'img/icons/git.svg')
+        +skill('Git', 'img/icons/git.svg')
 
     h4 Мои проекты
     ul
