@@ -27,36 +27,54 @@ body
           img.image.me(src="img/me.jpg")
         .contacts
           .contacts-wrapper
-            +contact('WhatIsLove_Furman', 'img/vk.svg', 'https://vk.com/whatislove_furman')
-            +contact('Blowlyge@gmail.com', 'img/email.svg', 'mailto:blowlyge@gmail.com')
-            +contact('Ruminat', 'img/telegram.svg', 'https://t.me/ruminat')
-            +contact('Ruminat', 'img/github.svg', 'https://github.com/Ruminat')
+            +contact('WhatIsLove_Furman', 'img/icons/vk.svg', 'https://vk.com/whatislove_furman')
+            +contact('Blowlyge@gmail.com', 'img/icons/email.svg', 'mailto:blowlyge@gmail.com')
+            +contact('Ruminat', 'img/icons/telegram.svg', 'https://t.me/ruminat')
+            +contact('Ruminat', 'img/icons/github.svg', 'https://github.com/Ruminat')
 
   .main(style="padding: 1rem;")
-    h4 Я знаю
-    ul
-      li #[.chip Oracle SQL]#[.chip PL/SQL]
-      li немного #[.chip C#] и #[.chip Haskell].
+    .skills
+      h4 Знаю
+      .skills-list
+        +chipImg('SQL', 'img/icons/sql.svg')
+        +chipImg('PL/SQL', 'img/icons/database.svg')
+      h4 Знаком с
+      .skills-list
+        +chipImg('C#', 'img/icons/csharp.svg')
+        +chipImg('Kotlin', 'img/icons/kotlin.svg')
+        +chipImg('Haskell', 'img/icons/haskell.svg')
 
-    h4 Я использую
-    ul
-      li HTML, Pug, LaTeX, Markdown;
-      li CSS, SASS;
-      li JS, Vue, Electron, NodeJS;
-      li Python.
+      h4 Использую
+      .skills-list
+        +chipImg('HTML', 'img/icons/html.svg')
+        +chipImg('Pug', 'img/icons/pug.svg')
+        +chipImg('LaTeX', 'img/icons/latex.svg')
+        +chipImg('Markdown', 'img/icons/markdown.svg')
+      .skills-list
+        +chipImg('CSS', 'img/icons/css.svg')
+        +chipImg('SASS', 'img/icons/sass.svg')
+      .skills-list
+        +chipImg('JavaScript', 'img/icons/js.svg')
+        +chipImg('Vue', 'img/icons/vue.svg')
+        +chipImg('Electron', 'img/icons/electron.svg')
+        +chipImg('NodeJS', 'img/icons/nodejs.svg')
+      .skills-list
+        +chipImg('Python', 'img/icons/python.svg')
+      .skills-list
+        +chipImg('Git', 'img/icons/git.svg')
 
     h4 Мои проекты
     ul
-      li: a(href="https://github.com/Ruminat/Lyra") Lyra
-      li: a(href="https://github.com/Ruminat/Linteum") Linteum
-      li: a(href="https://github.com/kit-software-development/exam-Ruminat") Chi
-      li Asq — 
+      li: a(href="https://github.com/Ruminat/Lyra") Lyra (2016)
+      li: a(href="https://github.com/Ruminat/Linteum") Linteum (2017)
+      li: a(href="https://github.com/kit-software-development/exam-Ruminat") Chi (2019)
+      li Asq (2020) — 
         | #[a(href="https://github.com/Ruminat/Asq-App") приложение]
         | и #[a(href="https://github.com/Ruminat/Asq-Server") сервер]
       li Вёрстка
         ul
-          li: a(href="https://github.com/Ruminat/PL-SQL-labs") PL/SQL labs
-          li: a(href="https://github.com/Ruminat/DM-2019-online-course") DM online course
+          li: a(href="https://github.com/Ruminat/PL-SQL-labs") PL/SQL labs (2019)
+          li: a(href="https://github.com/Ruminat/DM-2019-online-course") DM online course (2019)
 
     h4 Образование
     h5 Бакалавриат 2016–2020
