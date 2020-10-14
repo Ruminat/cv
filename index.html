@@ -8,8 +8,8 @@
 </head>
 <body>
   <div class="top">
-    <h3 class="title">
-      Влад Фурман<br>Веб-разработчик</h3>
+    <h4 class="title">
+      Влад Фурман<br>Веб-разработчик</h4>
     <div class="picture-contacts-container">
       <div class="picture-contacts">
         <div class="my-image"><img class="image me" src="img/me.jpg"/></div>
@@ -130,21 +130,96 @@
     </div>
     <div class="projects">
       <h4 class="title">Мои проекты</h4>
-      <ul>
-        <li><a href="https://github.com/Ruminat/Lyra">Lyra (2016)</a></li>
-        <li><a href="https://github.com/Ruminat/Linteum">Linteum (2017)</a></li>
-        <li><a href="https://github.com/kit-software-development/exam-Ruminat">Chi (2019)</a></li>
-        <li>
-          Asq (2020) — <a href="https://github.com/Ruminat/Asq-App">приложение</a>
-          и <a href="https://github.com/Ruminat/Asq-Server">сервер</a>
-        </li>
-        <li>Вёрстка
-          <ul>
-            <li><a href="https://github.com/Ruminat/PL-SQL-labs">PL/SQL labs (2019)</a></li>
-            <li><a href="https://github.com/Ruminat/DM-2019-online-course">DM online course (2019)</a></li>
-          </ul>
-        </li>
-      </ul>
+      <div class="projects-wrapper">
+        <div class="card project-card">
+          <div class="card-header">
+            <div class="card-title"><a href="https://github.com/Ruminat/Lyra">Lyra</a> <span class="text-gray">(2016)</span></div>
+            <div class="card-subtitle">
+                <div class="skills-list">
+                  <div class="chip">HTML</div>
+                  <div class="chip">CSS</div>
+                  <div class="chip">JS</div>
+                  <div class="chip">Electron</div>
+                </div>
+            </div>
+          </div>
+          <div class="card-body">Разработанный мной ещё в школе музыкальный плеер, работающий с VK API.</div>
+        </div>
+        <div class="card project-card">
+          <div class="card-header">
+            <div class="card-title"><a href="https://github.com/Ruminat/Linteum">Linteum</a> <span class="text-gray">(2017)</span></div>
+            <div class="card-subtitle">
+                <div class="skills-list">
+                  <div class="chip">C++</div>
+                  <div class="chip">QT</div>
+                </div>
+            </div>
+          </div>
+          <div class="card-body">Построитель графиков на C++. Учебный проект на 2-ом курсе в Политехе.</div>
+        </div>
+        <div class="card project-card">
+          <div class="card-header">
+            <div class="card-title"><a href="https://github.com/kit-software-development/exam-Ruminat">Chi</a> <span class="text-gray">(2019)</span></div>
+            <div class="card-subtitle">
+                <div class="skills-list">
+                  <div class="chip">Pug</div>
+                  <div class="chip">SASS</div>
+                  <div class="chip">JS</div>
+                  <div class="chip">Vue</div>
+                  <div class="chip">Electron</div>
+                  <div class="chip">Python</div>
+                </div>
+            </div>
+          </div>
+          <div class="card-body">
+            Приложение с сервером для изучения языков по карточкам со словами наподобие <a href="https://apps.ankiweb.net/">Anki</a>.</div>
+        </div>
+        <div class="card project-card">
+          <div class="card-header">
+            <div class="card-title"><a href="https://github.com/Ruminat/Asq-App">Asq</a> <span class="text-gray">(2020)</span></div>
+            <div class="card-subtitle">
+                <div class="skills-list">
+                  <div class="chip">Pug</div>
+                  <div class="chip">SASS</div>
+                  <div class="chip">JS</div>
+                  <div class="chip">Vue</div>
+                  <div class="chip">Electron</div>
+                  <div class="chip">Python</div>
+                </div>
+            </div>
+          </div>
+          <div class="card-body">
+            Моя дипломная работа в бакалавриате.Приложение с сервером для трансляции запросов на русском языке в SQL-код.</div>
+        </div>
+        <div class="card project-card">
+          <div class="card-header">
+            <div class="card-title"><a href="https://github.com/Ruminat/PL-SQL-labs">PL/SQL labs</a> <span class="text-gray">(2019)</span></div>
+            <div class="card-subtitle">
+                <div class="skills-list">
+                  <div class="chip">HTML</div>
+                  <div class="chip">CSS</div>
+                  <div class="chip">JS</div>
+                  <div class="chip">Electron</div>
+                </div>
+            </div>
+          </div>
+          <div class="card-body">Разработанный мной ещё в школе музыкальный плеер, работающий с VK API.</div>
+        </div>
+        <div class="card project-card">
+          <div class="card-header">
+            <div class="card-title"><a href="https://github.com/Ruminat/DM-2019-online-course">DM online-course</a> <span class="text-gray">(2019)</span></div>
+            <div class="card-subtitle">
+                <div class="skills-list">
+                  <div class="chip">HTML</div>
+                  <div class="chip">CSS</div>
+                  <div class="chip">JS</div>
+                  <div class="chip">Electron</div>
+                </div>
+            </div>
+          </div>
+          <div class="card-body">Разработанный мной ещё в школе музыкальный плеер, работающий с VK API.</div>
+        </div>
+      </div>
     </div>
     <div class="education">
       <h4 class="title">Образование</h4>
@@ -169,11 +244,7 @@
     </div>
     <div class="rest">
       <div class="rest-box languages">
-        <h4 class="languages-title">Языки</h4>
-          <div class="skill">
-              <div class="chip"><img class="avatar avatar-sm" src="img/flags/Russia.svg"/>Русский — 10/10
-              </div>
-          </div>
+        <h4 class="languages-title">Иностранные языки</h4>
           <div class="skill">
               <div class="chip"><img class="avatar avatar-sm" src="img/flags/UK.svg"/>Английский — 8/10
               </div>

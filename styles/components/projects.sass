@@ -1,2 +1,16 @@
 .projects
   @extend .top-padding, .top-padding, .bottom-delimiter
+
+.projects-wrapper
+  @extend .columns
+
+.project-card
+  @extend .column, .col-4
+
+@media (max-width: $size-sm)
+  .project-card
+    width: 100%
+
+@media (max-width: $size-md)
+  .project-card
+    width: 50%

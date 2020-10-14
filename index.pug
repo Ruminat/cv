@@ -17,6 +17,13 @@ body
     .skill
       +chipImg(text, src)
 
+  mixin tags(string)
+    - const arr = string.split(',').map(a => a.trim())
+    .skills-list
+      each tag in arr
+        .chip= tag
+
+
   mixin language(text, src, score, maxScore=10)
     .skill
       +chipImg(`${text} — ${score}/${maxScore}`, src)
@@ -27,7 +34,7 @@ body
 
 
   div.top
-    h3.title Влад Фурман<br>
+    h4.title Влад Фурман<br>
       | Веб-разработчик
     .picture-contacts-container
       .picture-contacts
@@ -75,17 +82,45 @@ body
 
     .projects
       h4.title Мои проекты
-      ul
-        li: a(href="https://github.com/Ruminat/Lyra") Lyra (2016)
-        li: a(href="https://github.com/Ruminat/Linteum") Linteum (2017)
-        li: a(href="https://github.com/kit-software-development/exam-Ruminat") Chi (2019)
-        li Asq (2020) — 
-          | #[a(href="https://github.com/Ruminat/Asq-App") приложение]
-          | и #[a(href="https://github.com/Ruminat/Asq-Server") сервер]
-        li Вёрстка
-          ul
-            li: a(href="https://github.com/Ruminat/PL-SQL-labs") PL/SQL labs (2019)
-            li: a(href="https://github.com/Ruminat/DM-2019-online-course") DM online course (2019)
+      .projects-wrapper
+        .card.project-card
+          .card-header
+            .card-title #[a(href="https://github.com/Ruminat/Lyra") Lyra] 
+              | #[span.text-gray (2016)]
+            .card-subtitle #[+tags('HTML, CSS, JS, Electron')]
+          .card-body Разработанный мной ещё в школе музыкальный плеер, работающий с VK API.
+        .card.project-card
+          .card-header
+            .card-title #[a(href="https://github.com/Ruminat/Linteum") Linteum] 
+              | #[span.text-gray (2017)]
+            .card-subtitle #[+tags('C++, QT')]
+          .card-body Построитель графиков на C++. Учебный проект на 2-ом курсе в Политехе.
+        .card.project-card
+          .card-header
+            .card-title #[a(href="https://github.com/kit-software-development/exam-Ruminat") Chi] 
+              | #[span.text-gray (2019)]
+            .card-subtitle #[+tags('Pug, SASS, JS, Vue, Electron, Python')]
+          .card-body Приложение с сервером для изучения языков по карточкам со словами наподобие 
+            | #[a(href="https://apps.ankiweb.net/") Anki].
+        .card.project-card
+          .card-header
+            .card-title #[a(href="https://github.com/Ruminat/Asq-App") Asq] 
+              | #[span.text-gray (2020)]
+            .card-subtitle #[+tags('Pug, SASS, JS, Vue, Electron, Python')]
+          .card-body Моя дипломная работа в бакалавриате.
+            | Приложение с сервером для трансляции запросов на русском языке в SQL-код.
+        .card.project-card
+          .card-header
+            .card-title #[a(href="https://github.com/Ruminat/PL-SQL-labs") PL/SQL labs] 
+              | #[span.text-gray (2019)]
+            .card-subtitle #[+tags('HTML, CSS, JS, Electron')]
+          .card-body Разработанный мной ещё в школе музыкальный плеер, работающий с VK API.
+        .card.project-card
+          .card-header
+            .card-title #[a(href="https://github.com/Ruminat/DM-2019-online-course") DM online-course] 
+              | #[span.text-gray (2019)]
+            .card-subtitle #[+tags('HTML, CSS, JS, Electron')]
+          .card-body Разработанный мной ещё в школе музыкальный плеер, работающий с VK API.
 
     .education
       h4.title Образование
@@ -96,21 +131,19 @@ body
           .card-header
             .card-title.h6 Бакалавриат 2016–2020
             .card-subtitle.text-gray Факультет — ИКНТ, кафедра — ВШИСиСТ (бывш. КИТ)
-          .card-body
-            | Специальность: Математическое обеспечение и базы данных
+          .card-body Специальность: Математическое обеспечение и базы данных
         .card.education-card
           .card-image
             img.polykek-image(src="img/polykek.svg")
           .card-header
             .card-title.h6 Магистратура 2020–...
             .card-subtitle.text-gray Факультет — ИКНТ, кафедра — ВШИСиСТ (бывш. КИТ)
-          .card-body
-            | Специальность: Математическое обеспечение и администрирование корпоративных систем
+          .card-body Специальность: Математическое обеспечение и администрирование корпоративных систем
 
     .rest
       .rest-box.languages
-        h4.languages-title Языки
-        +language('Русский', 'img/flags/Russia.svg', 10)
+        h4.languages-title Иностранные языки
+        //- +language('Русский', 'img/flags/Russia.svg', 10)
         +language('Английский', 'img/flags/UK.svg', 8)
         +language('Японский', 'img/flags/Japan.svg', 6)
 
