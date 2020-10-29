@@ -1,0 +1,168 @@
+head
+  meta(charset="UTF-8")
+  meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+
+  title Vlad Furman. Web developer
+
+  link(rel="icon", href='../img/rubik.png')
+  link(rel="stylesheet", href='../styles/main.css')
+body
+
+  mixin chipImg(text, src)
+    .chip
+      img.avatar.avatar-sm(src=`../${src}`)
+      = text
+
+  mixin skill(text, src)
+    .skill
+      +chipImg(text, src)
+
+  mixin tags(string)
+    - const arr = string.split(',').map(a => a.trim())
+    .skills-list
+      each tag in arr
+        .chip= tag
+
+
+  mixin language(text, src, score, maxScore=10)
+    .skill
+      if (score == maxScore)
+        +chipImg(`${text} — native`, src)
+      else
+        +chipImg(`${text} — ${score}/${maxScore}`, src)
+
+  mixin contact(text, src, link)
+    .contact: a(href=link)
+      +chipImg(text, src)
+
+
+  div.top
+    h4.title Vlad Furman<br>
+      | Web developer
+    .picture-contacts-container
+      .picture-contacts
+        .my-image
+          img.image.me(src="../img/me.jpg")
+        .contacts
+          .contacts-wrapper
+            +contact('WhatIsLove_Furman', 'img/icons/vk.svg', 'https://vk.com/whatislove_furman')
+            +contact('Blowlyge@gmail.com', 'img/icons/gmail.svg', 'mailto:blowlyge@gmail.com')
+            +contact('Ruminat', 'img/icons/telegram.svg', 'https://t.me/ruminat')
+            +contact('Ruminat', 'img/icons/github.svg', 'https://github.com/Ruminat')
+
+  .main
+    .skills
+      .skills-column.use-skills
+        h4.skills-title I use
+        .skills-list
+          +skill('HTML', 'img/icons/html.svg')
+          +skill('Pug', 'img/icons/pug.svg')
+          +skill('LaTeX', 'img/icons/latex.svg')
+        .skills-list
+          +skill('JavaScript', 'img/icons/js.svg')
+          +skill('Python', 'img/icons/python.svg')
+          +skill('Git', 'img/icons/git.svg')
+        .skills-list
+          +skill('Vue', 'img/icons/vue.svg')
+          +skill('Electron', 'img/icons/electron.svg')
+          +skill('NodeJS', 'img/icons/nodejs.svg')
+        .skills-list
+          +skill('CSS', 'img/icons/css.svg')
+          +skill('SASS', 'img/icons/sass.svg')
+          +skill('Markdown', 'img/icons/markdown.svg')
+      .skills-column.know-skills
+        h4.skills-title I know
+        .skills-list
+          +skill('SQL', 'img/icons/sql.svg')
+          +skill('Pl/SQL', 'img/icons/database.svg')
+      .skills-column.aware-skills
+        h4.skills-title I know basics of
+        .skills-list
+          +skill('Haskell', 'img/icons/haskell.svg')
+          +skill('Kotlin', 'img/icons/kotlin.svg')
+          +skill('C#', 'img/icons/csharp.svg')
+          +skill('C++', 'img/icons/cpp.svg')
+
+    .projects
+      h4.title My projects
+      .projects-wrapper
+        .card.project-card
+          .card-header
+            .card-title #[a(href="https://github.com/Ruminat/Asq-App") Asq] 
+              | #[span.text-gray (2020)]
+            .card-subtitle #[+tags('Pug, SASS, JS, Vue, Electron, Python')]
+          .card-body My diploma project at the university. 
+            | It consists of an Electron #[a(href="https://github.com/Ruminat/Asq-App") app] 
+            | and 
+            | a python (Falcon) #[a(href="https://github.com/Ruminat/Asq-server") server] 
+            | which translates russian queries into SQL code.
+
+        .card.project-card
+          .card-header
+            .card-title #[a(href="https://github.com/kit-software-development/exam-Ruminat") Chi] 
+              | #[span.text-gray (2019)]
+            .card-subtitle #[+tags('Pug, SASS, JS, Vue, Electron, Python')]
+          .card-body My coursework on the 3-rd year at the university. 
+            | An #[a(href="https://apps.ankiweb.net/") Anki]-like 
+            | flashcards Electron app with a python (Django) server for learning languages.
+
+        .card.project-card
+          .card-header
+            .card-title #[a(href="https://ruminat.github.io/PL-SQL-labs/") Pl/SQL labs] 
+              | #[span.text-gray (2019)]
+            .card-subtitle #[+tags('Pug, SASS, JS')]
+          .card-body Pl/SQL labs at the university.
+        
+        .card.project-card
+          .card-header
+            .card-title #[a(href="https://github.com/Ruminat/DM-2019-online-course") DM online-course] 
+              | #[span.text-gray (2019)]
+            .card-subtitle #[+tags('HTML, CSS')]
+          .card-body Landing page for an online-course on Discrete mathematics at the university.
+
+        .card.project-card
+          .card-header
+            .card-title #[a(href="https://github.com/Ruminat/Linteum") Linteum] 
+              | #[span.text-gray (2017)]
+            .card-subtitle #[+tags('C++, QT')]
+          .card-body Function plotter written in C++ (QT) on the 2-nd year at the university.
+        
+        .card.project-card
+          .card-header
+            .card-title #[a(href="https://github.com/Ruminat/Lyra") Lyra] 
+              | #[span.text-gray (2016)]
+            .card-subtitle #[+tags('HTML, CSS, JS, Electron')]
+          .card-body A music player Electro app working with VK API I wrote when I was a school student.
+
+
+    .education
+      h4.title Education
+      .education-wrapper
+        .card.education-card
+          .card-image
+            img.polykek-image(src="../img/polykek-en.svg")
+          .card-header
+            .card-title.h6 Bachelor 2016–2020
+          .card-body Specialty: Computer science<br>
+            | Diploma project: «Development and research of a Russian language to SQL code translating system»<br>
+            | Honors degree
+        .card.education-card
+          .card-image
+            img.polykek-image(src="../img/polykek-en.svg")
+          .card-header
+            .card-title.h6 Master 2020–...
+          .card-body Specialty: Computer science<br>
+            | Thesis' title: «Automated natural language text analysis and generation using artificial neural networks»
+
+    .rest
+      .rest-box.languages
+        h4.languages-title Languages
+        +language('Russian', 'img/flags/Russia.svg', 10)
+        +language('English', 'img/flags/UK.svg', 8)
+        +language('Japanese', 'img/flags/Japan.svg', 6)
+
+      .rest-box.hobbies
+        h4.hobbies-title Interests
+        +skill('Web development', 'img/icons/mobile-phone.svg')
+        +skill('Speedcubing', 'img/icons/rubik.svg')
+        +skill('Languages', 'img/icons/translate.svg')

@@ -1,3 +1,6 @@
+body
+  padding: 0.5rem
+
 h1, h2, h3, h4, h5, h6, p
   margin: 0 !important
   padding: 0 !important
@@ -34,3 +37,10 @@ h1, h2, h3, h4, h5, h6, p
   .card-header, .card-body
     margin: 0 !important
     padding: 0 !important
+
+@media (max-width: $size-md)
+  body
+    padding: 0.4rem
+@media (max-width: $size-sm)
+  body
+    padding: 0.25rem
