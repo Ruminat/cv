@@ -1,0 +1,55 @@
+@import './layout.css';
+@import './contact.css';
+@import './list.css';
+
+.content,
+button,
+a {
+  font-family: "JetBrains Mono", Arial;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.6rem;
+}
+
+h4 {
+  font-size: 1.3rem;
+}
+
+h5 {
+  font-size: 1.1rem;
+}
+
+a {
+  color: var(--cv-color-accent);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--cv-color-accent-hover);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.avatar img {
+  border-radius: 100%;
+}

@@ -1,0 +1,47 @@
+.button {
+  padding: 8px 16px;
+
+  color: inherit;
+  background: none;
+  outline: none;
+  cursor: pointer;
+
+  border: 1px solid var(--cv-color-text);
+
+  transition: all 0.3s ease;
+
+  clip-path: polygon(
+    10px 0%, /* Top-left diagonal start */
+    calc(100% - 0px) 0%, /* Top-right corner */
+    100% 10px, /* Top-right diagonal end */
+    100% calc(100% - 10px), /* Bottom-right diagonal start */
+    calc(100% - 10px) 100%, /* Bottom-right diagonal end */
+    0% calc(100% - 0px), /* Bottom-left corner */
+    0% 10px /* Top-left diagonal end */
+  );
+}
+
+.button:hover {
+  border: 1px solid var(--cv-color-accent);
+  /* transform: translateY(-1px); */
+  box-shadow: 0 10px 20px rgba(14, 165, 233, 0.3);
+  /* letter-spacing: 2px; */
+
+  clip-path: polygon(
+    5px 0%, /* Top-left diagonal start */
+    calc(100% - 0px) 0%, /* Top-right corner */
+    100% 5px, /* Top-right diagonal end */
+    100% calc(100% - 5px), /* Bottom-right diagonal start */
+    calc(100% - 5px) 100%, /* Bottom-right diagonal end */
+    0% calc(100% - 0px), /* Bottom-left corner */
+    0% 5px /* Top-left diagonal end */
+  );
+}
+
+.button:active {
+  transform: translateY(1px);
+}
+
+.button.icon {
+  padding: 8px;
+}

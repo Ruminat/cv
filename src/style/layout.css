@@ -1,0 +1,8 @@
+.pair {
+  display: flex;
+  gap: 16px;
+}
+.pair .start,
+.pair .end {
+  flex: 1;
+}
