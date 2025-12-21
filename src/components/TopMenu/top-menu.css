@@ -13,15 +13,15 @@
 .theme-value {
   position: absolute;
   font-size: 18px;
-  height: 34px;
-  width: 34px;
+  height: 36px;
+  width: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
 
   transition:
-    opacity 0.5s ease,
-    transform 0.5s ease;
+    opacity 0.3s ease,
+    transform 0.3s ease;
   opacity: 0;
   transform: translateY(40px);
 }

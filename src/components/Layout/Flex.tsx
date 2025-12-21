@@ -46,6 +46,12 @@ export function Flex(props: FlexProps) {
     className,
     space,
     centerContent,
+    width,
+    maxWidth,
+    minWidth,
+    height,
+    maxHeight,
+    minHeight,
     ...restProps
   } = props;
 
@@ -71,6 +77,12 @@ export function Flex(props: FlexProps) {
         justifyContent,
         justifyItems,
         justifySelf,
+        width,
+        maxWidth,
+        minWidth,
+        height,
+        maxHeight,
+        minHeight,
         ...style,
       }}
       {...restProps}

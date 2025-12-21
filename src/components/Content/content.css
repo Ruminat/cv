@@ -1,31 +1,7 @@
-@import './layout.css';
-@import './contact.css';
-@import './list.css';
-
 .content,
 button,
 a {
   font-family: "JetBrains Mono", monospace;
-}
-
-h1 {
-  font-size: 2.5rem;
-}
-
-h2 {
-  font-size: 2rem;
-}
-
-h3 {
-  font-size: 1.6rem;
-}
-
-h4 {
-  font-size: 1.3rem;
-}
-
-h5 {
-  font-size: 1.1rem;
 }
 
 a {
@@ -48,4 +24,37 @@ section {
   align-items: center;
   justify-content: center;
   gap: 16px;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding-left: 16px;
+}
+
+ul li,
+ol li {
+  position: relative;
+  padding: 4px 0;
+  line-height: 1.5;
+}
+
+ul li::before,
+ol li::before {
+  content: "—";
+  color: var(--cv-color-text);
+  position: absolute;
+  left: -16px;
+}
+
+ol {
+  counter-reset: list-counter;
+}
+
+ol li {
+  counter-increment: list-counter;
+}
+
+ol li::before {
+  content: counter(list-counter) ".";
 }

@@ -1,4 +1,4 @@
-import type { CSSProperties } from "preact";
+import type { ComponentChildren, CSSProperties } from "preact";
 
 export type Space = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 
@@ -91,9 +91,8 @@ export interface IsMediaActive {
 }
 
 export interface BoxProps
-  extends React.PropsWithChildren<
-    Pick<CSSProperties, "width" | "height" | "maxHeight" | "maxWidth" | "minHeight" | "minWidth" | "position">
-  > {
+  extends Pick<CSSProperties, "width" | "height" | "maxHeight" | "maxWidth" | "minHeight" | "minWidth" | "position"> {
+  children?: ComponentChildren;
   overflow?: "hidden" | "x" | "y" | "auto";
   className?: string;
   spacing?: SpacingProps;

@@ -11,15 +11,18 @@ body.dark {
   --cv-color-background: #0f172a;
   --cv-color-text: #e2e8f0;
   --cv-color-text-hint: #b2b8c0;
+  --cv-color-text-code: #d7ba75;
 }
 
 body.light {
   --cv-color-background: #e2e8f0;
   --cv-color-text: #0f172a;
   --cv-color-text-hint: #3f475a;
+  --cv-color-text-code: #b79a55;
 }
 
 body {
+  --cv-color-yandex-red: #ff4433;
   --cv-color-accent: #5386E4;
   --cv-color-accent-hover: #3a6bc8;
 }
@@ -32,6 +35,9 @@ body {
   align-items: center;
   overflow: auto;
   padding: 32px;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 .loader-overlay {
@@ -46,7 +52,6 @@ body {
   pointer-events: none;
 }
 
-
 .loader-overlay, .content {
   transition: opacity 1s ease-out;
 }
@@ -54,12 +59,6 @@ body {
 .content {
   display: none;
   opacity: 0;
-}
-
-.logo {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--cv-color-accent);
 }
 
 .spinner {

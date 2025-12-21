@@ -1,0 +1,39 @@
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.6rem;
+}
+
+h4 {
+  font-size: 1.3rem;
+}
+
+h5 {
+  font-size: 1.1rem;
+}
+
+.text.normal {
+  font-size: 14px;
+  line-height: 18px;
+}
+.text.small {
+  font-size: 10px;
+  line-height: 14px;
+}
+
+.text.hint {
+  color: var(--cv-color-text-hint);
+}
+.text.yandex {
+  color: var(--cv-color-yandex-red);
+}
+
+code.text {
+  color: var(--cv-color-text-code);
+}
