@@ -7,8 +7,9 @@ import { GithubIcon, TelegramIcon } from "../Icon";
 import { Flex } from "../Layout/Flex";
 import { LINK } from "../Link/LINK";
 import { TopMenu } from "../TopMenu";
-import { header, sectionHeader, text, Text, textCode } from "../Typography/typography";
+import { header, sectionHeader, text, Text, textCode } from "../Typography";
 import "./content.css";
+import { Project } from "../Project";
 
 function Content() {
   return (
@@ -27,21 +28,21 @@ function Content() {
             <Contact label='Ruminat' icon={<GithubIcon />} href='https://github.com/Ruminat' />
           </Flex>
         </Flex>
-
-        <TopMenu />
       </section>
+
+      <TopMenu />
 
       <section>
         {sectionHeader("Опыт")}
 
         <Text>
-          <Text color='yandex'>Я</Text>ндекс. декабрь 2020 — ...
+          <Text color='yandex'>Я</Text>ндекс | 2020 — настоящее время
         </Text>
 
         <Flex direction='column' gap={2} maxWidth='600px'>
           <Text>
-            Внутренний инфраструктурный сервис {LINK.nirvana} и его подсервисы — Domain Constructor, Layers и внутренний
-            Docker Registry.
+            Разрабатываю инфраструктурный сервис {LINK.nirvana} и его подсервисы: Domain Constructor, Layers и
+            внутренний Docker Registry.
           </Text>
 
           <ul>
@@ -69,14 +70,31 @@ function Content() {
             </li>
           </ul>
 
-          {/* : изначально {LINK.lit}. Переходим с него на {LINK.react}. Пишем код на {LINK.typescript}, используем{" "}
-            {LINK.scss} для стилей. Используем и контрибьютим в общую экосистему библиотек {LINK.gravityUi}. Есть BFF
-            (backend for frontend) на основе {LINK.gravityCore}. */}
-
           {text("Пришёл в Яндекс стажёром. Вырос там до уровня senior. Сейчас ищу новые интересные проекты.", {
             color: "hint",
             size: "small",
           })}
+        </Flex>
+      </section>
+
+      <section>
+        {sectionHeader("Сайд проекты")}
+
+        <Flex direction='column' gap={2} maxWidth='600px'>
+          <Project
+            icon='/public/mooduck.png'
+            title='MooDuck'
+            date='2025 — настоящее время'
+            githubLink='https://github.com/Ruminat/MooDuck'
+            description='Telegram бот для отслеживания настроения пользователя с забавными ответами от AI.'
+          />
+          <Project
+            icon='/public/lyra.png'
+            title='Lyra'
+            date='2016'
+            githubLink='https://github.com/Ruminat/Lyra'
+            description={<>Музыкальный плеер на {LINK.electron}, написанный в школьные годы.</>}
+          />
         </Flex>
       </section>
 
@@ -98,15 +116,6 @@ function Content() {
       </section>
 
       <section>
-        {sectionHeader("Сайд проекты")}
-
-        <Flex direction='column' gap={2} maxWidth='600px'>
-          {text("MooDuck — Telegram бот для отслеживания своего настроения с забавными ответами от AI.")}
-          <Text>Lyra — музыкальный плеер на {LINK.electron}, написанный в школьные годы.</Text>
-        </Flex>
-      </section>
-
-      <section>
         {sectionHeader("Образование")}
 
         {text("Санкт-Петербургский политехнический университет Петра Великого")}
@@ -124,18 +133,25 @@ function Content() {
 
       <section>
         <Flex maxWidth='600px' gap={4}>
-          <Flex direction='column' gap={2}>
+          <Flex direction='column' gap={4}>
             {sectionHeader("Языки")}
-            {text("Русский (родной)")}
-            {text("Английский (примерно B2)")}
-            {text("Японский (примерно JLPT N4)")}
+
+            <Flex direction='column' gap={2}>
+              {text("🇷🇺 русский (родной)")}
+              {text("🇬🇧 английский (~ B2)")}
+              {text("🇯🇵 японский (~ JLPT N4)")}
+            </Flex>
           </Flex>
 
-          <Flex direction='column' gap={2}>
-            {sectionHeader("Хобби")}
-            {text("Настольный теннис")}
-            {text("Веб-разработка")}
-            {text("Спидкубинг")}
+          <Flex direction='column' gap={4}>
+            {sectionHeader("Интересы")}
+
+            <Flex direction='column' gap={2}>
+              {text("🏓 Настольный теннис")}
+              {text("👨🏻‍💻 Веб-разработка")}
+              {text("🎮 Гейминг")}
+              {text("⛩️ Языки")}
+            </Flex>
           </Flex>
         </Flex>
       </section>

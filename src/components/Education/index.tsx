@@ -1,5 +1,5 @@
 import { Flex } from "../Layout/Flex";
-import { text } from "../Typography/typography";
+import { text } from "../Typography";
 
 export function EducationPeriod({ period, specialty }: { period: string; specialty: string }) {
   return (
