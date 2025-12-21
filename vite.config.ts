@@ -16,7 +16,4 @@ export default defineConfig({
     minify: "esbuild",
     cssMinify: "lightningcss",
   },
-
-  // server: {
-  // },
 });

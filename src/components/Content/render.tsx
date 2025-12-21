@@ -1,4 +1,5 @@
 import type { ReactNode } from "preact/compat";
+import "./content.css";
 
 export function header(content: ReactNode) {
   return <h2>{content}</h2>;

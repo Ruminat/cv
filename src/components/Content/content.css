@@ -5,7 +5,7 @@
 .content,
 button,
 a {
-  font-family: "JetBrains Mono", Arial;
+  font-family: "JetBrains Mono", monospace;
 }
 
 h1 {
@@ -39,7 +39,7 @@ a:hover {
 main {
   display: flex;
   flex-direction: column;
-  gap: 64px;
+  gap: 32px;
 }
 
 section {
@@ -48,8 +48,4 @@ section {
   align-items: center;
   justify-content: center;
   gap: 16px;
-}
-
-.avatar img {
-  border-radius: 100%;
 }

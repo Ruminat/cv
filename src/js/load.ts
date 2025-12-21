@@ -12,7 +12,7 @@ async function loadTheApp() {
 
     await delay(100);
 
-    const { renderContent } = await import("./content");
+    const { renderContent } = await import("../components/Content");
 
     const loader = document.querySelector(".loader-overlay") as HTMLDivElement;
     const content = document.querySelector(".content") as HTMLDivElement;

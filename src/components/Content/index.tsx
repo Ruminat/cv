@@ -1,15 +1,14 @@
 import { render } from "preact";
-import { Controls } from "../components/Controls";
-import { GithubIcon, TelegramIcon } from "../components/Icon";
-import "../style/content.css";
+import { ThemeProvider } from "../../context/theme";
+import { Avatar } from "../Avatar";
+import { TopMenu } from "../TopMenu";
+import { GithubIcon, TelegramIcon } from "../Icon";
 import { contact, header, list, pair, sectionHeader, text } from "./render";
-
-const avatarSize = "128px";
 
 function Content() {
   return (
     <main>
-      <Controls />
+      <TopMenu />
 
       <section>
         {header("Влад Фурман")}
@@ -19,9 +18,7 @@ function Content() {
         {text("27 лет — Санкт-Петербург")}
 
         {pair(
-          <div className='avatar'>
-            <img width={avatarSize} height={avatarSize} src='/public/me.jpg' />
-          </div>,
+          <Avatar size={128} />,
           list(
             contact(<TelegramIcon />, "Ruminat", "https://t.me/Ruminat"),
             contact(<GithubIcon />, "Ruminat", "https://github.com/Ruminat")
@@ -32,7 +29,6 @@ function Content() {
       <section>
         {sectionHeader("Мой опыт")}
         {text("Яндекс. 2020 — ...")}
-        {text("Чем занимался: сервисы инфраструктуры, внутренние библиотеки.")}
         {text("Чем занимался: сервисы инфраструктуры, внутренние библиотеки.")}
       </section>
       <section>
@@ -58,5 +54,10 @@ function Content() {
 }
 
 export function renderContent() {
-  render(<Content />, document.querySelector(".content")!);
+  render(
+    <ThemeProvider>
+      <Content />
+    </ThemeProvider>,
+    document.querySelector(".content")!
+  );
 }

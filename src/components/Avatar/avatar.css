@@ -1,0 +1,11 @@
+.avatar img {
+  clip-path: polygon(
+    32px 0%, /* Top-left diagonal start */
+    calc(100% - 0px) 0%, /* Top-right corner */
+    100% 32px, /* Top-right diagonal end */
+    100% calc(100% - 32px), /* Bottom-right diagonal start */
+    calc(100% - 32px) 100%, /* Bottom-right diagonal end */
+    0% calc(100% - 0px), /* Bottom-left corner */
+    0% 32px /* Top-left diagonal end */
+  );
+}
