@@ -1,4 +1,5 @@
 export const LINK = {
+  anki: link("Anki", "https://apps.ankiweb.net"),
   nirvana: link("Nirvana", "https://habr.com/ru/companies/yandex/articles/351016"),
   gravityUi: link("@gravity-ui", "https://github.com/gravity-ui"),
   lit: link("Lit", "https://lit.dev"),

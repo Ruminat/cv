@@ -1,6 +1,6 @@
 import type { ComponentChildren } from "preact";
 import { Flex } from "../Layout/Flex";
-import { text, Text } from "../Typography";
+import { Text } from "../Typography";
 
 type Props = {
   icon?: string;
@@ -17,12 +17,14 @@ export function Project({ icon, title, date, githubLink, description }: Props) {
     <Flex gap={4}>
       {icon ? <img src={icon} alt={title} width={`${size}px`} height={`${size}px`} /> : null}
 
-      <Flex direction='column' gap={2}>
+      <Flex direction='column' gap={1}>
         <Text>
           <a href={githubLink} target='_blank'>
             {title}
           </a>{" "}
-          {text(date, { color: "hint" })}
+        </Text>
+        <Text size='small' color='hint'>
+          {date}
         </Text>
         <Text size='small' color='hint'>
           {description}

@@ -1,17 +1,20 @@
 import { render } from "preact";
 import { ThemeProvider } from "../../context/theme";
+import { UrlProvider, useUrl } from "../../context/url";
 import { Avatar } from "../Avatar";
 import { Contact } from "../Contact";
 import { EducationPeriod } from "../Education";
 import { GithubIcon, TelegramIcon } from "../Icon";
 import { Flex } from "../Layout/Flex";
 import { LINK } from "../Link/LINK";
+import { Project } from "../Project";
 import { TopMenu } from "../TopMenu";
 import { header, sectionHeader, text, Text, textCode } from "../Typography";
 import "./content.css";
-import { Project } from "../Project";
 
 function Content() {
+  const { isPdfMode } = useUrl();
+
   return (
     <main>
       <section>
@@ -30,7 +33,7 @@ function Content() {
         </Flex>
       </section>
 
-      <TopMenu />
+      {isPdfMode ? null : <TopMenu />}
 
       <section>
         {sectionHeader("Опыт")}
@@ -89,6 +92,18 @@ function Content() {
             description='Telegram бот для отслеживания настроения пользователя с забавными ответами от AI.'
           />
           <Project
+            icon='/public/chi.png'
+            title='Chi'
+            date='2019'
+            githubLink='https://github.com/kit-software-development/exam-Ruminat'
+            description={
+              <>
+                Курсовая работа на 3-ем курсе. Приложение с сервером для изучения языков по карточкам со словами
+                наподобие {LINK.anki}.
+              </>
+            }
+          />
+          <Project
             icon='/public/lyra.png'
             title='Lyra'
             date='2016'
@@ -137,9 +152,9 @@ function Content() {
             {sectionHeader("Языки")}
 
             <Flex direction='column' gap={2}>
-              {text("🇷🇺 русский (родной)")}
-              {text("🇬🇧 английский (~ B2)")}
-              {text("🇯🇵 японский (~ JLPT N4)")}
+              {text("🇷🇺 Русский (родной)")}
+              {text("🇬🇧 Английский (~ B2)")}
+              {text("🇯🇵 Японский (~ JLPT N4)")}
             </Flex>
           </Flex>
 
@@ -161,9 +176,11 @@ function Content() {
 
 export function renderContent() {
   render(
-    <ThemeProvider>
-      <Content />
-    </ThemeProvider>,
+    <UrlProvider>
+      <ThemeProvider>
+        <Content />
+      </ThemeProvider>
+    </UrlProvider>,
     document.querySelector(".content")!
   );
 }

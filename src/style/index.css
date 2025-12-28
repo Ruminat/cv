@@ -11,14 +11,14 @@ body.dark {
   --cv-color-background: #0f172a;
   --cv-color-text: #e2e8f0;
   --cv-color-text-hint: #b2b8c0;
-  --cv-color-text-code: #d7ba75;
+  --cv-color-text-code: #e2c8d0;
 }
 
 body.light {
   --cv-color-background: #e2e8f0;
   --cv-color-text: #0f172a;
   --cv-color-text-hint: #3f475a;
-  --cv-color-text-code: #b79a55;
+  --cv-color-text-code: #1f172a;
 }
 
 body {

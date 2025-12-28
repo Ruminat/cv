@@ -1,5 +1,6 @@
 import { createContext, type ComponentChildren } from "preact";
 import { useCallback, useContext, useEffect, useLayoutEffect, useMemo, useState } from "preact/hooks";
+import { useUrl } from "./url";
 
 const Theme = createContext<ReturnType<typeof useValue> | null>(null);
 
@@ -18,7 +19,8 @@ export function useTheme() {
 }
 
 function useValue() {
-  const [theme, setTheme] = useState(fromSystem(getSystem()));
+  const { isPdfMode } = useUrl();
+  const [theme, setTheme] = useState(isPdfMode ? "light" : fromSystem(getSystem()));
 
   useLayoutEffect(() => {
     updateThemeIfNeeded(theme);
@@ -26,11 +28,15 @@ function useValue() {
 
   useEffect(() => {
     window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (event) => {
-      setTheme(fromSystem(event));
+      setTheme(isPdfMode ? "light" : fromSystem(event));
     });
   }, []);
 
   const toggleTheme = useCallback(() => {
+    if (isPdfMode) {
+      return;
+    }
+
     setTheme((current) => {
       return current === "dark" ? "light" : "dark";
     });
