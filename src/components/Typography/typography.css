@@ -37,3 +37,7 @@ h5 {
 code.text {
   color: var(--cv-color-text-code);
 }
+
+b.text {
+  font-weight: 600;
+}

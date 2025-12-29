@@ -11,7 +11,7 @@ export function text(children: ComponentChildren, { size = "normal", color = "pr
   return <span className={classNames("text", { [size]: true, [color]: true })}>{children}</span>;
 }
 
-export function textCode(children: ComponentChildren, { size = "normal", color = "primary" }: TextProps = {}) {
+export function code(children: ComponentChildren, { size = "normal", color = "primary" }: TextProps = {}) {
   return <code className={classNames("text", { [size]: true, [color]: true })}>{children}</code>;
 }
 
@@ -25,4 +25,8 @@ export function header(children: ComponentChildren) {
 
 export function sectionHeader(children: ComponentChildren) {
   return <h3>{children}</h3>;
+}
+
+export function bold(children: ComponentChildren, { size = "normal", color = "primary" }: TextProps = {}) {
+  return <b className={classNames("text", { [size]: true, [color]: true })}>{children}</b>;
 }

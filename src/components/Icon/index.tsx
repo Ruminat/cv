@@ -1,6 +1,6 @@
 import type { SVGAttributes } from "preact";
 
-const defaultSize = 24;
+const defaultSize = 18;
 const defaultColor = "var(--cv-color-text)";
 
 type Props = {
