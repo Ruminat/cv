@@ -28,7 +28,7 @@ async function loadTheApp() {
       loader.style.display = "none";
     };
 
-    document.title = "Влад Фурман — Senior Frontend Developer";
+    document.title = "Vlad Furman — Senior Frontend Developer";
 
     await delay(500);
 
