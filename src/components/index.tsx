@@ -22,10 +22,10 @@ function Content() {
         {sectionHeader("Vlad Furman")}
 
         {text(
-          "Senior Frontend Engineer | Frontend Architecture | React & TypeScript"
+          "Senior Frontend Engineer | Frontend Architecture | React & TypeScript",
         )}
 
-        {text("Open to relocation / remote")}
+        {text("Open to relocation from St. Petersburg")}
 
         <Flex gap={4}>
           <Avatar size={128} />
@@ -48,7 +48,7 @@ function Content() {
 
       <section>
         {text(
-          "Senior Frontend Engineer with 5+ years of experience at Yandex, specializing in large-scale infrastructure platforms. Expert in React and TypeScript with a strong focus on system architecture, legacy-to-modern migrations, and developer experience (DX)."
+          "Senior Frontend Engineer with 5+ years of experience at Yandex, specializing in large-scale infrastructure platforms. Expert in React and TypeScript with a strong focus on system architecture, legacy-to-modern migrations, and developer experience (DX).",
         )}
       </section>
 
@@ -231,6 +231,6 @@ export function renderContent() {
         <Content />
       </ThemeProvider>
     </UrlProvider>,
-    document.querySelector(".content")!
+    document.querySelector(".content")!,
   );
 }
