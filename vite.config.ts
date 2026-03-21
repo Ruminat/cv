@@ -11,6 +11,11 @@ export default defineConfig({
     }),
   ],
 
+  server: {
+    // Helps when the browser runs on the host (e.g. Windows) and Vite runs in WSL.
+    host: true,
+  },
+
   build: {
     outDir: "dist",
     emptyOutDir: true,

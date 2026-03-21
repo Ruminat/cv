@@ -27,10 +27,13 @@ function useValue() {
   }, [theme]);
 
   useEffect(() => {
-    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (event) => {
+    const mq = window.matchMedia("(prefers-color-scheme: dark)");
+    const onChange = (event: MediaQueryListEvent) => {
       setTheme(isPdfMode ? "light" : fromSystem(event));
-    });
-  }, []);
+    };
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, [isPdfMode]);
 
   const toggleTheme = useCallback(() => {
     if (isPdfMode) {
@@ -40,14 +43,14 @@ function useValue() {
     setTheme((current) => {
       return current === "dark" ? "light" : "dark";
     });
-  }, []);
+  }, [isPdfMode]);
 
-  return useMemo(() => ({ theme, toggleTheme }), [theme]);
+  return useMemo(() => ({ theme, toggleTheme }), [theme, toggleTheme]);
 }
 
 function updateThemeIfNeeded(theme: "dark" | "light") {
-  if (document.body.className !== theme) {
-    document.body.className = theme;
+  if (document.documentElement.className !== theme) {
+    document.documentElement.className = theme;
   }
 }
 

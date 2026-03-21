@@ -18,9 +18,14 @@ export const LINK = {
   git: link("Git", "https://git-scm.com"),
 };
 
-function link(label: string, link: string) {
+function link(label: string, href: string) {
   return (
-    <a href={link} target='_blank'>
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary"
+    >
       {label}
     </a>
   );

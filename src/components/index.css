@@ -1,68 +1,28 @@
-@import "tailwindcss";
+.content {
+  width: 100%;
+  min-height: 100%;
+}
 
 .content,
 button,
 a {
-  font-family: "JetBrains Mono", monospace;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
 }
 
-a {
-  color: var(--cv-color-accent);
-  text-decoration: none;
-}
-
-a:hover {
-  color: var(--cv-color-accent-hover);
-}
-
-main {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
-
-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  max-width: 600px;
-  gap: 16px;
-}
-
-section.full-width {
-  width: 600px;
-}
-
-ul,
-ol {
+.cv-prose ul {
   list-style: none;
-  padding-left: 16px;
+  padding-left: 1rem;
 }
 
-ul li,
-ol li {
+.cv-prose ul li {
   position: relative;
-  padding: 4px 0;
+  padding: 0.25rem 0;
   line-height: 1.5;
 }
 
-ul li::before,
-ol li::before {
+.cv-prose ul li::before {
   content: "—";
-  color: var(--cv-color-text);
+  color: var(--foreground);
   position: absolute;
-  left: -16px;
-}
-
-ol {
-  counter-reset: list-counter;
-}
-
-ol li {
-  counter-increment: list-counter;
-}
-
-ol li::before {
-  content: counter(list-counter) ".";
+  left: -1rem;
 }
