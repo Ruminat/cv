@@ -21,9 +21,11 @@ function Content() {
       <section>
         {sectionHeader("Vlad Furman")}
 
-        {text("Senior Frontend Engineer | Frontend Architecture | React & TypeScript")}
+        {text(
+          "Senior Frontend Engineer | Frontend Architecture | React & TypeScript",
+        )}
 
-        {text("Open to relocation to UAE")}
+        {text("Open to relocation from St. Petersburg")}
 
         <Flex gap={4}>
           {isPdfMode ? null : <Avatar size={128} />}
