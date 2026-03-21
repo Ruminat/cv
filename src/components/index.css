@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 .content,
 button,
 a {
@@ -8,6 +10,7 @@ a {
   color: var(--cv-color-accent);
   text-decoration: none;
 }
+
 a:hover {
   color: var(--cv-color-accent-hover);
 }
@@ -26,6 +29,7 @@ section {
   max-width: 600px;
   gap: 16px;
 }
+
 section.full-width {
   width: 600px;
 }

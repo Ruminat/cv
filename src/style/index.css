@@ -52,7 +52,8 @@ body {
   pointer-events: none;
 }
 
-.loader-overlay, .content {
+.loader-overlay,
+.content {
   transition: opacity 1s ease-out;
 }
 
@@ -88,6 +89,7 @@ body {
 .dot1 {
   background-color: var(--cv-color-accent);
 }
+
 .dot2 {
   background-color: var(--cv-color-accent-hover);
 }
@@ -113,6 +115,7 @@ body {
 }
 
 @-webkit-keyframes sk-bounce {
+
   0%,
   100% {
     -webkit-transform: scale(0.0)
@@ -124,6 +127,7 @@ body {
 }
 
 @keyframes sk-bounce {
+
   0%,
   100% {
     transform: scale(0.0);
