@@ -26,6 +26,9 @@ section {
   max-width: 600px;
   gap: 16px;
 }
+section.full-width {
+  width: 600px;
+}
 
 ul,
 ol {
