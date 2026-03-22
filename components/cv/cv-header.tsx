@@ -1,4 +1,5 @@
 import { Github, Send } from "lucide-react"
+import Image from "next/image"
 import Link from "next/link"
 
 export function CVHeader() {
@@ -10,11 +11,16 @@ export function CVHeader() {
       
       <div className="bg-card p-6 md:p-8">
         <div className="flex flex-col gap-6 md:flex-row md:items-start md:gap-8">
-          {/* Avatar placeholder with glitch effect */}
+          {/* Avatar */}
           <div className="relative h-32 w-32 shrink-0 overflow-hidden border-2 border-primary bg-secondary">
-            <div className="absolute inset-0 flex items-center justify-center text-4xl font-bold text-primary">
-              VF
-            </div>
+            <Image
+              src="/avatar.png"
+              alt="Vlad Furman"
+              fill
+              className="object-cover"
+              sizes="128px"
+              priority
+            />
             {/* Decorative lines */}
             <div className="absolute bottom-2 left-2 right-2 h-px bg-primary/30" />
             <div className="absolute bottom-4 left-2 right-4 h-px bg-primary/20" />
