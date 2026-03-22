@@ -80,7 +80,7 @@ export function CvSidebar() {
           <p>
             <span className="text-primary">$</span> whoami
           </p>
-          <p className="mt-1">vlad_furman</p>
+          <p className="mt-1">vlad-furman</p>
           <p className="mt-2">
             <span className="text-primary">$</span> cat experience.txt
           </p>

@@ -1,9 +1,10 @@
 import { Github } from "lucide-react"
+import Image from "next/image"
 import Link from "next/link"
 
 const projects = [
   {
-    icon: "🦆",
+    iconSrc: "/mooduck.png",
     title: "MooDuck",
     date: "2025 — Present",
     githubLink: "https://github.com/Ruminat/MooDuck",
@@ -12,7 +13,7 @@ const projects = [
     tags: ["AI", "Node.js", "Telegram Bot"],
   },
   {
-    icon: "㊀",
+    iconSrc: "/chi.png",
     title: "Chi",
     date: "2019",
     githubLink: "https://github.com/kit-software-development/exam-Ruminat",
@@ -21,7 +22,7 @@ const projects = [
     tags: ["Full-Stack", "Education"],
   },
   {
-    icon: "♪",
+    iconSrc: "/lyra.png",
     title: "Lyra",
     date: "2016",
     githubLink: "https://github.com/Ruminat/Lyra",
@@ -53,8 +54,14 @@ export function CVProjects() {
 
             <div className="mb-3 flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center border border-border bg-secondary text-lg">
-                  {project.icon}
+                <div className="relative h-10 w-10 shrink-0 overflow-hidden border border-border bg-secondary">
+                  <Image
+                    src={project.iconSrc}
+                    alt={`${project.title} icon`}
+                    fill
+                    className="object-contain p-1"
+                    sizes="40px"
+                  />
                 </div>
                 <div>
                   <h3 className="font-semibold">{project.title}</h3>

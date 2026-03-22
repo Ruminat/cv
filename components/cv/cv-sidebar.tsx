@@ -59,7 +59,7 @@ export function CVSidebar() {
       </div>
 
       {/* Status indicator */}
-      <div className="border border-border bg-card p-4">
+      {/* <div className="border border-border bg-card p-4">
         <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-primary">
           {"// Status"}
         </h3>
@@ -77,14 +77,14 @@ export function CVSidebar() {
             <span className="text-primary">$</span> relocation: Open
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Terminal-style decoration */}
-      <div className="border border-border bg-card p-4 text-xs text-muted-foreground">
+      {/* <div className="border border-border bg-card p-4 text-xs text-muted-foreground">
         <p>
           <span className="text-primary">$</span> whoami
         </p>
-        <p className="mt-1">vlad_furman</p>
+        <p className="mt-1">vlad-furman</p>
         <p className="mt-2">
           <span className="text-primary">$</span> cat experience.txt
         </p>
@@ -97,7 +97,7 @@ export function CVSidebar() {
           <span className="text-primary">$</span>{" "}
           <span className="animate-pulse">_</span>
         </p>
-      </div>
+      </div> */}
     </aside>
   )
 }

@@ -8,7 +8,7 @@ export function CVHeader() {
       {/* Decorative corner brackets */}
       <div className="absolute -left-2 -top-2 h-6 w-6 border-l-2 border-t-2 border-primary" />
       <div className="absolute -right-2 -top-2 h-6 w-6 border-r-2 border-t-2 border-primary" />
-      
+
       <div className="bg-card p-6 md:p-8">
         <div className="flex flex-col gap-6 md:flex-row md:items-start md:gap-8">
           {/* Avatar */}
@@ -73,9 +73,9 @@ export function CVHeader() {
             <span className="text-primary">{"/**"}</span>
             <br />
             <span className="pl-4 block">
-              Senior Frontend Engineer with 5+ years of experience at Yandex, specializing in 
-              large-scale infrastructure platforms. Expert in React and TypeScript with a strong 
-              focus on system architecture, legacy-to-modern migrations, and developer experience (DX).
+            Senior Frontend Engineer with 5+ years of experience at Yandex, specializing in
+          large-scale infrastructure platforms. Expert in React and TypeScript with a strong focus on system
+          architecture, legacy-to-modern migrations, and developer experience.
             </span>
             <span className="text-primary">{"*/"}</span>
           </p>
