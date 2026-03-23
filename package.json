@@ -8,7 +8,7 @@
     "build:pages": "GITHUB_PAGES=true next build",
     "start": "next start -H 0.0.0.0",
     "lint": "eslint .",
-    "deploy": "pnpm build:pages && node scripts/prepare-pages.mjs && touch out/.nojekyll && gh-pages -d out --dotfiles"
+    "deploy": "pnpm build:pages && touch out/.nojekyll && gh-pages -d out --dotfiles"
   },
   "dependencies": {
     "@radix-ui/react-slot": "1.2.4",

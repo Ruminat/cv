@@ -17,6 +17,15 @@ pnpm build
 pnpm start
 ```
 
+## Deploy (GitHub Pages)
+
+The repository is configured for the official GitHub Pages Actions flow.
+
+1. In repository settings, set Pages source to **GitHub Actions**.
+2. Push to `main` (or run the workflow manually).
+
+Workflow file: `.github/workflows/deploy-pages.yml`
+
 ## WSL2 + Windows browser
 
 The dev server is started with **`-H 0.0.0.0`** so it listens on all interfaces inside WSL (needed for Windows → WSL port forwarding).

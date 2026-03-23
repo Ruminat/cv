@@ -11,10 +11,10 @@ export default function CVPage() {
     <div className="min-h-screen bg-background text-foreground">
       {/* Scan lines overlay */}
       <div className="pointer-events-none fixed inset-0 z-50 bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(0,0,0,0.03)_2px,rgba(0,0,0,0.03)_4px)]" />
-      
+
       {/* Grid pattern background */}
       <div className="pointer-events-none fixed inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]" />
-      
+
       <main className="relative z-10 mx-auto max-w-6xl px-4 py-8 md:px-8 md:py-12">
         {/* Terminal-style top bar */}
         <div className="mb-8 flex items-center gap-2 border-b border-border pb-4">
@@ -29,9 +29,9 @@ export default function CVPage() {
         <div className="grid gap-8 lg:grid-cols-[1fr_300px]">
           <div className="space-y-8">
             <CVHeader />
+            <CVSkills />
             <CVExperience />
             <CVProjects />
-            <CVSkills />
             <CVEducation />
           </div>
           <CVSidebar />

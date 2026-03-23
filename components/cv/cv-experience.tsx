@@ -1,7 +1,11 @@
+ "use client"
+
 import { Badge } from "@/components/ui/badge"
+import { useState } from "react"
 import { content } from "@/content"
 
 export function CVExperience() {
+  const [showAllResponsibilities, setShowAllResponsibilities] = useState(false)
   const responsibilityContent = content.experience.responsibilities
   const responsibilities = [
     {
@@ -25,7 +29,7 @@ export function CVExperience() {
       description: responsibilityContent.sharedTooling,
     },
     {
-      title: "Growth",
+      title: "Fast Growth",
       description: responsibilityContent.growth,
     },
   ]
@@ -68,7 +72,7 @@ export function CVExperience() {
 
           <div>
             <p className="mb-2 text-sm font-semibold">
-              <span className="text-primary">$</span> tech_stack:
+              <span className="text-primary">$</span> Stack:
             </p>
             <div className="flex flex-wrap gap-2">
               {techStack.map((tech) => (
@@ -86,20 +90,37 @@ export function CVExperience() {
 
         {/* Responsibilities */}
         <div>
-          <p className="mb-4 text-sm font-semibold">
-            <span className="text-primary">$</span> key_responsibilities:
-          </p>
+          <div className="mb-4 flex items-center justify-between gap-3">
+            <p className="text-sm font-semibold">
+              <span className="text-primary">$</span> Key points:
+            </p>
+            <button
+              type="button"
+              onClick={() => setShowAllResponsibilities((prev) => !prev)}
+              className="border border-border bg-secondary px-3 py-1 text-xs font-semibold uppercase tracking-wide text-foreground transition-colors hover:border-primary hover:text-primary"
+            >
+              {showAllResponsibilities ? "Collapse" : "Expand"}
+            </button>
+          </div>
           <div className="space-y-4">
             {responsibilities.map((item, index) => (
               <div key={index} className="group relative pl-6">
-                <div className="absolute left-0 top-0 h-full w-px bg-border group-hover:bg-primary transition-colors" />
-                <div className="absolute -left-1 top-1 h-2 w-2 border border-border bg-card group-hover:border-primary group-hover:bg-primary transition-colors" />
-                <h4 className="mb-1 text-sm font-semibold text-foreground">
+                <div className="absolute left-0 top-0 h-full w-px bg-border transition-colors group-hover:bg-primary" />
+                <div className="absolute -left-1 top-2 h-2 w-2 border border-border bg-card transition-colors group-hover:border-primary group-hover:bg-primary" />
+                <h4 className="text-sm font-semibold text-foreground">
                   {item.title}
                 </h4>
-                <p className="text-sm leading-relaxed text-muted-foreground">
-                  {item.description}
-                </p>
+                <div
+                  className={`transition-opacity duration-200 ease-out ${
+                    showAllResponsibilities
+                      ? "mt-2 opacity-100"
+                      : "pointer-events-none h-0 overflow-hidden opacity-0"
+                  }`}
+                >
+                  <p className="text-sm leading-relaxed text-muted-foreground">
+                    {item.description}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
