@@ -2,7 +2,8 @@
 
 Personal CV website built with Next.js.
 
-Repository: https://github.com/Ruminat/cv
+- Website: https://ruminat.github.io/cv
+- Repository: https://github.com/Ruminat/cv
 
 ## Quick start
 

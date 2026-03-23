@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { JetBrains_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { withBasePath } from '@/lib/base-path'
 import './globals.css'
 
 const jetbrainsMono = JetBrains_Mono({ 
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
   description: 'Senior Frontend Engineer with 5+ years at Yandex. React, TypeScript, Frontend Architecture.',
   generator: 'v0.app',
   icons: {
-    icon: '/pixel-me.png',
+    icon: withBasePath('/pixel-me.png'),
   },
 }
 

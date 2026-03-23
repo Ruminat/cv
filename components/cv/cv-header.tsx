@@ -2,6 +2,7 @@ import { Github, Send } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { content } from "@/content"
+import { withBasePath } from "@/lib/base-path"
 
 export function CVHeader() {
   return (
@@ -15,7 +16,7 @@ export function CVHeader() {
           {/* Avatar */}
           <div className="relative h-32 w-32 shrink-0 overflow-hidden border-2 border-primary bg-secondary">
             <Image
-              src="/avatar.png"
+              src={withBasePath("/avatar.png")}
               alt={content.header.fullName}
               fill
               className="object-cover"

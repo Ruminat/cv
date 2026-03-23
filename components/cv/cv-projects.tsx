@@ -2,10 +2,11 @@ import { Github } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { content } from "@/content"
+import { withBasePath } from "@/lib/base-path"
 
 const projects = [
   {
-    iconSrc: "/mooduck.png",
+    iconSrc: withBasePath("/mooduck.png"),
     title: "MooDuck",
     date: content.projects.mooDuckDate,
     githubLink: "https://github.com/Ruminat/MooDuck",
@@ -13,7 +14,7 @@ const projects = [
     tags: ["AI", ...content.projects.mooDuckTags],
   },
   {
-    iconSrc: "/chi.png",
+    iconSrc: withBasePath("/chi.png"),
     title: "Chi",
     date: "2019",
     githubLink: "https://github.com/kit-software-development/exam-Ruminat",
@@ -21,7 +22,7 @@ const projects = [
     tags: ["Full-Stack", "Education"],
   },
   {
-    iconSrc: "/lyra.png",
+    iconSrc: withBasePath("/lyra.png"),
     title: "Lyra",
     date: "2016",
     githubLink: "https://github.com/Ruminat/Lyra",
