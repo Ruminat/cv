@@ -1,3 +1,5 @@
+import { content } from "@/content"
+
 export function CVSidebar() {
   const languages = [
     { name: "Russian", level: "Native", flag: "🇷🇺", percent: 100 },
@@ -6,10 +8,10 @@ export function CVSidebar() {
   ]
 
   const hobbies = [
-    { icon: "🏓", label: "Table tennis" },
-    { icon: "👨🏻‍💻", label: "Web dev" },
-    { icon: "🎮", label: "Gaming" },
-    { icon: "⛩️", label: "Languages" },
+    { icon: "🏓", label: content.sidebar.hobbies.tableTennis },
+    { icon: "👨🏻‍💻", label: content.sidebar.hobbies.webDev },
+    { icon: "🎮", label: content.sidebar.hobbies.gaming },
+    { icon: "⛩️", label: content.sidebar.hobbies.languages },
   ]
 
   return (
@@ -17,7 +19,7 @@ export function CVSidebar() {
       {/* Languages */}
       <div className="border border-border bg-card p-4">
         <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-primary">
-          {"// Languages"}
+          {content.sidebar.languagesTitle}
         </h3>
         <div className="space-y-4">
           {languages.map((lang) => (
@@ -43,7 +45,7 @@ export function CVSidebar() {
       {/* Hobbies */}
       <div className="border border-border bg-card p-4">
         <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-primary">
-          {"// Hobbies"}
+          {content.sidebar.hobbiesTitle}
         </h3>
         <div className="grid grid-cols-2 gap-2">
           {hobbies.map((hobby) => (

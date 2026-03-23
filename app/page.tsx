@@ -4,6 +4,7 @@ import { CVProjects } from "@/components/cv/cv-projects"
 import { CVSkills } from "@/components/cv/cv-skills"
 import { CVEducation } from "@/components/cv/cv-education"
 import { CVSidebar } from "@/components/cv/cv-sidebar"
+import { content } from "@/content"
 
 export default function CVPage() {
   return (
@@ -21,7 +22,7 @@ export default function CVPage() {
           <div className="h-3 w-3 bg-chart-4" />
           <div className="h-3 w-3 bg-primary" />
           <span className="ml-4 text-xs text-muted-foreground">
-            ~/resume/vlad-furman.tsx
+            {content.page.fileLabel}
           </span>
         </div>
 
@@ -40,7 +41,7 @@ export default function CVPage() {
         <footer className="mt-12 border-t border-border pt-6 text-center text-xs text-muted-foreground">
           <span className="text-primary">{">"}</span> console.log
           <span className="text-muted-foreground">(</span>
-          <span className="text-chart-4">{'"Thanks for reading!"'}</span>
+          <span className="text-chart-4">{`"${content.page.footerMessage}"`}</span>
           <span className="text-muted-foreground">)</span>
         </footer>
       </main>

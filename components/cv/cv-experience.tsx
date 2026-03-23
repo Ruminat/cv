@@ -1,36 +1,32 @@
 import { Badge } from "@/components/ui/badge"
+import { content } from "@/content"
 
 export function CVExperience() {
+  const responsibilityContent = content.experience.responsibilities
   const responsibilities = [
     {
       title: "Strategic Migration",
-      description:
-        "Leading the architectural transition from Lit to React. Designed and implemented a custom bridge to render React components within the legacy Lit environment, allowing for a seamless, incremental migration of complex pages and dialogs without service disruption.",
+      description: responsibilityContent.strategicMigration,
     },
     {
       title: "Infrastructure & Modularization",
-      description:
-        'Successfully decoupled the monolithic "Nirvana" frontend into independent, domain-specific services (Layers, Domain Constructor). Established standalone repositories and CI/CD pipelines, significantly improving delivery speed and team autonomy.',
+      description: responsibilityContent.infrastructureAndModularization,
     },
     {
       title: "Architectural Solutions",
-      description:
-        "Engineered a global Dialog Manager capable of rendering into the document body to bypass legacy CSS/DOM constraints, ensuring consistent UI behavior across both Lit and React contexts.",
+      description: responsibilityContent.architecturalSolutions,
     },
     {
       title: "State Management",
-      description:
-        "Developed lazy-loading Redux Toolkit modules that maintain backward compatibility with custom legacy Redux implementations, enhancing the developer experience and improving application stability.",
+      description: responsibilityContent.stateManagement,
     },
     {
       title: "Shared Tooling",
-      description:
-        "Created and currently maintain @yandex-data-ui/nirvana-common (internal npm package), standardizing business logic and UI patterns across the Nirvana services ecosystem.",
+      description: responsibilityContent.sharedTooling,
     },
     {
       title: "Growth",
-      description:
-        "Rapidly promoted from Intern to Senior Engineer within 4 years, consistently delivering high-impact solutions for Yandex's internal cloud and developer tools.",
+      description: responsibilityContent.growth,
     },
   ]
 
@@ -55,7 +51,7 @@ export function CVExperience() {
             <span className="text-[#FC3F1D]">Y</span>andex
           </span>
           <span className="text-muted-foreground">|</span>
-          <span className="text-sm text-muted-foreground">2020 — Present</span>
+          <span className="text-sm text-muted-foreground">{content.experience.companyPeriod}</span>
         </div>
 
         {/* Project info */}
@@ -65,8 +61,7 @@ export function CVExperience() {
             <div>
               <span className="font-semibold">Project:</span>{" "}
               <span className="text-muted-foreground">
-                Nirvana — a mission-critical internal infrastructure platform used by 2,000+ 
-                developers daily for ML pipelines and data processing.
+                {content.experience.projectDescription}
               </span>
             </div>
           </div>

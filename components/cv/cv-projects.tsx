@@ -1,24 +1,23 @@
 import { Github } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { content } from "@/content"
 
 const projects = [
   {
     iconSrc: "/mooduck.png",
     title: "MooDuck",
-    date: "2025 — Present",
+    date: content.projects.mooDuckDate,
     githubLink: "https://github.com/Ruminat/MooDuck",
-    description:
-      "An experimental AI-driven Telegram bot for mood tracking. Features real-time sentiment analysis using OpenAI API and a Node.js backend with a Turso database.",
-    tags: ["AI", "Node.js", "Telegram Bot"],
+    description: content.projects.mooDuckDescription,
+    tags: ["AI", ...content.projects.mooDuckTags],
   },
   {
     iconSrc: "/chi.png",
     title: "Chi",
     date: "2019",
     githubLink: "https://github.com/kit-software-development/exam-Ruminat",
-    description:
-      "A full-stack app for language learning using flashcards, similar to Anki, developed in the University.",
+    description: content.projects.chiDescription,
     tags: ["Full-Stack", "Education"],
   },
   {
@@ -26,9 +25,8 @@ const projects = [
     title: "Lyra",
     date: "2016",
     githubLink: "https://github.com/Ruminat/Lyra",
-    description:
-      "A music player built with Electron, developed during high school to explore desktop JS.",
-    tags: ["Electron", "Desktop App"],
+    description: content.projects.lyraDescription,
+    tags: ["Electron", ...content.projects.lyraTags],
   },
 ]
 
@@ -38,7 +36,7 @@ export function CVProjects() {
       <div className="mb-4 flex items-center gap-4">
         <div className="h-px flex-1 bg-gradient-to-r from-transparent via-border to-transparent" />
         <h2 className="text-xs font-bold uppercase tracking-[0.3em] text-primary">
-          [Side Projects]
+          [{content.projects.sectionTitle}]
         </h2>
         <div className="h-px flex-1 bg-gradient-to-r from-transparent via-border to-transparent" />
       </div>

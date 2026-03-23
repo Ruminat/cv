@@ -1,16 +1,17 @@
 import { GraduationCap } from "lucide-react"
+import { content } from "@/content"
 
 export function CVEducation() {
   const education = [
     {
-      period: "2016 — 2020",
+      period: content.education.bachelorsPeriod,
       degree: "Bachelor's",
-      specialty: "Software Engineering and Information Systems Administration",
+      specialty: content.education.bachelorsSpecialty,
     },
     {
-      period: "2020 — 2022",
+      period: content.education.mastersPeriod,
       degree: "Master's",
-      specialty: "Corporate Information Systems Management",
+      specialty: content.education.mastersSpecialty,
     },
   ]
 
@@ -31,9 +32,9 @@ export function CVEducation() {
           </div>
           <div>
             <p className="text-sm font-semibold">
-              Peter the Great St. Petersburg
+              {content.education.universityLine1}
             </p>
-            <p className="text-xs text-muted-foreground">Polytechnic University</p>
+            <p className="text-xs text-muted-foreground">{content.education.universityLine2}</p>
           </div>
         </div>
 

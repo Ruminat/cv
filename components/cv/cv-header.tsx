@@ -1,6 +1,7 @@
 import { Github, Send } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { content } from "@/content"
 
 export function CVHeader() {
   return (
@@ -15,7 +16,7 @@ export function CVHeader() {
           <div className="relative h-32 w-32 shrink-0 overflow-hidden border-2 border-primary bg-secondary">
             <Image
               src="/avatar.png"
-              alt="Vlad Furman"
+              alt={content.header.fullName}
               fill
               className="object-cover"
               sizes="128px"
@@ -28,16 +29,13 @@ export function CVHeader() {
 
           <div className="flex-1 space-y-4">
             <div>
-              <p className="mb-1 text-xs uppercase tracking-widest text-primary">
-                {"// SENIOR ENGINEER"}
-              </p>
               <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
-                <span className="text-primary">{">"}</span> Vlad Furman
+                <span className="text-primary">{">"}</span> {content.header.fullName}
               </h1>
             </div>
 
             <p className="border-l-2 border-primary pl-4 text-sm text-muted-foreground">
-              Senior Frontend Engineer | Frontend Architecture | React & TypeScript
+              {content.header.titleLine}
             </p>
 
             <div className="flex flex-wrap gap-3">
@@ -62,7 +60,7 @@ export function CVHeader() {
             </div>
 
             <p className="text-xs text-muted-foreground">
-              <span className="text-primary">📍</span> Open to relocation from St. Petersburg
+              <span className="text-primary">📍</span> {content.header.relocation}
             </p>
           </div>
         </div>
@@ -73,9 +71,7 @@ export function CVHeader() {
             <span className="text-primary">{"/**"}</span>
             <br />
             <span className="pl-4 block">
-            Senior Frontend Engineer with 5+ years of experience at Yandex, specializing in
-          large-scale infrastructure platforms. Expert in React and TypeScript with a strong focus on system
-          architecture, legacy-to-modern migrations, and developer experience.
+              {content.header.summary}
             </span>
             <span className="text-primary">{"*/"}</span>
           </p>
