@@ -17,3 +17,4 @@ node_modules
 
 # Previous Vite build output (if any)
 dist/
+out/

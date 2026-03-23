@@ -5,8 +5,10 @@
   "scripts": {
     "dev": "next dev -H 0.0.0.0",
     "build": "next build",
+    "build:pages": "GITHUB_PAGES=true next build",
     "start": "next start -H 0.0.0.0",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "deploy": "pnpm build:pages && gh-pages -d out"
   },
   "dependencies": {
     "@radix-ui/react-slot": "1.2.4",
@@ -25,6 +27,7 @@
     "@types/node": "^22",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
+    "gh-pages": "^6.3.0",
     "postcss": "^8.5",
     "tailwindcss": "^4.2.0",
     "tw-animate-css": "1.3.3",

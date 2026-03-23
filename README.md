@@ -1,6 +1,8 @@
 # CV (Next.js)
 
-Design app from `cv-design`, applied as the main codebase. The previous Preact + Vite version lives in [`old/`](./old/).
+Personal CV website built with Next.js.
+
+Repository: https://github.com/Ruminat/cv
 
 ## Quick start
 
