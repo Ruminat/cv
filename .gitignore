@@ -16,3 +16,4 @@ dist/
 coverage/
 *.log
 .DS_Store
+ignored/
