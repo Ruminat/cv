@@ -5,35 +5,36 @@
       "dom.iterable",
       "esnext"
     ],
-    "allowJs": true,
-    "target": "ES6",
+    "allowJs": false,
+    "target": "ES2022",
     "skipLibCheck": true,
     "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
     "noEmit": true,
+    "useDefineForClassFields": true,
     "esModuleInterop": true,
+    "verbatimModuleSyntax": true,
     "module": "esnext",
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
-    "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
+    "moduleDetection": "force",
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
     "paths": {
       "@/*": [
-        "./*"
+        "./src/*"
       ]
     }
   },
   "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts",
-    ".next/dev/types/**/*.ts"
+    "src",
+    "vite.config.ts"
   ],
   "exclude": [
     "node_modules"

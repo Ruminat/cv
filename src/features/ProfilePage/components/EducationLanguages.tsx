@@ -1,0 +1,108 @@
+import {
+  GraduationCap,
+  Languages,
+  TableProperties,
+  Code2,
+  Gamepad2,
+  BookText,
+} from 'lucide-react'
+import { Reveal } from '@/shared/ui/Reveal'
+import { SectionHeading } from '@/shared/ui/SectionHeading'
+
+const degrees = [
+  {
+    level: "Master's",
+    period: '2020 — 2022',
+    field: 'Corporate Information Systems Management',
+    accent: 'text-brand-purple',
+  },
+  {
+    level: "Bachelor's",
+    period: '2016 — 2020',
+    field: 'Software Engineering and Information Systems Administration',
+    accent: 'text-brand-orange',
+  },
+]
+
+const languages = [
+  { name: 'Russian', level: 'Native' },
+  { name: 'English', level: 'B2' },
+  { name: 'Japanese', level: 'N4' },
+]
+
+const interests = [
+  { icon: TableProperties, label: 'Table tennis' },
+  { icon: Code2, label: 'Web development' },
+  { icon: Gamepad2, label: 'Gaming' },
+  { icon: BookText, label: 'Languages' },
+]
+
+export function EducationLanguages() {
+  return (
+    <section id="education" className="py-12 md:py-16">
+      <div className="grid gap-8 lg:grid-cols-2">
+        {/* Education */}
+        <div>
+          <SectionHeading icon={GraduationCap} title="Education" />
+          <Reveal className="rounded-2xl border border-border glass p-6">
+            <p className="text-sm font-medium text-foreground">
+              Peter the Great St. Petersburg Polytechnic University
+            </p>
+            <ul className="mt-5 space-y-5">
+              {degrees.map((d) => (
+                <li key={d.level} className="relative pl-5">
+                  <span
+                    className={`absolute left-0 top-1.5 size-2 rounded-full bg-current ${d.accent}`}
+                  />
+                  <div className="flex flex-wrap items-baseline justify-between gap-x-3">
+                    <h3 className={`font-semibold ${d.accent}`}>{d.level}</h3>
+                    <span className="text-xs text-muted-foreground">
+                      {d.period}
+                    </span>
+                  </div>
+                  <p className="mt-1 text-sm text-muted-foreground">{d.field}</p>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+        </div>
+
+        {/* Languages & Interests */}
+        <div>
+          <SectionHeading icon={Languages} title="Languages & Interests" />
+          <Reveal className="grid gap-5 rounded-2xl border border-border glass p-6 sm:grid-cols-2">
+            <div>
+              <h3 className="mb-3 text-xs font-semibold uppercase tracking-wide text-brand-orange">
+                Languages
+              </h3>
+              <ul className="space-y-3">
+                {languages.map((l) => (
+                  <li
+                    key={l.name}
+                    className="flex items-center justify-between border-b border-border/60 pb-2 text-sm last:border-0 last:pb-0"
+                  >
+                    <span className="font-medium">{l.name}</span>
+                    <span className="text-muted-foreground">{l.level}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="mb-3 text-xs font-semibold uppercase tracking-wide text-brand-purple">
+                Interests
+              </h3>
+              <ul className="space-y-3">
+                {interests.map((it) => (
+                  <li key={it.label} className="flex items-center gap-2 text-sm">
+                    <it.icon className="size-4 text-muted-foreground" />
+                    <span>{it.label}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+  )
+}
