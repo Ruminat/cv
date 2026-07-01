@@ -4,19 +4,22 @@ import { motion } from 'framer-motion'
 import {
   GitBranch,
   Network,
-  Workflow,
+  Zap,
   Database,
   Package,
-  TrendingUp,
+  Layers,
+  BookOpen,
+  GraduationCap,
+  Blocks,
 } from 'lucide-react'
 import { Reveal } from '@/shared/ui/Reveal'
 
 const stack = [
   'TypeScript',
-  'Lit',
   'React',
+  'Lit',
   'Redux Toolkit',
-  'SCSS',
+  'Rspack',
   'Node.js',
   'Gravity UI',
 ]
@@ -24,39 +27,57 @@ const stack = [
 const achievements = [
   {
     icon: GitBranch,
-    title: 'Strategic Migration',
+    title: 'Lit → React Migration',
     description:
-      'Leading the architectural transition from Lit to React. Designed a custom bridge to render React components within the legacy Lit environment, enabling seamless incremental migration.',
+      'Tech lead for the platform-wide Lit → React migration. Built the React-in-Lit bridge that made it possible, a React dialog manager the whole team now relies on, and rebuilt some of Nirvana’s most tangled legacy UI in clean React.',
   },
   {
     icon: Network,
-    title: 'Infrastructure & Modularization',
+    title: 'Service Decomposition',
     description:
-      'Decoupled the monolithic “Nirvana” frontend into independent domain-specific services with separate repositories and CI/CD pipelines, improving delivery speed and team autonomy.',
+      'Broke one giant Nirvana / Reactor / Domains / Layers monorepo into four focused repos — one a shared library — each shipping on its own. Upgrades got painless and Layers releases roughly 200% faster.',
   },
   {
-    icon: Workflow,
-    title: 'Architectural Solutions',
+    icon: Zap,
+    title: 'Build & CI Acceleration',
     description:
-      'Engineered a global Dialog Manager that renders into the document body to bypass legacy CSS/DOM constraints, ensuring consistent UI behavior across Lit and React contexts.',
+      'Rebuilt our tooling — Webpack to Rspack + SWC, ESLint to oxlint — for roughly 300% faster builds, 500% faster linting, and 200% faster CI. Faster feedback for every engineer on the team.',
+  },
+  {
+    icon: Layers,
+    title: 'Layers, Rebuilt',
+    description:
+      'Rebuilt Layers, our internal container registry, from the ground up — including a brand-new UI that makes a huge, messy set of images and repositories simple to browse and manage.',
   },
   {
     icon: Database,
     title: 'State Management',
     description:
-      'Developed lazy-loading Redux Toolkit modules with backward compatibility to custom legacy Redux implementations, enhancing DX and application stability.',
+      'Designed lazy Redux Toolkit modules that wire themselves up on first use — killing a whole class of production bugs and making our state layer far cleaner to work with.',
   },
   {
     icon: Package,
     title: 'Shared Tooling',
     description:
-      'Created and maintain @yandex-data-ui/nirvana-common, an internal npm package standardizing business logic and UI patterns across the Nirvana ecosystem.',
+      'Created and maintain @yandex-data-ui/nirvana-common, the shared library behind every Nirvana service. It keeps our React components, hooks, and utils free of service logic — cleaner code that’s genuinely easy to test.',
   },
   {
-    icon: TrendingUp,
-    title: 'Fast Growth',
+    icon: BookOpen,
+    title: 'Driving Standards',
     description:
-      'Promoted from Intern to Senior Engineer within 3.5 years by delivering high-impact solutions for Yandex’s internal cloud and developer tools.',
+      'I don’t just raise ideas and drop them — I push our engineering bar higher: tightening linting and conventions for a cleaner, more consistent codebase, aligning the team through open votes, and turning my own prototypes into tools everyone ends up using.',
+  },
+  {
+    icon: GraduationCap,
+    title: 'Mentorship',
+    description:
+      'Mentored two mid-level engineers and an intern, with a second intern starting soon. I grew from intern to senior here — now I help others climb the same way.',
+  },
+  {
+    icon: Blocks,
+    title: 'Open-Source Contribution',
+    description:
+      'Contribute to @gravity-ui, our open-source component ecosystem — I authored the Palette, Reactions, and Notifications components now used across Yandex products.',
   },
 ]
 
@@ -88,12 +109,14 @@ export function YandexInfrastructure() {
               <span className="font-semibold text-foreground">
                 Project: Nirvana
               </span>{' '}
-              — a mission-critical internal infrastructure platform used by
+              — a mission-critical workflow-orchestration platform used by{' '}
               <span className="font-semibold text-foreground">
-                {' '}
                 2,000+ engineers
               </span>{' '}
-              daily for ML pipelines and data processing.
+              daily to compose computational graphs for ML model training and
+              large-scale data processing, spanning scheduling (Reactor), a
+              container-layer registry (Layers), and self-service execution
+              (Domains).
             </p>
             <div className="mt-5 flex flex-wrap items-center gap-2">
               <span className="text-sm font-medium text-muted-foreground">
