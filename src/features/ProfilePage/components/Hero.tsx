@@ -131,10 +131,10 @@ export function Hero() {
         >
           {/* orbit rings */}
           <div className="absolute inset-0 animate-spin-slow rounded-full border border-brand-orange/15">
-            <span className="absolute top-0 left-1/2 size-2 -translate-x-1/2 rounded-full bg-brand-orange shadow-[0_0_12px_2px] shadow-brand-orange/60" />
+            <span className="absolute top-0 left-1/2 size-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-orange shadow-[0_0_12px_2px] shadow-brand-orange/60" />
           </div>
           <div className="absolute inset-[8%] animate-spin-reverse rounded-full border border-brand-purple/15">
-            <span className="absolute top-1/2 right-0 size-1.5 -translate-y-1/2 rounded-full bg-brand-purple shadow-[0_0_12px_2px] shadow-brand-purple/60" />
+            <span className="absolute top-1/2 right-0 size-1.5 -translate-y-1/2 translate-x-1/2 rounded-full bg-brand-purple shadow-[0_0_12px_2px] shadow-brand-purple/60" />
           </div>
           <div className="absolute inset-[16%] animate-spin-slow rounded-full border border-border" />
 
@@ -156,7 +156,7 @@ export function Hero() {
             className="relative size-[64%]"
           >
             <motion.div
-              animate={{ y: [0, -10, 0] }}
+              animate={{ y: [4, -4, 4] }}
               transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
               className="relative size-full overflow-hidden rounded-full border border-border glow-ring"
             >
