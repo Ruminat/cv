@@ -12,6 +12,7 @@ import {
   GraduationCap,
   Blocks,
 } from 'lucide-react'
+import { asset } from '@/shared/lib/Asset'
 import { Reveal } from '@/shared/ui/Reveal'
 
 const stack = [
@@ -90,7 +91,7 @@ export function YandexInfrastructure() {
           {/* illustration */}
           <div className="relative aspect-square overflow-hidden rounded-2xl border border-border bg-background/40 md:aspect-auto">
             <img
-              src="/yandex-infra.png"
+              src={asset('yandex-infra.png')}
               alt="Abstract illustration of the Yandex Nirvana infrastructure platform"
               className="size-full object-cover"
             />

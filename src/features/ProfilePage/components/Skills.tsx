@@ -1,6 +1,7 @@
 import type { LucideIcon } from 'lucide-react'
 import { Boxes, Code2, Paintbrush, Star, Wrench } from 'lucide-react'
 import { Reveal } from '@/shared/ui/Reveal'
+import { asset } from '@/shared/lib/Asset'
 import { cn } from '@/shared/lib/Cn'
 
 interface Skill {
@@ -97,7 +98,7 @@ function SkillCard({
     >
       {icon ? (
         <img
-          src={icon}
+          src={asset(icon)}
           alt=""
           className={cn('size-9 shrink-0 object-contain', iconClassName)}
           loading="lazy"

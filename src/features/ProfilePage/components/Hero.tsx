@@ -4,6 +4,7 @@ import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { ArrowRight, Download, Globe, MapPin, Briefcase } from 'lucide-react'
 import type { MouseEvent, ReactNode } from 'react'
 import { formatExperienceDuration } from '@/features/ProfilePage/models/ExperienceDuration'
+import { asset } from '@/shared/lib/Asset'
 import { Button } from '@/shared/ui/Button'
 
 const tags = ['Frontend Architecture', 'React & TypeScript', 'Developer Experience']
@@ -170,7 +171,7 @@ export function Hero() {
               className="relative size-full overflow-hidden rounded-full border border-border glow-ring"
             >
               <img
-                src="/vlad-portrait.png"
+                src={asset('vlad-portrait.png')}
                 alt="Portrait of Vlad Furman, Senior Frontend Engineer"
                 className="size-full object-cover"
               />
