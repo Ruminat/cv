@@ -1,5 +1,12 @@
-onlyBuiltDependencies:
-  - msw
+# msw (a transitive dev dependency of vitest) ships a postinstall script.
+# pnpm 11 refuses to run it by default and, with its ignored-build check,
+# fails `pnpm install` with ERR_PNPM_IGNORED_BUILDS. msw's postinstall is a
+# no-op in v2 and isn't needed for the build, so don't treat the ignored
+# build as a hard error. (onlyBuiltDependencies is not honored in pnpm 11.9.)
+strictDepBuilds: false
 
 overrides:
   hono: 4.12.25
+
+allowBuilds:
+  msw: set this to true or false
