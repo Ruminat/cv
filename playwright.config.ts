@@ -10,7 +10,7 @@ export default defineConfig({
     trace: 'on-first-retry',
   },
   webServer: {
-    command: 'pnpm.cmd run preview',
+    command: 'pnpm run preview',
     url: 'http://127.0.0.1:4173',
     reuseExistingServer: !process.env.CI,
   },

@@ -32,13 +32,14 @@ export function Hero() {
 
   return (
     <section className="relative pt-20 pb-16 md:pt-28 md:pb-24">
-      <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
-        {/* Left */}
-        <div>
+      <div className="flex flex-col gap-8 lg:grid lg:items-center lg:gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+        {/* Left — `contents` on mobile so children reorder around the avatar */}
+        <div className="contents lg:block">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="order-1 lg:order-none"
           >
             <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-border bg-card/50 px-3 py-1 text-sm text-muted-foreground">
               <span className="relative flex h-2 w-2">
@@ -50,7 +51,15 @@ export function Hero() {
             <h1 className="text-balance text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl">
               <span className="gradient-text">Vlad Furman</span>
             </h1>
-            <p className="mt-3 text-xl font-medium text-foreground/90 md:text-2xl">
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            className="order-3 lg:order-none lg:mt-3"
+          >
+            <p className="text-xl font-medium text-foreground/90 md:text-2xl">
               Senior Frontend Engineer
             </p>
             <p className="mt-4 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground">
@@ -65,7 +74,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="mt-6 flex flex-wrap gap-2"
+            className="order-4 lg:order-none mt-0 flex flex-wrap gap-2 lg:mt-6"
           >
             {tags.map((tag) => (
               <span
@@ -81,7 +90,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.25 }}
-            className="mt-8 flex flex-wrap items-center gap-3"
+            className="order-5 lg:order-none mt-0 flex flex-wrap items-center gap-3 lg:mt-8"
           >
             <Button
               asChild
@@ -110,7 +119,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.35 }}
-            className="mt-10 grid max-w-md grid-cols-3 divide-x divide-border rounded-2xl border border-border glass"
+            className="order-6 lg:order-none mt-0 grid max-w-md grid-cols-3 divide-x divide-border rounded-2xl border border-border glass lg:mt-10"
           >
             <InfoStat icon={<Briefcase className="size-4" />} label="Experience" value={experienceLabel} />
             <InfoStat icon={<MapPin className="size-4" />} label="Location" value="Dubai, UAE" />
@@ -118,7 +127,7 @@ export function Hero() {
           </motion.dl>
         </div>
 
-        {/* Right — portrait composition */}
+        {/* Portrait composition — right column on lg, directly under the name on mobile */}
         <motion.div
           initial={{ opacity: 0, scale: 0.92 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -126,7 +135,7 @@ export function Hero() {
           onMouseMove={handleMove}
           onMouseLeave={handleLeave}
           data-testid="hero-avatar"
-          className="relative mx-auto flex aspect-square w-full max-w-[440px] items-center justify-center overflow-hidden contain-paint"
+          className="order-2 lg:order-none relative flex aspect-square w-full max-w-[440px] items-center justify-center overflow-hidden contain-paint lg:mx-auto"
           style={{ perspective: 1000 }}
         >
           {/* orbit rings */}

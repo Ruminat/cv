@@ -5,9 +5,10 @@ import { defineConfig } from 'vitest/config'
 
 const dirname = path.dirname(fileURLToPath(import.meta.url))
 
-export default defineConfig(({ command }) => ({
-  // Served from https://<user>.github.io/cv/ on GitHub Pages; root in dev.
-  base: command === 'build' ? '/cv/' : '/',
+export default defineConfig({
+  // GitHub Pages serves this project repo under /cv/. The deploy workflow sets
+  // GITHUB_PAGES=true; local dev/build/preview/e2e stay at the root path.
+  base: process.env.GITHUB_PAGES === 'true' ? '/cv/' : '/',
   plugins: [react()],
   server: {
     host: '127.0.0.1',
@@ -28,4 +29,4 @@ export default defineConfig(({ command }) => ({
     environment: 'node',
     include: ['src/**/*.test.ts'],
   },
-}))
+})
