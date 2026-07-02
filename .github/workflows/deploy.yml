@@ -1,4 +1,4 @@
-name: Deploy CV to GitHub Pages
+name: Deploy CV
 
 on:
   push:
@@ -37,7 +37,10 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build
+      - name: Run code checks
+        run: pnpm run codecheck
+
+      - name: Build for GitHub Pages
         run: pnpm run build
         env:
           GITHUB_PAGES: 'true'
@@ -47,7 +50,16 @@ jobs:
         with:
           path: dist
 
-  deploy:
+      - name: Build for VPS
+        run: pnpm run build
+
+      - name: Upload VPS artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: vps-dist
+          path: dist
+
+  deploy-pages:
     needs: build
     runs-on: ubuntu-latest
     environment:
@@ -57,3 +69,24 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  deploy-vps:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download VPS build
+        uses: actions/download-artifact@v4
+        with:
+          name: vps-dist
+          path: dist
+
+      - name: Copy to VPS
+        uses: appleboy/scp-action@v1
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USERNAME }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          source: dist/*
+          target: /var/www/cv
+          strip_components: 1
+          overwrite: true

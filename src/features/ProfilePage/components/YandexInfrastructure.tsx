@@ -45,16 +45,10 @@ const achievements = [
       'Rebuilt our tooling — Webpack to Rspack + SWC, ESLint to oxlint — for roughly 300% faster builds, 500% faster linting, and 200% faster CI. Faster feedback for every engineer on the team.',
   },
   {
-    icon: Layers,
-    title: 'Layers, Rebuilt',
+    icon: BookOpen,
+    title: 'Driving Standards',
     description:
-      'Rebuilt Layers, our internal container registry, from the ground up — including a brand-new UI that makes a huge, messy set of images and repositories simple to browse and manage.',
-  },
-  {
-    icon: Database,
-    title: 'State Management',
-    description:
-      'Designed lazy Redux Toolkit modules that wire themselves up on first use — killing a whole class of production bugs and making our state layer far cleaner to work with.',
+      'I don’t just raise ideas and drop them — I push our engineering bar higher: tightening linting and conventions for a cleaner, more consistent codebase, aligning the team through open votes, and turning my own prototypes into tools everyone ends up using.',
   },
   {
     icon: Package,
@@ -63,10 +57,16 @@ const achievements = [
       'Created and maintain @yandex-data-ui/nirvana-common, the shared library behind every Nirvana service. It keeps our React components, hooks, and utils free of service logic — cleaner code that’s genuinely easy to test.',
   },
   {
-    icon: BookOpen,
-    title: 'Driving Standards',
+    icon: Database,
+    title: 'State Management',
     description:
-      'I don’t just raise ideas and drop them — I push our engineering bar higher: tightening linting and conventions for a cleaner, more consistent codebase, aligning the team through open votes, and turning my own prototypes into tools everyone ends up using.',
+      'Designed lazy Redux Toolkit modules that wire themselves up on first use — killing a whole class of production bugs and making our state layer far cleaner to work with.',
+  },
+  {
+    icon: Layers,
+    title: 'Layers, Rebuilt',
+    description:
+      'Rebuilt Layers, our internal container registry, from the ground up — including a brand-new UI that makes a huge, messy set of images and repositories simple to browse and manage.',
   },
   {
     icon: GraduationCap,
@@ -91,7 +91,7 @@ export function YandexInfrastructure() {
           {/* illustration */}
           <div className="relative aspect-square overflow-hidden rounded-2xl border border-border bg-background/40 md:aspect-auto">
             <img
-              src={asset('yandex-infra.png')}
+              src={asset('yandex-infra.jpg')}
               alt="Abstract illustration of the Yandex Nirvana infrastructure platform"
               className="size-full object-cover"
             />

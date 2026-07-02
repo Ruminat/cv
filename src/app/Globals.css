@@ -113,6 +113,18 @@
       0 0 40px -8px color-mix(in oklch, var(--brand-orange) 45%, transparent),
       0 0 80px -20px color-mix(in oklch, var(--brand-purple) 50%, transparent);
   }
+
+  .footer-illustration {
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+
+  @media (min-width: 768px) {
+    .footer-illustration {
+      mask-image: linear-gradient(to right, transparent, black);
+      -webkit-mask-image: linear-gradient(to right, transparent, black);
+    }
+  }
 }
 
 @keyframes spin-slow {
