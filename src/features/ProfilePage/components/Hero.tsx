@@ -109,7 +109,7 @@ export function Hero() {
               variant="outline"
               className="border-border bg-card/40"
             >
-              <a href="mailto:vlad.furman@example.com" className="inline-flex items-center gap-2 whitespace-nowrap">
+              <a href="mailto:vlad.furman.ae@gmail.com" className="inline-flex items-center gap-2 whitespace-nowrap">
                 <Download className="size-4 shrink-0" />
                 Download CV
               </a>

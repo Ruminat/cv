@@ -3,10 +3,10 @@ import { asset } from '@/shared/lib/Asset'
 import { Reveal } from '@/shared/ui/Reveal'
 
 const links = [
-  { icon: Mail, label: 'Email', href: 'mailto:vlad.furman@example.com' },
-  { icon: Code2, label: 'GitHub', href: 'https://github.com' },
+  { icon: Mail, label: 'Email', href: 'mailto:vlad.furman.ae@gmail.com' },
+  { icon: Code2, label: 'GitHub', href: 'https://github.com/Ruminat' },
   { icon: Briefcase, label: 'LinkedIn', href: 'https://linkedin.com' },
-  { icon: Send, label: 'Telegram', href: 'https://t.me' },
+  { icon: Send, label: 'Telegram', href: 'https://t.me/Ruminat' },
 ]
 
 export function SiteFooter() {
@@ -17,7 +17,7 @@ export function SiteFooter() {
           src={asset('footer-bg.jpg')}
           alt=""
           aria-hidden="true"
-          className="footer-illustration pointer-events-none absolute bottom-0 right-0 w-full md:w-1/2"
+          className="footer-illustration pointer-events-none absolute inset-y-0 right-0 h-full w-auto opacity-40 md:opacity-60 lg:opacity-80"
         />
         <div className="relative">
           <h2 className="mx-auto max-w-2xl text-balance text-2xl font-bold tracking-tight md:text-3xl">
