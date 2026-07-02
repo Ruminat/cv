@@ -1,8 +1,9 @@
 'use client'
 
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
-import { ArrowRight, Download, Globe, MapPin, Briefcase } from 'lucide-react'
+import { Download, Globe, MapPin, Briefcase } from 'lucide-react'
 import type { MouseEvent, ReactNode } from 'react'
+import { ContactDialog } from '@/features/ProfilePage/components/ContactDialog'
 import { formatExperienceDuration } from '@/features/ProfilePage/models/ExperienceDuration'
 import { asset } from '@/shared/lib/Asset'
 import { Button } from '@/shared/ui/Button'
@@ -93,16 +94,7 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.25 }}
             className="order-5 lg:order-none mt-0 flex flex-wrap items-center gap-3 lg:mt-8"
           >
-            <Button
-              asChild
-              size="lg"
-              className="group bg-gradient-to-r from-brand-orange to-brand-pink text-primary-foreground hover:opacity-90"
-            >
-              <a href="#projects" className="inline-flex items-center gap-2 whitespace-nowrap">
-                View Projects
-                <ArrowRight className="size-4 shrink-0 transition-transform group-hover:translate-x-0.5" />
-              </a>
-            </Button>
+            <ContactDialog />
             <Button
               asChild
               size="lg"

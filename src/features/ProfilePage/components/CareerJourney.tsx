@@ -9,21 +9,21 @@ const milestones = [
     period: 'Dec 2020',
     title: 'Intern',
     description:
-      'Started as an intern, learned the product, built internal tools and shipped my first features.',
+      'Came in as an intern with more curiosity than certainty. Learned a large internal product from the inside, shipped small but real things, and built the habit of understanding a system before changing it.',
     highlight: false,
   },
   {
     period: '2021 — May 2024',
     title: 'Middle Frontend Developer',
     description:
-      'Built scalable internal applications and reusable components. Worked on performance, architecture and automation.',
+      'Grew from completing tasks to owning areas. Started spotting the patterns behind messy legacy code, improving the developer experience around it, and making changes other engineers could build on.',
     highlight: false,
   },
   {
     period: 'May 2024 — Present',
     title: 'Senior Frontend Engineer',
     description:
-      'Leading frontend development in the infrastructure platform. Focused on architecture, technical leadership and high-impact solutions.',
+      'Became the person trusted with ambiguous frontend work: shaping technical direction, reviewing hard trade-offs, mentoring teammates, and pushing the codebase toward simpler, healthier foundations.',
     highlight: true,
   },
 ]
@@ -33,7 +33,7 @@ export function CareerJourney() {
     <section id="journey" className="py-12 md:py-16">
       <SectionHeading
         icon={Rocket}
-        title="Career Journey at Yandex Infrastructure"
+        title="From Intern to Senior at Yandex Infrastructure"
         meta="Dec 2020 — Present"
       />
 

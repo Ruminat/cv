@@ -3,20 +3,23 @@
 import { motion } from 'framer-motion'
 import { FolderGit2, Music, GraduationCap, Bot } from 'lucide-react'
 import { SectionHeading } from '@/shared/ui/SectionHeading'
+import { asset } from '@/shared/lib/Asset'
 
 const projects = [
   {
     icon: Bot,
+    logo: 'mooduck.png',
     name: 'MooDuck',
     period: '2025 — Present',
     description:
-      'AI-driven Telegram bot for mood tracking. Real-time sentiment analysis with the OpenAI API and a Node.js backend powered by Turso DB.',
-    tags: ['AI', 'Node.js', 'Telegram Bot'],
+      'A personal Telegram mood journal for quick 1–10 check-ins, short notes, and history review. Built as a practical side project with a React app, Telegram bot, and Express + Drizzle backend on Turso.',
+    tags: ['Telegram', 'React', 'Express', 'Turso'],
     accent: 'from-brand-orange/20 to-brand-pink/10',
     iconColor: 'text-brand-orange',
   },
   {
     icon: GraduationCap,
+    logo: null,
     name: 'Chi',
     period: '2019',
     description:
@@ -27,6 +30,7 @@ const projects = [
   },
   {
     icon: Music,
+    logo: null,
     name: 'Lyra',
     period: '2016',
     description:
@@ -60,7 +64,15 @@ export function SideProjects() {
               <span
                 className={`flex size-11 items-center justify-center rounded-xl border border-border bg-card/80 ${p.iconColor}`}
               >
-                <p.icon className="size-5" />
+                {p.logo ? (
+                  <img
+                    src={asset(p.logo)}
+                    alt={`${p.name} logo`}
+                    className="size-8 object-contain"
+                  />
+                ) : (
+                  <p.icon className="size-5" />
+                )}
               </span>
               <div>
                 <h3 className="font-semibold leading-none">{p.name}</h3>
