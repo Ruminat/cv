@@ -95,7 +95,6 @@ export function YandexInfrastructure() {
               alt="Abstract illustration of the Yandex Nirvana infrastructure platform"
               className="size-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
           </div>
 
           {/* text */}

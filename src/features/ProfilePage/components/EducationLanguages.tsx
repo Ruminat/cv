@@ -11,16 +11,16 @@ import { SectionHeading } from '@/shared/ui/SectionHeading'
 
 const degrees = [
   {
-    level: "Master's",
-    period: '2020 — 2022',
-    field: 'Corporate Information Systems Management',
-    accent: 'text-brand-purple',
-  },
-  {
     level: "Bachelor's",
     period: '2016 — 2020',
     field: 'Software Engineering and Information Systems Administration',
     accent: 'text-brand-orange',
+  },
+  {
+    level: "Master's",
+    period: '2020 — 2022',
+    field: 'Corporate Information Systems Management',
+    accent: 'text-brand-purple',
   },
 ]
 
@@ -50,17 +50,21 @@ export function EducationLanguages() {
             </p>
             <ul className="mt-5 space-y-5">
               {degrees.map((d) => (
-                <li key={d.level} className="relative pl-5">
-                  <span
-                    className={`absolute left-0 top-1.5 size-2 rounded-full bg-current ${d.accent}`}
-                  />
+                <li key={d.level}>
                   <div className="flex flex-wrap items-baseline justify-between gap-x-3">
-                    <h3 className={`font-semibold ${d.accent}`}>{d.level}</h3>
+                    <h3
+                      className={`flex items-center gap-2 font-semibold ${d.accent}`}
+                    >
+                      <span className="size-2 shrink-0 rounded-full bg-current" />
+                      {d.level}
+                    </h3>
                     <span className="text-xs text-muted-foreground">
                       {d.period}
                     </span>
                   </div>
-                  <p className="mt-1 text-sm text-muted-foreground">{d.field}</p>
+                  <p className="mt-1 pl-4 text-sm text-muted-foreground">
+                    {d.field}
+                  </p>
                 </li>
               ))}
             </ul>
