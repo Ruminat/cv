@@ -1,0 +1,15 @@
+#!/bin/sh
+# Block commits to main unless the full codecheck (typecheck + lint + test) passes.
+# On any other branch, commits proceed without the check.
+
+branch="$(git rev-parse --abbrev-ref HEAD)"
+
+if [ "$branch" = "main" ]; then
+  echo "▶ Committing to main — running codecheck…"
+  if ! pnpm run codecheck; then
+    echo ""
+    echo "✖ codecheck failed — commit to main aborted."
+    echo "  Fix the errors above, or do your work on a feature branch."
+    exit 1
+  fi
+fi

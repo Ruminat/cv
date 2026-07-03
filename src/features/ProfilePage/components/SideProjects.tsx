@@ -67,7 +67,7 @@ export function SideProjects() {
           return (
             <MotionCard
               key={p.name}
-              href={p.link || undefined}
+              href={p.link ?? undefined}
               target={p.link ? '_blank' : undefined}
               rel={p.link ? 'noopener noreferrer' : undefined}
               initial={{ opacity: 0, y: 24 }}
