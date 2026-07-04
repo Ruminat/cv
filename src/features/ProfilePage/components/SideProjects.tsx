@@ -2,10 +2,23 @@
 
 import { motion } from "framer-motion";
 import { FolderGit2, Music, Gamepad2, Bot, Box } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { SectionHeading } from "@/shared/ui/SectionHeading";
 import { asset } from "@/shared/lib/Asset";
 
-const projects = [
+interface Project {
+  icon: LucideIcon;
+  logo: string | null;
+  name: string;
+  link: string | null;
+  period: string;
+  description: string;
+  tags: string[];
+  accent: string;
+  iconColor: string;
+}
+
+const projects: Project[] = [
   {
     icon: Bot,
     logo: "mooduck.png",
@@ -44,13 +57,13 @@ const projects = [
   },
   {
     icon: Music,
-    logo: null,
+    logo: "lyra.png",
     name: "Lyra",
-    link: null,
+    link: "https://github.com/Ruminat/Lyra",
     period: "2016",
     description:
-      "A music player built with Electron, exploring cross-platform desktop JavaScript and native OS integrations.",
-    tags: ["Electron", "Desktop App"],
+      "My high school project, made for fun at 18 — a cross-platform Electron music player with VK API integration, an audio visualizer, and playlists. My first big project that I actually used day to day.",
+    tags: ["Electron", "JavaScript", "Desktop App"],
     accent: "from-brand-purple/20 to-brand-pink/10",
     iconColor: "text-brand-purple",
   },
