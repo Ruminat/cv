@@ -3,6 +3,9 @@
 # fails `pnpm install` with ERR_PNPM_IGNORED_BUILDS. msw's postinstall is a
 # no-op in v2 and isn't needed for the build, so don't treat the ignored
 # build as a hard error. (onlyBuiltDependencies is not honored in pnpm 11.9.)
+packages:
+  - .
+
 strictDepBuilds: false
 
 overrides:

@@ -1,11 +1,13 @@
 import {
+  Cuboid,
   GraduationCap,
   Languages,
-  TableProperties,
-  Code2,
+  Trophy,
+  CodeXml,
   Gamepad2,
-  BookText,
+  BookOpenText,
 } from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
 import { Reveal } from '@/shared/ui/Reveal'
 import { SectionHeading } from '@/shared/ui/SectionHeading'
 
@@ -31,11 +33,48 @@ const languages = [
 ]
 
 const interests = [
-  { icon: TableProperties, label: 'Table tennis' },
-  { icon: Code2, label: 'Web development' },
-  { icon: Gamepad2, label: 'Gaming' },
-  { icon: BookText, label: 'Languages' },
+  {
+    icon: Trophy,
+    label: 'Table tennis',
+    tone: 'from-brand-orange/25 to-brand-orange/5 text-brand-orange ring-brand-orange/25',
+  },
+  {
+    icon: CodeXml,
+    label: 'Web development',
+    tone: 'from-brand-pink/25 to-brand-pink/5 text-brand-pink ring-brand-pink/25',
+  },
+  {
+    icon: Cuboid,
+    label: 'Speed cubing',
+    tone: 'from-brand-purple/25 to-brand-orange/10 text-brand-purple ring-brand-purple/25',
+  },
+  {
+    icon: Gamepad2,
+    label: 'Gaming',
+    tone: 'from-brand-orange/20 to-brand-purple/10 text-brand-orange ring-brand-orange/25',
+  },
+  {
+    icon: BookOpenText,
+    label: 'Languages',
+    tone: 'from-brand-purple/25 to-brand-purple/5 text-brand-purple ring-brand-purple/25',
+  },
 ]
+
+interface InterestIconProps {
+  icon: LucideIcon
+  tone: string
+}
+
+function InterestIcon({ icon: Icon, tone }: InterestIconProps) {
+  return (
+    <span
+      className={`relative flex size-8 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br ring-1 ${tone}`}
+    >
+      <span className="absolute inset-x-1 top-1 h-px bg-white/30" />
+      <Icon className="relative size-4 drop-shadow-[0_0_10px_currentColor]" />
+    </span>
+  )
+}
 
 export function EducationLanguages() {
   return (
@@ -97,8 +136,8 @@ export function EducationLanguages() {
               </h3>
               <ul className="space-y-3">
                 {interests.map((it) => (
-                  <li key={it.label} className="flex items-center gap-2 text-sm">
-                    <it.icon className="size-4 text-muted-foreground" />
+                  <li key={it.label} className="flex items-center gap-3 text-sm">
+                    <InterestIcon icon={it.icon} tone={it.tone} />
                     <span>{it.label}</span>
                   </li>
                 ))}
