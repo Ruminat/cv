@@ -119,6 +119,11 @@
     -webkit-mask-image: none;
   }
 
+  .hobbies-illustration {
+    mask-image: linear-gradient(to bottom right, transparent, black);
+    -webkit-mask-image: linear-gradient(to bottom right, transparent, black);
+  }
+
   @media (min-width: 768px) {
     .footer-illustration {
       mask-image: linear-gradient(to right, transparent, black);

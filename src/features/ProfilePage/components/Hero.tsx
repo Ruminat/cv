@@ -128,17 +128,19 @@ export function Hero() {
           onMouseMove={handleMove}
           onMouseLeave={handleLeave}
           data-testid="hero-avatar"
-          className="order-2 lg:order-none relative flex aspect-square w-full max-w-[440px] items-center justify-center overflow-hidden contain-paint lg:mx-auto"
+          className="order-2 lg:order-none relative flex aspect-square w-full max-w-[440px] items-center justify-center lg:mx-auto"
           style={{ perspective: 1000 }}
         >
-          {/* orbit rings */}
-          <div className="absolute inset-0 animate-spin-slow rounded-full border border-brand-orange/15">
-            <span className="absolute top-0 left-1/2 size-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-orange shadow-[0_0_12px_2px] shadow-brand-orange/60" />
+          {/* orbit rings — inset so dots/glow stay inside the square bounds */}
+          <div className="pointer-events-none absolute inset-5">
+            <div className="absolute inset-0 animate-spin-slow rounded-full border border-brand-orange/15">
+              <span className="absolute top-0 left-1/2 size-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-orange shadow-[0_0_12px_2px] shadow-brand-orange/60" />
+            </div>
+            <div className="absolute inset-[10%] animate-spin-reverse rounded-full border border-brand-purple/15">
+              <span className="absolute top-1/2 right-0 size-1.5 -translate-y-1/2 translate-x-1/2 rounded-full bg-brand-purple shadow-[0_0_12px_2px] shadow-brand-purple/60" />
+            </div>
+            <div className="absolute inset-[20%] animate-spin-slow rounded-full border border-border" />
           </div>
-          <div className="absolute inset-[8%] animate-spin-reverse rounded-full border border-brand-purple/15">
-            <span className="absolute top-1/2 right-0 size-1.5 -translate-y-1/2 translate-x-1/2 rounded-full bg-brand-purple shadow-[0_0_12px_2px] shadow-brand-purple/60" />
-          </div>
-          <div className="absolute inset-[16%] animate-spin-slow rounded-full border border-border" />
 
           {/* moving halo */}
           <motion.div

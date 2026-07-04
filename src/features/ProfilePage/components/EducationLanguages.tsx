@@ -1,4 +1,5 @@
 import { GraduationCap, Languages } from 'lucide-react'
+import { asset } from '@/shared/lib/Asset'
 import { Reveal } from '@/shared/ui/Reveal'
 import { SectionHeading } from '@/shared/ui/SectionHeading'
 
@@ -68,8 +69,14 @@ export function EducationLanguages() {
         {/* Languages & Interests */}
         <div>
           <SectionHeading icon={Languages} title="Languages & Interests" />
-          <Reveal className="grid gap-5 rounded-2xl border border-border glass p-6 sm:grid-cols-2">
-            <div>
+          <Reveal className="relative overflow-hidden grid gap-5 rounded-2xl border border-border glass p-6 sm:grid-cols-2">
+            <img
+              src={asset('hobbies-bg.png')}
+              alt=""
+              aria-hidden="true"
+              className="hobbies-illustration pointer-events-none absolute bottom-0 right-0 max-h-full max-w-full origin-bottom-right sm:scale-[1.3]"
+            />
+            <div className="relative">
               <h3 className="mb-3 text-xs font-semibold uppercase tracking-wide text-brand-orange">
                 Languages
               </h3>
@@ -85,7 +92,7 @@ export function EducationLanguages() {
                 ))}
               </ul>
             </div>
-            <div>
+            <div className="relative">
               <h3 className="mb-3 text-xs font-semibold uppercase tracking-wide text-brand-purple">
                 Interests
               </h3>
