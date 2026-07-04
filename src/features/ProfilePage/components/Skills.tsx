@@ -1,82 +1,81 @@
-import type { LucideIcon } from 'lucide-react'
-import { Boxes, Code2, Paintbrush, Star, Wrench } from 'lucide-react'
-import { Reveal } from '@/shared/ui/Reveal'
-import { asset } from '@/shared/lib/Asset'
-import { cn } from '@/shared/lib/Cn'
+import type { LucideIcon } from "lucide-react";
+import { Boxes, Code2, Paintbrush, Star, Wrench } from "lucide-react";
+import { Reveal } from "@/shared/ui/Reveal";
+import { asset } from "@/shared/lib/Asset";
+import { cn } from "@/shared/lib/Cn";
 
 interface Skill {
-  name: string
-  icon?: string
-  iconClassName?: string
-  core?: boolean
+  name: string;
+  icon?: string;
+  iconClassName?: string;
+  core?: boolean;
 }
 
 interface SkillGroup {
-  label: string
-  description: string
-  icon: LucideIcon
-  tone: 'orange' | 'purple'
-  skills: Skill[]
+  label: string;
+  description: string;
+  icon: LucideIcon;
+  tone: "orange" | "purple";
+  skills: Skill[];
 }
 
 const skillGroups: SkillGroup[] = [
   {
-    label: 'Core',
-    description: 'Essential technologies',
+    label: "Core",
+    description: "Essential technologies",
     icon: Star,
-    tone: 'orange',
+    tone: "orange",
     skills: [
-      { name: 'TypeScript', icon: '/skill-icons/typescript.svg', core: true },
-      { name: 'React', icon: '/skill-icons/react.svg', core: true },
-      { name: 'Node.js', icon: '/skill-icons/nodejs.svg', core: true },
-      { name: 'Electron', icon: '/skill-icons/electron.svg', core: true },
+      { name: "TypeScript", icon: "/skill-icons/typescript.svg", core: true },
+      { name: "React", icon: "/skill-icons/react.svg", core: true },
+      { name: "Node.js", icon: "/skill-icons/nodejs.svg", core: true },
     ],
   },
   {
-    label: 'Styling',
-    description: 'Styles and design systems',
+    label: "Styling",
+    description: "Styles and design systems",
     icon: Paintbrush,
-    tone: 'purple',
+    tone: "purple",
     skills: [
-      { name: 'SCSS', icon: '/skill-icons/sass.svg' },
+      { name: "SCSS", icon: "/skill-icons/sass.svg" },
       {
-        name: 'CSS Modules',
-        icon: '/skill-icons/cssmodules.svg',
+        name: "CSS Modules",
+        icon: "/skill-icons/cssmodules.svg",
         iconClassName:
-          '[filter:invert(74%)_sepia(79%)_saturate(1011%)_hue-rotate(165deg)_brightness(98%)_contrast(92%)]',
+          "[filter:invert(74%)_sepia(79%)_saturate(1011%)_hue-rotate(165deg)_brightness(98%)_contrast(92%)]",
       },
-      { name: 'Tailwind CSS', icon: '/skill-icons/tailwindcss.svg' },
+      { name: "Tailwind CSS", icon: "/skill-icons/tailwindcss.svg" },
     ],
   },
   {
-    label: 'Tools',
-    description: 'Developer productivity',
+    label: "Tools",
+    description: "Developer productivity",
     icon: Wrench,
-    tone: 'purple',
+    tone: "purple",
     skills: [
-      { name: 'Git', icon: '/skill-icons/git.svg' },
-      { name: 'Docker', icon: '/skill-icons/docker.svg' },
-      { name: 'Vite', icon: '/skill-icons/vite.svg' },
-      { name: 'Webpack', icon: '/skill-icons/webpack.svg' },
-      { name: 'CI/CD', icon: '/skill-icons/githubactions.svg' },
+      { name: "Git", icon: "/skill-icons/git.svg" },
+      { name: "Docker", icon: "/skill-icons/docker.svg" },
+      { name: "Vite", icon: "/skill-icons/vite.svg" },
+      { name: "Webpack", icon: "/skill-icons/webpack.svg" },
+      { name: "PM2", icon: "/skill-icons/pm2.svg" },
     ],
   },
   {
-    label: 'Libraries',
-    description: 'Libraries and frameworks',
+    label: "Libraries",
+    description: "Libraries and frameworks",
     icon: Boxes,
-    tone: 'purple',
+    tone: "purple",
     skills: [
-      { name: 'Lit', icon: '/skill-icons/lit.svg' },
-      { name: 'Redux Toolkit', icon: '/skill-icons/redux.svg' },
-      { name: 'Express', icon: '/skill-icons/express.svg' },
-      { name: 'Gravity UI', icon: '/skill-icons/gravityui.svg' },
+      { name: "Redux", icon: "/skill-icons/redux.svg" },
+      { name: "Express", icon: "/skill-icons/express.svg" },
+      { name: "Electron", icon: "/skill-icons/electron.svg" },
+      { name: "Gravity UI", icon: "/skill-icons/gravityui.svg" },
     ],
   },
-]
+];
 
 interface SkillCardProps extends Skill {
-  className?: string
+  className?: string;
 }
 
 function SkillCard({
@@ -89,10 +88,10 @@ function SkillCard({
   return (
     <li
       className={cn(
-        'group flex h-18 min-w-0 items-center gap-3 rounded-xl border bg-card/35 px-4 text-base font-medium text-foreground shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] transition duration-300 hover:-translate-y-0.5 hover:border-brand-purple/45 hover:bg-card/55 sm:h-20 sm:gap-4 sm:px-5',
+        "group flex h-18 min-w-0 items-center gap-3 rounded-xl border bg-card/35 px-4 text-base font-medium text-foreground shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] transition duration-300 hover:-translate-y-0.5 hover:border-brand-purple/45 hover:bg-card/55 sm:h-20 sm:gap-4 sm:px-5",
         core
-          ? 'border-brand-orange/70 bg-[linear-gradient(135deg,rgba(255,126,49,0.12),rgba(151,71,255,0.12)_85%)] shadow-[0_0_34px_-18px_rgba(255,126,49,0.9),inset_0_1px_0_rgba(255,255,255,0.08)] hover:border-brand-orange'
-          : 'border-border/90',
+          ? "border-brand-orange/70 bg-[linear-gradient(135deg,rgba(255,126,49,0.12),rgba(151,71,255,0.12)_85%)] shadow-[0_0_34px_-18px_rgba(255,126,49,0.9),inset_0_1px_0_rgba(255,255,255,0.08)] hover:border-brand-orange"
+          : "border-border/90",
         className,
       )}
     >
@@ -100,13 +99,13 @@ function SkillCard({
         <img
           src={asset(icon)}
           alt=""
-          className={cn('size-9 shrink-0 object-contain', iconClassName)}
+          className={cn("size-6 shrink-0 object-contain", iconClassName)}
           loading="lazy"
         />
       ) : null}
       <span className="min-w-0 truncate">{name}</span>
     </li>
-  )
+  );
 }
 
 export function Skills() {
@@ -137,32 +136,32 @@ export function Skills() {
         ))}
       </Reveal>
     </section>
-  )
+  );
 }
 
 interface SkillGroupRowProps {
-  group: SkillGroup
-  isLast: boolean
+  group: SkillGroup;
+  isLast: boolean;
 }
 
 function SkillGroupRow({ group, isLast }: SkillGroupRowProps) {
-  const Icon = group.icon
-  const isOrange = group.tone === 'orange'
+  const Icon = group.icon;
+  const isOrange = group.tone === "orange";
 
   return (
     <div
       className={cn(
-        'grid gap-5 py-8 md:grid-cols-[260px_minmax(0,1fr)] lg:grid-cols-[280px_minmax(0,1fr)]',
-        !isLast && 'border-b border-border/80',
+        "grid gap-5 py-8 md:grid-cols-[260px_minmax(0,1fr)] lg:grid-cols-[280px_minmax(0,1fr)]",
+        !isLast && "border-b border-border/80",
       )}
     >
       <div className="flex items-center gap-4 md:items-start">
         <span
           className={cn(
-            'flex size-14 shrink-0 items-center justify-center rounded-full border bg-card/55',
+            "flex size-14 shrink-0 items-center justify-center rounded-full border bg-card/55",
             isOrange
-              ? 'border-brand-orange/20 text-brand-orange shadow-[0_0_32px_-18px_rgba(255,126,49,0.8)]'
-              : 'border-brand-purple/25 text-brand-purple shadow-[0_0_32px_-18px_rgba(151,71,255,0.8)]',
+              ? "border-brand-orange/20 text-brand-orange shadow-[0_0_32px_-18px_rgba(255,126,49,0.8)]"
+              : "border-brand-purple/25 text-brand-purple shadow-[0_0_32px_-18px_rgba(151,71,255,0.8)]",
           )}
         >
           <Icon className="size-7" />
@@ -170,8 +169,8 @@ function SkillGroupRow({ group, isLast }: SkillGroupRowProps) {
         <div className="min-w-0 pt-0.5">
           <h3
             className={cn(
-              'text-sm font-bold uppercase tracking-wide',
-              isOrange ? 'text-brand-orange' : 'text-brand-purple',
+              "text-sm font-bold uppercase tracking-wide",
+              isOrange ? "text-brand-orange" : "text-brand-purple",
             )}
           >
             {group.label}
@@ -188,5 +187,5 @@ function SkillGroupRow({ group, isLast }: SkillGroupRowProps) {
         ))}
       </ul>
     </div>
-  )
+  );
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FolderGit2, Music, GraduationCap, Bot, Box } from "lucide-react";
+import { FolderGit2, Music, Gamepad2, Bot, Box } from "lucide-react";
 import { SectionHeading } from "@/shared/ui/SectionHeading";
 import { asset } from "@/shared/lib/Asset";
 
@@ -31,16 +31,16 @@ const projects = [
     iconColor: "text-sky-400",
   },
   {
-    icon: GraduationCap,
-    logo: null,
-    name: "Chi",
-    link: null,
-    period: "2019",
+    icon: Gamepad2,
+    logo: "kitchen-madness.png",
+    name: "Kitchen Madness",
+    link: "https://github.com/Ruminat/Kitchen-Madness",
+    period: "2025 — Present",
     description:
-      "A full-stack app for language learning using flashcards, similar to Anki, with spaced-repetition scheduling.",
-    tags: ["Full-Stack", "Education"],
-    accent: "from-emerald-500/20 to-teal-500/10",
-    iconColor: "text-emerald-400",
+      "A kitchen-themed, top-down arena survivor game in early development, built in Godot 4 with GDScript. Fight swarms of pests, level up, and grab upgrades between waves. Art generated with ChatGPT.",
+    tags: ["Godot 4", "GDScript", "Game Dev"],
+    accent: "from-red-500/20 to-orange-500/10",
+    iconColor: "text-red-400",
   },
   {
     icon: Music,
@@ -89,7 +89,7 @@ export function SideProjects() {
                     <img
                       src={asset(p.logo)}
                       alt={`${p.name} logo`}
-                      className="size-8 object-contain"
+                      className="size-8 rounded-full object-contain"
                     />
                   ) : (
                     <p.icon className="size-5" />
