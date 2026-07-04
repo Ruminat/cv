@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
-import { Download, Globe, MapPin, Briefcase } from 'lucide-react'
+import { Download, Building2, Layers, Briefcase } from 'lucide-react'
 import type { MouseEvent, ReactNode } from 'react'
 import { ContactDialog } from '@/features/ProfilePage/components/ContactDialog'
 import { formatExperienceDuration } from '@/features/ProfilePage/models/ExperienceDuration'
@@ -67,8 +67,8 @@ export function Hero() {
             <p className="mt-4 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground">
               Building infrastructure products for thousands of engineers.
               Senior Frontend Engineer with 5+ years at Yandex, specializing in
-              large-scale platforms, React &amp; TypeScript architecture,
-              legacy-to-modern migrations and developer productivity.
+              large-scale React &amp; TypeScript platforms, legacy-to-modern
+              migrations and developer productivity.
             </p>
           </motion.div>
 
@@ -115,8 +115,8 @@ export function Hero() {
             className="order-6 lg:order-none mt-0 grid max-w-md grid-cols-3 divide-x divide-border rounded-2xl border border-border glass lg:mt-10"
           >
             <InfoStat icon={<Briefcase className="size-4" />} label="Experience" value={experienceLabel} />
-            <InfoStat icon={<MapPin className="size-4" />} label="Location" value="Dubai, UAE" />
-            <InfoStat icon={<Globe className="size-4" />} label="English" value="B2" />
+            <InfoStat icon={<Building2 className="size-4" />} label="Company" value="Yandex" />
+            <InfoStat icon={<Layers className="size-4" />} label="Focus" value="Infrastructure" />
           </motion.dl>
         </div>
 
