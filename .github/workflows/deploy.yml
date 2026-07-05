@@ -5,15 +5,12 @@ on:
     branches: [main]
   workflow_dispatch:
 
-# Allow the workflow to publish to Pages via OIDC.
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
-# Only one Pages deployment at a time; don't cancel an in-progress one.
+# Don't overlap deploys to the VPS; let an in-progress one finish.
 concurrency:
-  group: pages
+  group: deploy-vps
   cancel-in-progress: false
 
 jobs:
@@ -40,16 +37,6 @@ jobs:
       - name: Run code checks
         run: pnpm run codecheck
 
-      - name: Build for GitHub Pages
-        run: pnpm run build
-        env:
-          GITHUB_PAGES: 'true'
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
-
       - name: Build for VPS
         run: pnpm run build
 
@@ -58,17 +45,6 @@ jobs:
         with:
           name: vps-dist
           path: dist
-
-  deploy-pages:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
 
   deploy-vps:
     needs: build
