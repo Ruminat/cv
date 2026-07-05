@@ -74,13 +74,16 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: Download VPS build
         uses: actions/download-artifact@v4
         with:
           name: vps-dist
           path: dist
 
-      - name: Copy to VPS
+      - name: Copy static site to VPS
         uses: appleboy/scp-action@v1
         with:
           host: ${{ secrets.VPS_HOST }}
@@ -90,3 +93,28 @@ jobs:
           target: /var/www/cv
           strip_components: 1
           overwrite: true
+
+      # Deploy the contact relay outside the nginx web root so its code (and
+      # the .env it reads) is never served as a static file. The VPS-side .env
+      # is created once by hand and is not in the repo, so it's preserved here.
+      - name: Copy contact relay to VPS
+        uses: appleboy/scp-action@v1
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USERNAME }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          source: server/*
+          target: /var/www/cv-server
+          strip_components: 1
+          overwrite: true
+
+      - name: Restart contact relay
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USERNAME }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script: |
+            cd /var/www/cv-server
+            pm2 startOrRestart ecosystem.config.cjs --update-env
+            pm2 save

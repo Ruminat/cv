@@ -67,6 +67,28 @@ recorded. Re-run `pm2 save` any time you change the running process list.
 
 Handy checks: `pm2 status`, `pm2 logs cv-contact-relay`.
 
+## Automated deploy (CI)
+
+The `deploy-vps` job in `.github/workflows/deploy.yml` ships the relay on every
+push to `main`: it copies `server/` to **`/var/www/cv-server`** (outside the
+nginx web root) and runs `pm2 startOrRestart ecosystem.config.cjs && pm2 save`.
+
+CI never touches secrets — do this **once, by hand, on the VPS**:
+
+```bash
+# 1. Create the .env CI won't overwrite (it's not in the repo):
+mkdir -p /var/www/cv-server
+cd /var/www/cv-server
+nano .env            # paste TELEGRAM_BOT_TOKEN + TELEGRAM_CHAT_ID
+
+# 2. Let pm2 resurrect the relay on reboot:
+pm2 startup          # run the sudo line it prints
+pm2 save
+```
+
+After that, pushes to `main` redeploy the relay automatically. The hand-created
+`.env` persists across deploys (CI copies code, never `.env`).
+
 ## Frontend wiring
 
 The dialog posts to `import.meta.env.VITE_CONTACT_API_URL`, defaulting to the
