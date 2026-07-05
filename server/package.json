@@ -1,0 +1,15 @@
+{
+  "name": "cv-contact-relay",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Tiny Telegram relay for the CV 'Let's talk' form",
+  "main": "index.mjs",
+  "scripts": {
+    "start": "node --env-file-if-exists=.env index.mjs",
+    "dev": "node --env-file-if-exists=.env --watch index.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

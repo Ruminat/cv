@@ -15,7 +15,13 @@ const typeCheckedConfigs = [
 
 export default tseslint.config(
   {
-    ignores: ['.next/**', 'dist/**', 'node_modules/**', 'coverage/**'],
+    ignores: [
+      '.next/**',
+      'dist/**',
+      'node_modules/**',
+      'coverage/**',
+      'server/**',
+    ],
   },
   js.configs.recommended,
   ...typeCheckedConfigs,

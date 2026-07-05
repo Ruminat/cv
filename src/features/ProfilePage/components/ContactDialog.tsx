@@ -9,6 +9,11 @@ import { useRef, useState, type KeyboardEvent } from 'react'
 import { cn } from '@/shared/lib/Cn'
 import { buttonVariants } from '@/shared/ui/ButtonVariants'
 
+// Where the "Let's talk" form is delivered. Defaults to the same-origin path,
+// which nginx proxies to the contact relay (see server/README.md). Override with
+// VITE_CONTACT_API_URL when the API lives on a different origin.
+const CONTACT_API_URL = import.meta.env.VITE_CONTACT_API_URL ?? '/api/contact'
+
 export function ContactDialog() {
   const toastManager = Toast.useToastManager()
   const formRef = useRef<HTMLFormElement>(null)
@@ -16,23 +21,43 @@ export function ContactDialog() {
   const [open, setOpen] = useState(false)
   const [message, setMessage] = useState('')
   const [contact, setContact] = useState('')
+  const [sending, setSending] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
-  const canSubmit = message.trim().length > 0
+  const canSubmit = message.trim().length > 0 && !sending
 
   function resetForm() {
     setMessage('')
     setContact('')
+    setError(null)
   }
 
-  function submit() {
+  async function submit() {
     if (!canSubmit) return
 
-    // Close first; the confirmation toast is shown from onOpenChangeComplete once
-    // the dialog has fully unmounted. Adding a toast while the modal popup is still
-    // mounted fights its focus management and keeps the dialog open.
-    sentRef.current = true
-    resetForm()
-    setOpen(false)
+    setSending(true)
+    setError(null)
+    try {
+      const response = await fetch(CONTACT_API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: message.trim(), contact: contact.trim() }),
+      })
+      if (!response.ok) throw new Error(`Request failed (${String(response.status)})`)
+
+      // Close first; the confirmation toast is shown from onOpenChangeComplete once
+      // the dialog has fully unmounted. Adding a toast while the modal popup is still
+      // mounted fights its focus management and keeps the dialog open.
+      sentRef.current = true
+      resetForm()
+      setOpen(false)
+    } catch {
+      // Surface errors inline rather than via a toast — the dialog stays open, and a
+      // toast raised over the live modal fights its focus management.
+      setError("Couldn't send your message. Please try again in a moment.")
+    } finally {
+      setSending(false)
+    }
   }
 
   // Submit on Enter or Cmd/Ctrl+Enter (Shift+Enter keeps its newline).
@@ -100,7 +125,7 @@ export function ContactDialog() {
             ref={formRef}
             onSubmit={(event) => {
               event.preventDefault()
-              submit()
+              void submit()
             }}
             className="mt-6 flex flex-col gap-5"
           >
@@ -146,6 +171,12 @@ export function ContactDialog() {
               />
             </Field.Root>
 
+            {error && (
+              <p role="alert" className="-mt-1 text-sm text-destructive">
+                {error}
+              </p>
+            )}
+
             <div className="mt-1 flex items-center justify-end gap-3">
               <Dialog.Close
                 className={cn(
@@ -164,7 +195,7 @@ export function ContactDialog() {
                 )}
               >
                 <span className="inline-flex items-center gap-2 whitespace-nowrap">
-                  Send message
+                  {sending ? 'Sending…' : 'Send message'}
                   <Send className="size-4 shrink-0 transition-transform group-hover:translate-x-0.5" />
                 </span>
               </button>

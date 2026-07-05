@@ -14,6 +14,11 @@ export default defineConfig({
     host: '127.0.0.1',
     port: 5173,
     strictPort: true,
+    // Forward the "Let's talk" form to the local contact relay (see server/).
+    // In production nginx does this; in dev Vite needs to proxy it itself.
+    proxy: {
+      '/api': 'http://127.0.0.1:8787',
+    },
   },
   preview: {
     host: '127.0.0.1',
