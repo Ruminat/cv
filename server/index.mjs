@@ -132,14 +132,9 @@ function clientIp(req) {
 }
 
 async function sendToTelegram({ message, contact }) {
-  const lines = [
-    '<b>📬 New message from your CV site</b>',
-    '',
-    escapeHtml(message),
-  ]
-  if (contact) {
-    lines.push('', `<b>Reach back:</b> ${escapeHtml(contact)}`)
-  }
+  const lines = []
+  if (contact) lines.push(`<b>From:</b> ${escapeHtml(contact)}`, '')
+  lines.push(escapeHtml(message))
   const text = lines.join('\n').slice(0, 4096)
 
   const response = await fetch(
