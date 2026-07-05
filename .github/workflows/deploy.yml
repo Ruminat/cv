@@ -115,6 +115,12 @@ jobs:
           username: ${{ secrets.VPS_USERNAME }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
+            set -e
+            # Non-interactive SSH skips the login profile, so PATH may lack
+            # node/pm2 (typical with nvm). Load nvm and common global bins.
+            export NVM_DIR="${NVM_DIR:-$HOME/.nvm}"
+            [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+            export PATH="$PATH:/usr/local/bin:/usr/bin:$HOME/.npm-global/bin:$HOME/.local/bin"
             cd /var/www/cv-server
             pm2 startOrRestart ecosystem.config.cjs --update-env
             pm2 save

@@ -76,6 +76,9 @@ nginx web root) and runs `pm2 startOrRestart ecosystem.config.cjs && pm2 save`.
 CI never touches secrets — do this **once, by hand, on the VPS**:
 
 ```bash
+# 0. Ensure pm2 is installed (CI calls it over SSH; it must be on PATH):
+npm install -g pm2   # skip if `which pm2` already resolves
+
 # 1. Create the .env CI won't overwrite (it's not in the repo):
 mkdir -p /var/www/cv-server
 cd /var/www/cv-server
@@ -85,6 +88,11 @@ nano .env            # paste TELEGRAM_BOT_TOKEN + TELEGRAM_CHAT_ID
 pm2 startup          # run the sudo line it prints
 pm2 save
 ```
+
+> The CI restart step loads nvm and common global-bin paths before calling
+> pm2, since non-interactive SSH doesn't source your shell profile. If pm2
+> lives somewhere unusual, add its directory to the `PATH` line in
+> `.github/workflows/deploy.yml`.
 
 After that, pushes to `main` redeploy the relay automatically. The hand-created
 `.env` persists across deploys (CI copies code, never `.env`).
