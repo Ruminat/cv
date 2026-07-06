@@ -6,6 +6,7 @@ import { Toast } from '@base-ui/react/toast'
 import { ArrowRight, Send } from 'lucide-react'
 import { useRef, useState, type KeyboardEvent } from 'react'
 
+import { ContactLinks } from '@/features/ProfilePage/components/ContactLinks'
 import { cn } from '@/shared/lib/Cn'
 import { buttonVariants } from '@/shared/ui/ButtonVariants'
 
@@ -120,6 +121,13 @@ export function ContactDialog() {
           <Dialog.Description className="mt-2 text-sm leading-relaxed text-muted-foreground">
             Tell me what&apos;s on your mind and, if you like, how to reach you back.
           </Dialog.Description>
+
+          <div className="mt-5">
+            <p className="mb-3 text-xs font-medium uppercase tracking-wide text-muted-foreground">
+              Or reach me directly
+            </p>
+            <ContactLinks />
+          </div>
 
           <form
             ref={formRef}

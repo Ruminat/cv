@@ -1,13 +1,6 @@
-import { Mail, Code2, Briefcase, Send } from 'lucide-react'
+import { ContactLinks } from '@/features/ProfilePage/components/ContactLinks'
 import { asset } from '@/shared/lib/Asset'
 import { Reveal } from '@/shared/ui/Reveal'
-
-const links = [
-  { icon: Mail, label: 'Email', href: 'mailto:vlad.furman.ae@gmail.com' },
-  { icon: Code2, label: 'GitHub', href: 'https://github.com/Ruminat' },
-  { icon: Briefcase, label: 'LinkedIn', href: 'https://linkedin.com' },
-  { icon: Send, label: 'Telegram', href: 'https://t.me/Ruminat' },
-]
 
 export function SiteFooter() {
   return (
@@ -25,22 +18,7 @@ export function SiteFooter() {
             <span className="gradient-text">exciting projects</span> and
             opportunities
           </h2>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            {links.map((l) => (
-              <a
-                key={l.label}
-                href={l.href}
-                target={l.href.startsWith('http') ? '_blank' : undefined}
-                rel={
-                  l.href.startsWith('http') ? 'noopener noreferrer' : undefined
-                }
-                className="inline-flex items-center gap-2 rounded-xl border border-border bg-card/60 px-4 py-2.5 text-sm font-medium text-foreground/85 transition-colors hover:border-brand-orange/40 hover:text-foreground"
-              >
-                <l.icon className="size-4 text-brand-orange" />
-                {l.label}
-              </a>
-            ))}
-          </div>
+          <ContactLinks className="mt-8 justify-center gap-3 [&_a]:px-4 [&_a]:py-2.5" />
           <p className="mt-10 text-sm text-muted-foreground">
             © {new Date().getFullYear()} Vlad Furman — Senior Frontend
             Engineer

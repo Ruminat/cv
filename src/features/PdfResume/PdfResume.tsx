@@ -142,6 +142,11 @@ const contacts: { icon: string; text: string; href: string }[] = [
     href: 'https://github.com/Ruminat',
   },
   {
+    icon: 'contact-icons/linkedin.svg',
+    text: 'Ruminat',
+    href: 'https://www.linkedin.com/in/ruminat',
+  },
+  {
     icon: 'contact-icons/telegram.svg',
     text: 'Ruminat',
     href: 'https://t.me/Ruminat',
