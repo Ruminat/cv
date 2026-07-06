@@ -30,19 +30,19 @@ const achievements = [
     icon: GitBranch,
     title: 'Lit → React Migration',
     description:
-      'Drove the platform-wide Lit → React migration. Built the React-in-Lit bridge that made it possible, a React dialog manager the whole team now relies on, and rebuilt some of Nirvana’s most tangled legacy UI in clean React.',
+      'Drove the platform-wide Lit → React migration. Built the React-in-Lit bridge that made it possible, a React dialog manager the whole team now relies on, and rebuilt heavy, tangled legacy UI in Nirvana in clean React.',
   },
   {
     icon: Network,
     title: 'Service Decomposition',
     description:
-      'Broke one giant Nirvana / Reactor / Domains / Layers monorepo into four focused repos — one a shared library — each shipping on its own. Upgrades got painless and Layers releases roughly 3× faster.',
+      'Broke one giant Nirvana / Reactor / Domains / Layers monorepo into four focused repos — one a shared library — each shipping on its own. Upgrades got painless and Layers releases roughly 2.5× faster.',
   },
   {
     icon: Zap,
     title: 'Build & CI Acceleration',
     description:
-      'Rebuilt our tooling — Webpack to Rspack + SWC, ESLint to oxlint — for roughly 4× faster builds, 6× faster linting, and 3× faster CI. Faster feedback for every engineer on the team.',
+      'Rebuilt our tooling — Webpack to Rspack + SWC, ESLint to oxlint — for roughly 5× faster builds, 8× faster linting, and 3× faster CI code checks. Faster feedback for every engineer on the team.',
   },
   {
     icon: BookOpen,

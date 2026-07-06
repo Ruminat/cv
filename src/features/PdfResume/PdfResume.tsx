@@ -32,19 +32,23 @@ const jobs: Job[] = [
       },
       {
         lead: 'Cut build & CI times',
-        text: ' with Rspack + SWC and oxlint — ~4× faster builds, ~6× faster linting, ~3× faster CI.',
+        text: ' with Rspack + SWC and oxlint — ~5× faster builds, ~8× faster linting, ~3× faster CI code checks.',
       },
       {
         lead: 'Split a monorepo into four repositories',
-        text: ' (Nirvana/Reactor, Domains, Layers and a shared library), cutting Layers release time 2–3×.',
+        text: ' (Nirvana/Reactor, Domains, Layers and a shared library), cutting Layers release time 2.5×.',
       },
       {
         lead: 'Eliminated a recurring class of production bugs',
         text: ' with self-registering Redux Toolkit modules that load on first use, removing fragile manual wiring.',
       },
       {
-        lead: 'Authored frontend engineering guidelines',
-        text: ' used for onboarding, code reviews and AI-assisted development; contribute to open-source @gravity-ui.',
+        lead: 'Raised frontend standards',
+        text: ' through team guidelines, open technical votes, adopted tooling prototypes, and contributions to @gravity-ui.',
+      },
+      {
+        lead: 'Mentor mid-level engineers and interns',
+        text: ', helping teammates grow the way I did from intern to senior.',
       },
     ],
   },
@@ -53,11 +57,11 @@ const jobs: Job[] = [
     bullets: [
       {
         lead: 'Rewrote high-risk legacy components',
-        text: ', migrating Nirvana’s most complex option components from Lit to React into a reusable foundation for future work.',
+        text: ', migrating a heavy piece of Nirvana’s legacy option components from Lit to React into a reusable foundation for future work.',
       },
       {
         lead: 'Rebuilt Layers as a standalone service',
-        text: ', extracting it from the Nirvana monolith onto our infrastructure team’s shared stack and adding an internal Docker registry with a new image-browsing UI.',
+        text: ' with a new internal Docker registry UI for browsing images and repositories.',
       },
     ],
   },
@@ -104,7 +108,7 @@ const sideProjects = [
     name: 'MooDuck',
     period: '2025',
     href: 'https://mooduck.shrek-labs.dev',
-    desc: 'An AI bot you vent to — it listens and thoughtfully replies.',
+    desc: 'AI-assisted Telegram mood journal for quick check-ins, notes, and replies.',
     tags: ['Telegram', 'React', 'Express', 'Turso'],
   },
   {
@@ -118,7 +122,7 @@ const sideProjects = [
     name: 'Kitchen Madness',
     period: '2026',
     href: 'https://github.com/Ruminat/Kitchen-Madness',
-    desc: 'A survivors-like arena game — my gamedev hobby project.',
+    desc: 'A kitchen-themed top-down arena survivor game built in Godot 4.',
     tags: ['Godot 4', 'GDScript', 'Game Dev'],
   },
   {
@@ -145,11 +149,6 @@ const contacts: { icon: string; text: string; href: string }[] = [
     icon: 'contact-icons/linkedin.svg',
     text: 'Ruminat',
     href: 'https://www.linkedin.com/in/ruminat',
-  },
-  {
-    icon: 'contact-icons/telegram.svg',
-    text: 'Ruminat',
-    href: 'https://t.me/Ruminat',
   },
   {
     icon: 'favicon.png',
@@ -223,13 +222,13 @@ export function PdfResume() {
             </p>
             <p className="mt-1.5 inline-flex items-center gap-1.5 text-[11px] font-medium text-neutral-500">
               <MapPin className="size-3.5 text-orange-500" />
-              Open to relocation from St. Petersburg
+              Open to relocation to the UAE
             </p>
             <p className="mt-2.5 max-w-xl text-[13px] leading-relaxed text-neutral-600">
               Senior Frontend Engineer with 5+ years at Yandex, building
-              infrastructure products used by thousands of engineers. Specializes
-              in large-scale React &amp; TypeScript platforms, legacy-to-modern
-              migrations and developer productivity.
+              infrastructure products used by thousands of engineers. Focused on
+              large-scale React &amp; TypeScript platforms, legacy-to-modern
+              migrations, frontend architecture, and developer productivity.
             </p>
           </div>
           <img
