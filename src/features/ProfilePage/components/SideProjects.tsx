@@ -48,7 +48,7 @@ const projects: Project[] = [
     logo: "kitchen-madness.png",
     name: "Kitchen Madness",
     link: "https://github.com/Ruminat/Kitchen-Madness",
-    period: "2025 — Present",
+    period: "2026 — Present",
     description:
       "A kitchen-themed, top-down arena survivor game in early development, built in Godot 4 with GDScript. Fight swarms of pests, level up, and grab upgrades between waves. Art generated with ChatGPT.",
     tags: ["Godot 4", "GDScript", "Game Dev"],
