@@ -6,10 +6,6 @@ Vite and Tailwind CSS v4.
 
 ![Screenshot of the profile page](docs/screenshot.png)
 
-> The image above is generated from the live page by an e2e test
-> ([`tests/e2e/readme-screenshot.spec.ts`](tests/e2e/readme-screenshot.spec.ts)) —
-> run `pnpm screenshot` to refresh it.
-
 ## Surfaces
 
 The app ships two views behind minimal path-based routing (no router dependency,
