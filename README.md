@@ -6,6 +6,10 @@ Vite and Tailwind CSS v4.
 
 ![Screenshot of the profile page](docs/screenshot.png)
 
+> The image above is generated from the live page by an e2e test
+> ([`tests/e2e/readme-screenshot.spec.ts`](tests/e2e/readme-screenshot.spec.ts)) —
+> run `pnpm screenshot` to refresh it.
+
 ## Surfaces
 
 The app ships two views behind minimal path-based routing (no router dependency,
@@ -45,6 +49,7 @@ pnpm dev        # http://127.0.0.1:5173  (visit /pdf for the resume)
 | `pnpm lint` | Lint with ESLint (zero warnings allowed) |
 | `pnpm test` | Run unit tests (Vitest) |
 | `pnpm test:e2e` | Run end-to-end tests (Playwright) |
+| `pnpm screenshot` | Regenerate the README hero screenshot |
 | `pnpm codecheck` | Typecheck + lint + unit tests |
 
 ## Project structure
