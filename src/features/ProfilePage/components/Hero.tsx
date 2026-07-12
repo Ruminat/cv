@@ -8,7 +8,11 @@ import { formatExperienceDuration } from "@/features/ProfilePage/models/Experien
 import { asset } from "@/shared/lib/Asset";
 import { Button } from "@/shared/ui/Button";
 
-const tags = ["Frontend Architecture", "React & TypeScript", "Developer Experience"];
+const tags = [
+  "Frontend Architecture",
+  "React & TypeScript",
+  "Developer Experience",
+];
 const yandexStartDate = new Date("2020-12-01T00:00:00.000Z");
 
 export function Hero() {
@@ -48,7 +52,7 @@ export function Hero() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-orange opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-brand-orange" />
               </span>
-              Open to relocation from St. Petersburg
+              Open to relocation to UAE / Europe
             </p>
             <h1 className="text-balance text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl">
               <span className="gradient-text">Vlad Furman</span>
@@ -61,11 +65,14 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
             className="order-3 lg:order-none lg:mt-3"
           >
-            <p className="text-xl font-medium text-foreground/90 md:text-2xl">Senior Frontend Engineer</p>
+            <p className="text-xl font-medium text-foreground/90 md:text-2xl">
+              Senior Frontend Engineer
+            </p>
             <p className="mt-4 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground">
-              Building infrastructure products for thousands of engineers. Senior Frontend Engineer with 5+ years at
-              Yandex, specializing in large-scale React &amp; TypeScript platforms, legacy-to-modern migrations and
-              developer productivity.
+              Building infrastructure products for thousands of engineers.
+              Senior Frontend Engineer with 5+ years at Yandex, specializing in
+              large-scale React &amp; TypeScript platforms, legacy-to-modern
+              migrations and developer productivity.
             </p>
           </motion.div>
 
@@ -92,8 +99,16 @@ export function Hero() {
             className="order-5 lg:order-none mt-0 flex flex-wrap items-center gap-3 lg:mt-8"
           >
             <ContactDialog />
-            <Button asChild size="lg" variant="outline" className="border-border bg-card/40">
-              <a href="/pdf" className="inline-flex items-center gap-2 whitespace-nowrap">
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="border-border bg-card/40"
+            >
+              <a
+                href="/pdf"
+                className="inline-flex items-center gap-2 whitespace-nowrap"
+              >
                 <Download className="size-4 shrink-0" />
                 Download CV
               </a>
@@ -106,9 +121,21 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.35 }}
             className="order-6 lg:order-none mt-0 grid max-w-md grid-cols-3 divide-x divide-border rounded-2xl border border-border glass lg:mt-10"
           >
-            <InfoStat icon={<Briefcase className="size-4" />} label="Experience" value={experienceLabel} />
-            <InfoStat icon={<Building2 className="size-4" />} label="Company" value="Yandex" />
-            <InfoStat icon={<Layers className="size-4" />} label="Focus" value="Infrastructure" />
+            <InfoStat
+              icon={<Briefcase className="size-4" />}
+              label="Experience"
+              value={experienceLabel}
+            />
+            <InfoStat
+              icon={<Building2 className="size-4" />}
+              label="Company"
+              value="Yandex"
+            />
+            <InfoStat
+              icon={<Layers className="size-4" />}
+              label="Focus"
+              value="Infrastructure"
+            />
           </motion.dl>
         </div>
 
@@ -169,7 +196,15 @@ export function Hero() {
   );
 }
 
-function InfoStat({ icon, label, value }: { icon: ReactNode; label: string; value: string }) {
+function InfoStat({
+  icon,
+  label,
+  value,
+}: {
+  icon: ReactNode;
+  label: string;
+  value: string;
+}) {
   return (
     <div className="px-4 py-3">
       <dt className="flex items-center gap-1.5 text-xs text-muted-foreground">

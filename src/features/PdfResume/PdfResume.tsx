@@ -1,5 +1,5 @@
-import { MapPin, Printer } from 'lucide-react'
-import { asset } from '@/shared/lib/Asset'
+import { MapPin, Printer } from "lucide-react";
+import { asset } from "@/shared/lib/Asset";
 
 /**
  * A print-optimized résumé rendered on the `/pdf` route.
@@ -12,150 +12,163 @@ import { asset } from '@/shared/lib/Asset'
  */
 
 interface Bullet {
-  lead: string
-  text: string
+  lead: string;
+  text: string;
 }
 
 interface Job {
-  title: string
-  period: string
-  bullets: Bullet[]
+  title: string;
+  period: string;
+  bullets: Bullet[];
 }
 
 const jobs: Job[] = [
   {
-    title: 'Senior Frontend Engineer',    period: 'May 2024 — Present',
+    title: "Senior Frontend Engineer",
+    period: "May 2024 — Present",
     bullets: [
       {
-        lead: 'Drove the Lit → React migration',
-        text: ', building the React-in-Lit bridge and shared dialog infrastructure now used across the team.',
+        lead: "Drove the Lit → React migration",
+        text: ", building the React-in-Lit bridge and shared dialog infrastructure now used across the team.",
       },
       {
-        lead: 'Cut build & CI times',
-        text: ' with Rspack + SWC and oxlint — ~5× faster builds, ~8× faster linting, ~3× faster CI code checks.',
+        lead: "Cut build & CI times",
+        text: " with Rspack + SWC and oxlint — ~5× faster builds, ~8× faster linting, ~3× faster CI code checks.",
       },
       {
-        lead: 'Split a monorepo into four repositories',
-        text: ' (Nirvana/Reactor, Domains, Layers and a shared library), cutting Layers release time 2.5×.',
+        lead: "Split a monorepo into four repositories",
+        text: " (Nirvana/Reactor, Domains, Layers and a shared library), cutting Layers release time 2.5×.",
       },
       {
-        lead: 'Eliminated a recurring class of production bugs',
-        text: ' with self-registering Redux Toolkit modules that load on first use, removing fragile manual wiring.',
+        lead: "Eliminated a recurring class of production bugs",
+        text: " with self-registering Redux Toolkit modules that load on first use, removing fragile manual wiring.",
       },
       {
-        lead: 'Raised frontend standards',
-        text: ' through team guidelines, open technical votes, adopted tooling prototypes, and contributions to @gravity-ui.',
+        lead: "Raised frontend standards",
+        text: " through team guidelines, open technical votes, adopted tooling prototypes, and contributions to @gravity-ui.",
       },
       {
-        lead: 'Mentor mid-level engineers and interns',
-        text: ', helping teammates grow the way I did from intern to senior.',
+        lead: "Mentor mid-level engineers and interns",
+        text: ", helping teammates grow the way I did from intern to senior.",
       },
     ],
   },
   {
-    title: 'Middle Frontend Developer',    period: '2021 — May 2024',
+    title: "Middle Frontend Developer",
+    period: "2021 — May 2024",
     bullets: [
       {
-        lead: 'Rewrote high-risk legacy components',
-        text: ', migrating a heavy piece of Nirvana’s legacy option components from Lit to React into a reusable foundation for future work.',
+        lead: "Rewrote high-risk legacy components",
+        text: ", migrating a heavy piece of Nirvana’s legacy option components from Lit to React into a reusable foundation for future work.",
       },
       {
-        lead: 'Rebuilt Layers as a standalone service',
-        text: ' with a new internal Docker registry UI for browsing images and repositories.',
+        lead: "Rebuilt Layers as a standalone service",
+        text: " with a new internal Docker registry UI for browsing images and repositories.",
       },
     ],
   },
   {
-    title: 'Frontend Engineer Intern',    period: 'Dec 2020 — 2021',
+    title: "Frontend Engineer Intern",
+    period: "Dec 2020 — 2021",
     bullets: [
       {
-        lead: 'Joined as a frontend intern',
-        text: ' and shipped production changes to internal infrastructure tools.',
+        lead: "Joined as a frontend intern",
+        text: " and shipped production changes to internal infrastructure tools.",
       },
     ],
   },
-]
+];
 
 const techStack: { label: string; items: string[] }[] = [
-  { label: 'Core', items: ['TypeScript', 'React', 'Redux Toolkit', 'Node.js'] },
-  { label: 'Build & CI', items: ['Rspack', 'SWC', 'oxlint', 'Webpack', 'Vite', 'Vitest'] },
-  { label: 'Libraries', items: ['Express', 'Electron', 'Gravity UI', 'Lit'] },
-  { label: 'Styling', items: ['SCSS', 'CSS Modules', 'Tailwind CSS'] },
-  { label: 'Tools', items: ['Git', 'Docker', 'PM2'] },
-]
+  { label: "Core", items: ["TypeScript", "React", "Redux Toolkit", "Node.js"] },
+  {
+    label: "Build & CI",
+    items: ["Rspack", "SWC", "oxlint", "Webpack", "Vite", "Vitest"],
+  },
+  { label: "Libraries", items: ["Express", "Electron", "Gravity UI", "Lit"] },
+  { label: "Styling", items: ["SCSS", "CSS Modules", "Tailwind CSS"] },
+  { label: "Tools", items: ["Git", "Docker", "PM2"] },
+];
 
 const education = [
   {
-    degree: 'Master’s — Corporate Information Systems Management',
-    period: '2020 — 2022',
+    degree: "Master’s — Corporate Information Systems Management",
+    period: "2020 — 2022",
   },
   {
-    degree: 'Bachelor’s — Software Engineering & Information Systems Administration',
-    period: '2016 — 2020',
+    degree:
+      "Bachelor’s — Software Engineering & Information Systems Administration",
+    period: "2016 — 2020",
   },
-]
+];
 
 const languages = [
-  { name: 'Russian', level: 'Native' },
-  { name: 'English', level: 'B2 · Professional' },
-  { name: 'Japanese', level: 'JLPT N4 · Elementary' },
-]
+  { name: "Russian", level: "Native" },
+  { name: "English", level: "B2 · Professional" },
+  { name: "Japanese", level: "JLPT N4 · Elementary" },
+];
 
-const interests = ['Table tennis', 'Speed cubing', 'Web development', 'Gaming', 'Languages']
+const interests = [
+  "Table tennis",
+  "Speed cubing",
+  "Web development",
+  "Gaming",
+  "Languages",
+];
 
 const sideProjects = [
   {
-    name: 'MooDuck',
-    period: '2025',
-    href: 'https://mooduck.shrek-labs.dev',
-    desc: 'AI-assisted Telegram mood journal for quick check-ins, notes, and replies.',
-    tags: ['Telegram', 'React', 'Express', 'Turso'],
+    name: "MooDuck",
+    period: "2025",
+    href: "https://mooduck.shrek-labs.dev",
+    desc: "AI-assisted Telegram mood journal for quick check-ins, notes, and replies.",
+    tags: ["Telegram", "React", "Express", "Turso"],
   },
   {
-    name: 'Cube Shrine',
-    period: '2025',
-    href: 'https://cs.shrek-labs.dev',
-    desc: 'A Rubik’s Cube site with a custom 3D cube renderer on 2D canvas.',
-    tags: ['Next.js', 'Canvas 2D', 'TypeScript', 'Library'],
+    name: "Cube Shrine",
+    period: "2025",
+    href: "https://cs.shrek-labs.dev",
+    desc: "A Rubik’s Cube site with a custom 3D cube renderer on 2D canvas.",
+    tags: ["Next.js", "Canvas 2D", "TypeScript", "Library"],
   },
   {
-    name: 'Kitchen Madness',
-    period: '2026',
-    href: 'https://github.com/Ruminat/Kitchen-Madness',
-    desc: 'A kitchen-themed top-down arena survivor game built in Godot 4.',
-    tags: ['Godot 4', 'GDScript', 'Game Dev'],
+    name: "Kitchen Madness",
+    period: "2026",
+    href: "https://github.com/Ruminat/Kitchen-Madness",
+    desc: "A kitchen-themed top-down arena survivor game built in Godot 4.",
+    tags: ["Godot 4", "GDScript", "Game Dev"],
   },
   {
-    name: 'Lyra',
-    period: '2016',
-    href: 'https://github.com/Ruminat/Lyra',
-    desc: 'My first big project — a music player I actually used daily.',
-    tags: ['Electron', 'JavaScript', 'Desktop App'],
+    name: "Lyra",
+    period: "2016",
+    href: "https://github.com/Ruminat/Lyra",
+    desc: "My first big project — a music player I actually used daily.",
+    tags: ["Electron", "JavaScript", "Desktop App"],
   },
-]
+];
 
 const contacts: { icon: string; text: string; href: string }[] = [
   {
-    icon: 'contact-icons/gmail.svg',
-    text: 'vlad.furman.ae@gmail.com',
-    href: 'mailto:vlad.furman.ae@gmail.com',
+    icon: "contact-icons/gmail.svg",
+    text: "vlad.furman.ae@gmail.com",
+    href: "mailto:vlad.furman.ae@gmail.com",
   },
   {
-    icon: 'contact-icons/github.svg',
-    text: 'Ruminat',
-    href: 'https://github.com/Ruminat',
+    icon: "contact-icons/github.svg",
+    text: "Ruminat",
+    href: "https://github.com/Ruminat",
   },
   {
-    icon: 'contact-icons/linkedin.svg',
-    text: 'Ruminat',
-    href: 'https://www.linkedin.com/in/ruminat',
+    icon: "contact-icons/linkedin.svg",
+    text: "Ruminat",
+    href: "https://www.linkedin.com/in/ruminat",
   },
   {
-    icon: 'favicon.png',
-    text: 'cv.shrek-labs.dev',
-    href: 'https://cv.shrek-labs.dev',
+    icon: "favicon.png",
+    text: "cv.shrek-labs.dev",
+    href: "https://cv.shrek-labs.dev",
   },
-]
+];
 
 const printStyles = `
   @page { size: A4; margin: 0; }
@@ -169,14 +182,14 @@ const printStyles = `
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
-`
+`;
 
 function Section({
   title,
   children,
 }: {
-  title: React.ReactNode
-  children: React.ReactNode
+  title: React.ReactNode;
+  children: React.ReactNode;
 }) {
   return (
     <section className="mb-3.5 break-inside-avoid last:mb-0">
@@ -185,14 +198,18 @@ function Section({
       </h2>
       {children}
     </section>
-  )
+  );
 }
 
 export function PdfResume() {
   return (
     <div className="pdf-root min-h-screen bg-neutral-100 py-8 text-neutral-800 print:min-h-0 print:bg-white print:py-0">
       <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossOrigin="anonymous"
+      />
       <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
@@ -202,7 +219,7 @@ export function PdfResume() {
       <button
         type="button"
         onClick={() => {
-          window.print()
+          window.print();
         }}
         className="fixed right-6 top-6 z-10 inline-flex items-center gap-2 rounded-lg bg-neutral-900 px-4 py-2 text-sm font-medium text-white shadow-lg transition-colors hover:bg-neutral-700 print:hidden"
       >
@@ -222,7 +239,7 @@ export function PdfResume() {
             </p>
             <p className="mt-1.5 inline-flex items-center gap-1.5 text-[11px] font-medium text-neutral-500">
               <MapPin className="size-3.5 text-orange-500" />
-              Open to relocation to the UAE
+              Open to relocation to the UAE / Europe
             </p>
             <p className="mt-2.5 max-w-xl text-[13px] leading-relaxed text-neutral-600">
               Senior Frontend Engineer with 5+ years at Yandex, building
@@ -232,7 +249,7 @@ export function PdfResume() {
             </p>
           </div>
           <img
-            src={asset('photo-pdf.png')}
+            src={asset("photo-pdf.png")}
             alt="Vlad Furman"
             className="size-40 shrink-0 rounded-full object-cover ring-1 ring-neutral-200"
           />
@@ -246,7 +263,11 @@ export function PdfResume() {
               href={c.href}
               className="inline-flex items-center gap-1.5 hover:text-neutral-900"
             >
-              <img src={asset(c.icon)} alt="" className="size-3.5 object-contain" />
+              <img
+                src={asset(c.icon)}
+                alt=""
+                className="size-3.5 object-contain"
+              />
               {c.text}
             </a>
           ))}
@@ -261,15 +282,19 @@ export function PdfResume() {
             <Section
               title={
                 <>
-                  Experience —{' '}
+                  Experience —{" "}
                   <span className="text-neutral-700">
-                    <span className="text-[#f8604a]">Y</span>andex Infrastructure
+                    <span className="text-[#f8604a]">Y</span>andex
+                    Infrastructure
                   </span>
                 </>
               }
             >
               {jobs.map((job) => (
-                <div key={job.title} className="mb-3.5 break-inside-avoid last:mb-0">
+                <div
+                  key={job.title}
+                  className="mb-3.5 break-inside-avoid last:mb-0"
+                >
                   <div className="flex items-baseline justify-between gap-3">
                     <h3 className="text-[15px] font-semibold text-neutral-900">
                       {job.title}
@@ -313,7 +338,9 @@ export function PdfResume() {
                         {p.period}
                       </span>
                     </div>
-                    <p className="text-[13px] leading-snug text-neutral-600">{p.desc}</p>
+                    <p className="text-[13px] leading-snug text-neutral-600">
+                      {p.desc}
+                    </p>
                     <div className="mt-1 flex flex-wrap gap-1">
                       {p.tags.map((t) => (
                         <span
@@ -336,8 +363,12 @@ export function PdfResume() {
               <div className="space-y-1.5">
                 {techStack.map((g) => (
                   <p key={g.label} className="text-[13px] leading-snug">
-                    <span className="font-semibold text-neutral-700">{g.label}: </span>
-                    <span className="text-neutral-500">{g.items.join(', ')}</span>
+                    <span className="font-semibold text-neutral-700">
+                      {g.label}:{" "}
+                    </span>
+                    <span className="text-neutral-500">
+                      {g.items.join(", ")}
+                    </span>
                   </p>
                 ))}
               </div>
@@ -349,7 +380,10 @@ export function PdfResume() {
               </p>
               <ul className="mt-1.5 space-y-1.5">
                 {education.map((e) => (
-                  <li key={e.degree} className="text-[13px] leading-snug text-neutral-600">
+                  <li
+                    key={e.degree}
+                    className="text-[13px] leading-snug text-neutral-600"
+                  >
                     <p>{e.degree}</p>
                     <p className="text-[11px] text-neutral-400">{e.period}</p>
                   </li>
@@ -364,7 +398,9 @@ export function PdfResume() {
                     key={l.name}
                     className="flex items-baseline justify-between gap-2 text-[13px]"
                   >
-                    <span className="font-medium text-neutral-700">{l.name}</span>
+                    <span className="font-medium text-neutral-700">
+                      {l.name}
+                    </span>
                     <span className="text-neutral-500">{l.level}</span>
                   </li>
                 ))}
@@ -382,5 +418,5 @@ export function PdfResume() {
         </div>
       </div>
     </div>
-  )
+  );
 }
