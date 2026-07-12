@@ -90,7 +90,11 @@ function framePage(appUrl: string) {
 </html>`
 }
 
-test('generates the README hero screenshot', async ({ page, baseURL }) => {
+test('generates the README hero screenshot', async ({ page, baseURL }, testInfo) => {
+  // Desktop only — the committed asset must be deterministic, so it can't be
+  // written by the mobile project (different UA / touch rendering) too.
+  test.skip(testInfo.project.name !== 'chromium-desktop', 'desktop-only capture')
+
   const appUrl = new URL('/', baseURL ?? 'http://127.0.0.1:4173').toString()
   await page.setContent(framePage(appUrl))
 

@@ -13,7 +13,7 @@ import { YandexInfrastructure } from '@/features/ProfilePage/components/YandexIn
 export function ProfilePage() {
   return (
     <Toast.Provider limit={1}>
-      <main className="relative min-h-screen">
+      <main className="relative min-h-screen overflow-x-clip">
         <SiteBackground />
         <div className="mx-auto w-full max-w-[1400px] px-5 sm:px-8 lg:px-12">
           <Hero />
