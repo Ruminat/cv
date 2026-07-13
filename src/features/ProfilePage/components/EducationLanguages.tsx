@@ -1,36 +1,36 @@
-import { GraduationCap, Languages } from 'lucide-react'
-import { asset } from '@/shared/lib/Asset'
-import { Reveal } from '@/shared/ui/Reveal'
-import { SectionHeading } from '@/shared/ui/SectionHeading'
+import { GraduationCap, Languages } from "lucide-react";
+import { asset } from "@/shared/lib/Asset";
+import { Reveal } from "@/shared/ui/Reveal";
+import { SectionHeading } from "@/shared/ui/SectionHeading";
 
 const degrees = [
   {
     level: "Bachelor's",
-    period: '2016 — 2020',
-    field: 'Software Engineering and Information Systems Administration',
-    accent: 'text-brand-orange',
+    period: "2016 — 2020",
+    field: "Software Engineering and Information Systems Administration",
+    accent: "text-brand-orange",
   },
   {
     level: "Master's",
-    period: '2020 — 2022',
-    field: 'Corporate Information Systems Management',
-    accent: 'text-brand-purple',
+    period: "2020 — 2022",
+    field: "Corporate Information Systems Management",
+    accent: "text-brand-purple",
   },
-]
+];
 
 const languages = [
-  { name: 'Russian', level: 'Native' },
-  { name: 'English', level: 'B2' },
-  { name: 'Japanese', level: 'N4' },
-]
+  { name: "Russian", level: "Native" },
+  { name: "English", level: "C1 · Advanced" },
+  { name: "Japanese", level: "JLPT N4 · Elementary" },
+];
 
 const interests = [
-  'Table tennis',
-  'Web development',
-  'Speed cubing',
-  'Gaming',
-  'Languages',
-]
+  "Table tennis",
+  "Web development",
+  "Speed cubing",
+  "Gaming",
+  "Languages",
+];
 
 export function EducationLanguages() {
   return (
@@ -71,7 +71,7 @@ export function EducationLanguages() {
           <SectionHeading icon={Languages} title="Languages & Interests" />
           <Reveal className="relative overflow-hidden grid gap-5 rounded-2xl border border-border glass p-6 sm:grid-cols-2">
             <img
-              src={asset('hobbies-bg.png')}
+              src={asset("hobbies-bg.png")}
               alt=""
               aria-hidden="true"
               className="hobbies-illustration pointer-events-none absolute bottom-0 right-0 max-h-full max-w-full origin-bottom-right sm:scale-[1.3]"
@@ -108,5 +108,5 @@ export function EducationLanguages() {
         </div>
       </div>
     </section>
-  )
+  );
 }

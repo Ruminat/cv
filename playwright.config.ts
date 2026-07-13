@@ -10,9 +10,12 @@ export default defineConfig({
     trace: 'on-first-retry',
   },
   webServer: {
-    command: 'pnpm run preview',
+    // Build first so e2e never runs against a stale dist/ (vite preview only
+    // serves pre-built files, it does not rebuild).
+    command: 'pnpm run build && pnpm run preview',
     url: 'http://127.0.0.1:4173',
     reuseExistingServer: !process.env.CI,
+    timeout: 120_000,
   },
   projects: [
     {

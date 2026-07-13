@@ -36,8 +36,8 @@ const jobs: Job[] = [
         text: " with Rspack + SWC and oxlint — ~5× faster builds, ~8× faster linting, ~3× faster CI code checks.",
       },
       {
-        lead: "Split a monorepo into four repositories",
-        text: " (Nirvana/Reactor, Domains, Layers and a shared library), cutting Layers release time 2.5×.",
+        lead: "Decomposed a frontend monorepo",
+        text: " into four independently released repositories and a shared library, reducing release time for one product area by 2.5×",
       },
       {
         lead: "Eliminated a recurring class of production bugs",
@@ -104,7 +104,7 @@ const education = [
 
 const languages = [
   { name: "Russian", level: "Native" },
-  { name: "English", level: "B2 · Professional" },
+  { name: "English", level: "C1 · Advanced" },
   { name: "Japanese", level: "JLPT N4 · Elementary" },
 ];
 
@@ -242,10 +242,11 @@ export function PdfResume() {
               Open to relocation to the UAE / Europe
             </p>
             <p className="mt-2.5 max-w-xl text-[13px] leading-relaxed text-neutral-600">
-              Senior Frontend Engineer with 5+ years at Yandex, building
-              infrastructure products used by thousands of engineers. Focused on
-              large-scale React &amp; TypeScript platforms, legacy-to-modern
-              migrations, frontend architecture, and developer productivity.
+              Senior Frontend Engineer with 6+ years of working experience at
+              Yandex, building infrastructure products for thousands of
+              engineers' usage. My specialty is large-scale React &amp;
+              TypeScript platforms, legacy-to-modern migrations, frontend
+              architecture, and developer productivity.
             </p>
           </div>
           <img

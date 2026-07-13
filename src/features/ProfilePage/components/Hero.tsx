@@ -70,7 +70,7 @@ export function Hero() {
             </p>
             <p className="mt-4 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground">
               Building infrastructure products for thousands of engineers.
-              Senior Frontend Engineer with 5+ years at Yandex, specializing in
+              Senior Frontend Engineer with 6+ years at Yandex, specializing in
               large-scale React &amp; TypeScript platforms, legacy-to-modern
               migrations and developer productivity.
             </p>
