@@ -1,22 +1,19 @@
 "use client";
 
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { Download, Building2, Layers, Briefcase } from "lucide-react";
-import type { MouseEvent, ReactNode } from "react";
 import { ContactDialog } from "@/features/ProfilePage/components/ContactDialog";
-import { formatExperienceDuration } from "@/features/ProfilePage/models/ExperienceDuration";
 import { asset } from "@/shared/lib/Asset";
 import { Button } from "@/shared/ui/Button";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { Briefcase, Building2, Download, Layers } from "lucide-react";
+import type { MouseEvent, ReactNode } from "react";
 
 const tags = [
   "Frontend Architecture",
   "React & TypeScript",
   "Developer Experience",
 ];
-const yandexStartDate = new Date("2020-12-01T00:00:00.000Z");
 
 export function Hero() {
-  const experienceLabel = formatExperienceDuration(yandexStartDate, new Date());
   const mx = useMotionValue(0);
   const my = useMotionValue(0);
   const sx = useSpring(mx, { stiffness: 80, damping: 18 });
@@ -124,7 +121,7 @@ export function Hero() {
             <InfoStat
               icon={<Briefcase className="size-4" />}
               label="Experience"
-              value={experienceLabel}
+              value="6+ years"
             />
             <InfoStat
               icon={<Building2 className="size-4" />}
