@@ -155,12 +155,12 @@ const contacts: { icon: string; text: string; href: string }[] = [
   },
   {
     icon: "contact-icons/github.svg",
-    text: "Ruminat",
+    text: "github.com/Ruminat",
     href: "https://github.com/Ruminat",
   },
   {
     icon: "contact-icons/linkedin.svg",
-    text: "Ruminat",
+    text: "linkedin.com/in/Ruminat",
     href: "https://www.linkedin.com/in/ruminat",
   },
   {
@@ -242,11 +242,11 @@ export function PdfResume() {
               Open to relocation to the UAE / Europe
             </p>
             <p className="mt-2.5 max-w-xl text-[13px] leading-relaxed text-neutral-600">
-              Senior Frontend Engineer with 6+ years of working experience at
-              Yandex, building infrastructure products for thousands of
-              engineers' usage. My specialty is large-scale React &amp;
-              TypeScript platforms, legacy-to-modern migrations, frontend
-              architecture, and developer productivity.
+              Senior Frontend Engineer with 6+ years of experience at Yandex,
+              building infrastructure products used by thousands of engineers. I
+              specialize in large-scale React and TypeScript platforms, frontend
+              architecture, legacy-to-modern migrations, and developer
+              productivity.
             </p>
           </div>
           <img
