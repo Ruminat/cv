@@ -1,0 +1,332 @@
+export interface Bullet {
+  lead: string;
+  text: string;
+}
+
+export interface Job {
+  title: string;
+  period: string;
+  bullets: Bullet[];
+}
+
+export interface SideProject {
+  name: string;
+  period: string;
+  href: string;
+  desc: string;
+  tags: string[];
+}
+
+export interface TechStackGroup {
+  label: string;
+  items: string[];
+}
+
+export interface PdfContent {
+  headline: string;
+  locationLine: string;
+  summary: string;
+  jobs: Job[];
+  techStack: TechStackGroup[];
+  sideProjects: SideProject[];
+}
+
+/** Preset keys for `?location=` — any other value is treated as a custom place name. */
+export const LOCATION_PRESETS = {
+  "uae-europe": "Open to relocation to the UAE / Europe",
+  uae: "Open to relocation to the UAE",
+  germany: "Open to relocation to Germany",
+  poland: "Open to relocation to Poland",
+} as const;
+
+export type LocationPreset = keyof typeof LOCATION_PRESETS;
+
+export const DEFAULT_LOCATION_PRESET: LocationPreset = "uae-europe";
+
+export function resolveLocationLine(locationParam: string | null): string {
+  if (!locationParam) {
+    return LOCATION_PRESETS[DEFAULT_LOCATION_PRESET];
+  }
+
+  if (locationParam in LOCATION_PRESETS) {
+    return LOCATION_PRESETS[locationParam as LocationPreset];
+  }
+
+  return `Open to relocation to ${locationParam}`;
+}
+
+/** Preset keys for `?summary=` — use `summary=custom text` for a fully custom paragraph. */
+export const SUMMARY_PRESETS = {
+  default:
+    "Senior Frontend Engineer with 6+ years of experience at Yandex, building infrastructure products used by thousands of engineers. I specialize in large-scale React and TypeScript platforms, frontend architecture, legacy-to-modern migrations, and developer productivity.",
+  product:
+    "Senior Frontend Developer with 6+ years of experience at Yandex, shipping large-scale React and TypeScript products for thousands of users. I specialize in component architecture, design-system workflows, performance optimization, and accessible responsive interfaces — from legacy migrations to greenfield Next.js apps.",
+  miral:
+    "Senior Frontend Developer with 5+ years of experience at Yandex, shipping large-scale React and TypeScript products for thousands of users. I specialize in component architecture, design-system workflows, performance optimization, and responsive interfaces with attention to accessibility — from legacy migrations to modern React applications, with hands-on Next.js experience in side projects.",
+} as const;
+
+export type SummaryPreset = keyof typeof SUMMARY_PRESETS;
+
+export const DEFAULT_SUMMARY_PRESET: SummaryPreset = "default";
+
+export function resolveSummary(summaryParam: string | null): string {
+  if (!summaryParam) {
+    return SUMMARY_PRESETS[DEFAULT_SUMMARY_PRESET];
+  }
+
+  if (summaryParam in SUMMARY_PRESETS) {
+    return SUMMARY_PRESETS[summaryParam as SummaryPreset];
+  }
+
+  return summaryParam;
+}
+
+export const DEFAULT_HEADLINE = "Senior Frontend Engineer";
+
+export interface JobBulletPatch {
+  jobTitle: string;
+  bulletLead: string;
+  bullet: Bullet;
+}
+
+export interface PdfPreset {
+  location?: LocationPreset;
+  headline?: string;
+  summary?: SummaryPreset;
+  /** Comma-separated project names in `?projects=` — only these are shown, in this order. */
+  projects?: string[];
+  /** Replaces the Core skills line when set. */
+  coreSkills?: string[];
+  /** Swaps individual experience bullets by job title and bullet lead. */
+  jobBulletPatches?: JobBulletPatch[];
+}
+
+/**
+ * Named bundles for `?preset=`. Individual query params override preset fields.
+ *
+ * Example for Miral Experiences:
+ *   /pdf?preset=miral
+ *   /pdf?location=uae&headline=Senior%20Frontend%20Developer&summary=miral
+ */
+export const PDF_PRESETS: Record<string, PdfPreset> = {
+  miral: {
+    location: "uae",
+    headline: "Senior Frontend Developer",
+    summary: "miral",
+    projects: ["Cube Shrine", "MooDuck"],
+    coreSkills: ["TypeScript", "React", "Next.js", "Redux Toolkit", "Node.js"],
+    jobBulletPatches: [
+      {
+        jobTitle: "Middle Frontend Developer",
+        bulletLead: "Rebuilt Layers as a standalone service",
+        bullet: {
+          lead: "Rebuilt Layers as a standalone service",
+          text: ", including a responsive React UI for browsing Docker images and repositories in an internal registry.",
+        },
+      },
+    ],
+  },
+};
+
+export const jobs: Job[] = [
+  {
+    title: "Senior Frontend Engineer",
+    period: "May 2024 — Present",
+    bullets: [
+      {
+        lead: "Drove the Lit → React migration",
+        text: ", building the React-in-Lit bridge and shared dialog infrastructure now used across the team.",
+      },
+      {
+        lead: "Cut build & CI times",
+        text: " with Rspack + SWC and oxlint — ~5× faster builds, ~8× faster linting, ~3× faster CI code checks.",
+      },
+      {
+        lead: "Decomposed a frontend monorepo",
+        text: " into four independently released repositories and a shared library, reducing release time for one product area by 2.5×",
+      },
+      {
+        lead: "Eliminated a recurring class of production bugs",
+        text: " with self-registering Redux Toolkit modules that load on first use, removing fragile manual wiring.",
+      },
+      {
+        lead: "Raised frontend standards",
+        text: " through team guidelines, open technical votes, adopted tooling prototypes, and contributions to @gravity-ui.",
+      },
+      {
+        lead: "Mentor mid-level engineers and interns",
+        text: ", helping teammates grow the way I did from intern to senior.",
+      },
+    ],
+  },
+  {
+    title: "Middle Frontend Developer",
+    period: "2021 — May 2024",
+    bullets: [
+      {
+        lead: "Rewrote high-risk legacy components",
+        text: ", migrating a heavy piece of Nirvana’s legacy option components from Lit to React into a reusable foundation for future work.",
+      },
+      {
+        lead: "Rebuilt Layers as a standalone service",
+        text: " with a new internal Docker registry UI for browsing images and repositories.",
+      },
+    ],
+  },
+  {
+    title: "Frontend Engineer Intern",
+    period: "Dec 2020 — 2021",
+    bullets: [
+      {
+        lead: "Joined as a frontend intern",
+        text: " and shipped production changes to internal infrastructure tools.",
+      },
+    ],
+  },
+];
+
+export const techStack: TechStackGroup[] = [
+  { label: "Core", items: ["TypeScript", "React", "Redux Toolkit", "Node.js"] },
+  {
+    label: "Build & CI",
+    items: ["Rspack", "SWC", "oxlint", "Webpack", "Vite", "Vitest"],
+  },
+  { label: "Libraries", items: ["Express", "Electron", "Gravity UI", "Lit"] },
+  { label: "Styling", items: ["SCSS", "CSS Modules", "Tailwind CSS"] },
+  { label: "Tools", items: ["Git", "Docker", "PM2"] },
+];
+
+export const education = [
+  {
+    degree: "Master’s — Corporate Information Systems Management",
+    period: "2020 — 2022",
+  },
+  {
+    degree:
+      "Bachelor’s — Software Engineering & Information Systems Administration",
+    period: "2016 — 2020",
+  },
+];
+
+export const languages = [
+  { name: "Russian", level: "Native" },
+  { name: "English", level: "C1 · Advanced" },
+  { name: "Japanese", level: "JLPT N4 · Elementary" },
+];
+
+export const interests = [
+  "Table tennis",
+  "Speed cubing",
+  "Web development",
+  "Gaming",
+  "Languages",
+];
+
+export const pdfContacts: { icon: string; text: string; href: string }[] = [
+  {
+    icon: "contact-icons/gmail.svg",
+    text: "vlad.furman.ae@gmail.com",
+    href: "mailto:vlad.furman.ae@gmail.com",
+  },
+  {
+    icon: "contact-icons/github.svg",
+    text: "github.com/Ruminat",
+    href: "https://github.com/Ruminat",
+  },
+  {
+    icon: "contact-icons/linkedin.svg",
+    text: "linkedin.com/in/Ruminat",
+    href: "https://www.linkedin.com/in/ruminat",
+  },
+  {
+    icon: "favicon.png",
+    text: "cv.shrek-labs.dev",
+    href: "https://cv.shrek-labs.dev",
+  },
+];
+
+export const sideProjects: SideProject[] = [
+  {
+    name: "MooDuck",
+    period: "2025",
+    href: "https://mooduck.shrek-labs.dev",
+    desc: "AI-assisted Telegram mood journal for quick check-ins, notes, and replies.",
+    tags: ["Telegram", "React", "Express", "Turso"],
+  },
+  {
+    name: "Cube Shrine",
+    period: "2025",
+    href: "https://cs.shrek-labs.dev",
+    desc: "A Rubik’s Cube site with a custom 3D cube renderer on 2D canvas.",
+    tags: ["Next.js", "Canvas 2D", "TypeScript", "Library"],
+  },
+  {
+    name: "Kitchen Madness",
+    period: "2026",
+    href: "https://github.com/Ruminat/Kitchen-Madness",
+    desc: "A kitchen-themed top-down arena survivor game built in Godot 4.",
+    tags: ["Godot 4", "GDScript", "Game Dev"],
+  },
+  {
+    name: "Lyra",
+    period: "2016",
+    href: "https://github.com/Ruminat/Lyra",
+    desc: "My first big project — a music player I actually used daily.",
+    tags: ["Electron", "JavaScript", "Desktop App"],
+  },
+];
+
+export function applyCoreSkillsOverride(
+  stack: TechStackGroup[],
+  coreSkills: string[] | undefined,
+): TechStackGroup[] {
+  if (!coreSkills) {
+    return stack;
+  }
+
+  return stack.map((group) =>
+    group.label === "Core" ? { ...group, items: coreSkills } : group,
+  );
+}
+
+export function applyJobBulletPatches(
+  sourceJobs: Job[],
+  patches: JobBulletPatch[] | undefined,
+): Job[] {
+  if (!patches?.length) {
+    return sourceJobs;
+  }
+
+  return sourceJobs.map((job) => ({
+    ...job,
+    bullets: job.bullets.map((bullet) => {
+      const patch = patches.find(
+        (candidate) =>
+          candidate.jobTitle === job.title &&
+          candidate.bulletLead === bullet.lead,
+      );
+
+      return patch ? patch.bullet : bullet;
+    }),
+  }));
+}
+
+export function orderSideProjects(
+  projects: SideProject[],
+  names: string[] | undefined,
+): SideProject[] {
+  if (!names?.length) {
+    return projects;
+  }
+
+  const byName = new Map(projects.map((project) => [project.name, project]));
+  const ordered = names
+    .map((name) => byName.get(name))
+    .filter((project): project is SideProject => project !== undefined);
+
+  if (ordered.length === 0) {
+    return projects;
+  }
+
+  return ordered;
+}
