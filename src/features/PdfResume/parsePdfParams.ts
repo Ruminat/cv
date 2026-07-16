@@ -5,6 +5,7 @@ import {
   PDF_PRESETS,
   applyCoreSkillsOverride,
   applyJobBulletPatches,
+  applyJobBulletsOverride,
   jobs,
   orderSideProjects,
   resolveLocationLine,
@@ -65,8 +66,13 @@ export function resolvePdfContent(query: PdfQueryParams): PdfContent {
     headline,
     locationLine,
     summary,
-    jobs: applyJobBulletPatches(jobs, preset?.jobBulletPatches),
-    techStack: applyCoreSkillsOverride(techStack, preset?.coreSkills),
+    jobs: applyJobBulletsOverride(
+      applyJobBulletPatches(jobs, preset?.jobBulletPatches),
+      preset?.jobBullets,
+    ),
+    techStack:
+      preset?.techStack ??
+      applyCoreSkillsOverride(techStack, preset?.coreSkills),
     sideProjects: orderSideProjects(sideProjects, projectNames),
   };
 }

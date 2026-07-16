@@ -63,6 +63,8 @@ export const SUMMARY_PRESETS = {
     "Senior Frontend Developer with 6+ years of experience at Yandex, shipping large-scale React and TypeScript products for thousands of users. I specialize in component architecture, design-system workflows, performance optimization, and accessible responsive interfaces — from legacy migrations to greenfield Next.js apps.",
   miral:
     "Senior Frontend Developer with 5+ years of experience at Yandex, shipping large-scale React and TypeScript products for thousands of users. I specialize in component architecture, design-system workflows, performance optimization, and responsive interfaces with attention to accessibility — from legacy migrations to modern React applications, with hands-on Next.js experience in side projects.",
+  nilo:
+    "Senior Frontend Engineer with 5+ years at Yandex building large-scale React and TypeScript products. I specialize in frontend architecture, Redux Toolkit state management, performance, CI/CD, and shared UI infrastructure — with a focus on maintainable, accessible, and secure interfaces.",
 } as const;
 
 export type SummaryPreset = keyof typeof SUMMARY_PRESETS;
@@ -89,6 +91,11 @@ export interface JobBulletPatch {
   bullet: Bullet;
 }
 
+export interface JobBulletsOverride {
+  jobTitle: string;
+  bullets: Bullet[];
+}
+
 export interface PdfPreset {
   location?: LocationPreset;
   headline?: string;
@@ -97,8 +104,12 @@ export interface PdfPreset {
   projects?: string[];
   /** Replaces the Core skills line when set. */
   coreSkills?: string[];
+  /** Replaces the entire Skills section when set (takes precedence over `coreSkills`). */
+  techStack?: TechStackGroup[];
   /** Swaps individual experience bullets by job title and bullet lead. */
   jobBulletPatches?: JobBulletPatch[];
+  /** Replaces all bullets for matching jobs — allows reordering and rewording. */
+  jobBullets?: JobBulletsOverride[];
 }
 
 /**
@@ -107,6 +118,9 @@ export interface PdfPreset {
  * Example for Miral Experiences:
  *   /pdf?preset=miral
  *   /pdf?location=uae&headline=Senior%20Frontend%20Developer&summary=miral
+ *
+ * Example for nilo (Senior Frontend Engineer, Berlin):
+ *   /pdf?preset=nilo
  */
 export const PDF_PRESETS: Record<string, PdfPreset> = {
   miral: {
@@ -123,6 +137,106 @@ export const PDF_PRESETS: Record<string, PdfPreset> = {
           lead: "Rebuilt Layers as a standalone service",
           text: ", including a responsive React UI for browsing Docker images and repositories in an internal registry.",
         },
+      },
+    ],
+  },
+  nilo: {
+    location: "germany",
+    headline: "Senior Frontend Engineer",
+    summary: "nilo",
+    projects: ["Cube Shrine", "MooDuck", "Kitchen Madness", "Lyra"],
+    techStack: [
+      {
+        label: "Core",
+        items: ["TypeScript", "React", "Redux Toolkit", "Node.js"],
+      },
+      {
+        label: "Frontend",
+        items: ["HTML5", "CSS3", "SCSS", "CSS Modules", "Tailwind CSS", "Lit"],
+      },
+      {
+        label: "Build & CI",
+        items: [
+          "Vite",
+          "Webpack",
+          "Rspack",
+          "SWC",
+          "oxlint",
+          "Vitest",
+          "Docker",
+        ],
+      },
+      {
+        label: "Quality",
+        items: [
+          "Testing Library",
+          "CI/CD",
+          "code review",
+          "performance optimization",
+          "accessibility basics",
+          "frontend security awareness",
+        ],
+      },
+      {
+        label: "Libraries",
+        items: ["Gravity UI", "Express", "Electron"],
+      },
+      {
+        label: "Tools",
+        items: ["Git", "PM2"],
+      },
+    ],
+    jobBullets: [
+      {
+        jobTitle: "Senior Frontend Engineer",
+        bullets: [
+          {
+            lead: "Led a Lit → React migration",
+            text: ", building a React-in-Lit bridge and shared dialog infrastructure now used across the team.",
+          },
+          {
+            lead: "Improved frontend state architecture",
+            text: " with self-registering Redux Toolkit modules that load on first use, removing fragile wiring and a recurring class of production bugs.",
+          },
+          {
+            lead: "Cut build and CI feedback time",
+            text: " with Rspack + SWC and oxlint — ~5× faster builds, ~8× faster linting, ~3× faster CI checks.",
+          },
+          {
+            lead: "Helped scale frontend delivery",
+            text: " by decomposing a monorepo into four independently released repos and a shared library, cutting release time for one area by 2.5×.",
+          },
+          {
+            lead: "Raised frontend engineering standards",
+            text: " through team guidelines, technical discussions, tooling prototypes, and contributions to @gravity-ui.",
+          },
+          {
+            lead: "Mentor mid-level engineers and interns",
+            text: ", supporting code quality, architectural thinking, and growth toward broader ownership.",
+          },
+        ],
+      },
+      {
+        jobTitle: "Middle Frontend Developer",
+        bullets: [
+          {
+            lead: "Rebuilt complex legacy UI",
+            text: ", migrating high-risk Lit option components to React and turning them into a reusable foundation for future work.",
+          },
+          {
+            lead: "Built infrastructure-facing React interfaces",
+            text: ", including a responsive internal Docker registry UI for browsing images and repositories.",
+          },
+        ],
+      },
+      {
+        jobTitle: "Frontend Engineer Intern",
+        bullets: [
+          {
+            lead: "Shipped production changes",
+            text: " to internal infrastructure tools, growing from intern into a full-time engineer.",
+          },
+        ],
       },
     ],
   },
@@ -309,6 +423,23 @@ export function applyJobBulletPatches(
       return patch ? patch.bullet : bullet;
     }),
   }));
+}
+
+export function applyJobBulletsOverride(
+  sourceJobs: Job[],
+  overrides: JobBulletsOverride[] | undefined,
+): Job[] {
+  if (!overrides?.length) {
+    return sourceJobs;
+  }
+
+  return sourceJobs.map((job) => {
+    const override = overrides.find(
+      (candidate) => candidate.jobTitle === job.title,
+    );
+
+    return override ? { ...job, bullets: override.bullets } : job;
+  });
 }
 
 export function orderSideProjects(

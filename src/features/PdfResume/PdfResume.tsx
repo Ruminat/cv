@@ -14,13 +14,15 @@ import { asset } from "@/shared/lib/Asset";
  * Query parameters tailor the PDF without editing source:
  * - `location` — `uae-europe` (default), `uae`, `germany`, `poland`, or any custom place
  * - `headline` — role line under your name (e.g. `Senior Frontend Developer`)
- * - `summary` — `default` | `product` | `miral`, or any custom paragraph text
+ * - `summary` — `default` | `product` | `miral` | `nilo`, or any custom paragraph text
  * - `projects` — comma-separated side-project names to show, in order
- * - `preset` — named bundle (`miral` for Miral Experiences-style tailoring)
+ * - `preset` — named bundle (`miral` for Miral Experiences-style tailoring,
+ *   `nilo` for the nilo Senior Frontend Engineer role)
  *
  * Examples:
  *   /pdf?location=uae
  *   /pdf?preset=miral
+ *   /pdf?preset=nilo
  *   /pdf?location=uae&headline=Senior%20Frontend%20Developer&summary=miral
  */
 

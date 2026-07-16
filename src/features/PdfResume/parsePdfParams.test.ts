@@ -76,6 +76,56 @@ describe("resolvePdfContentFromSearch", () => {
     expect(overridden.headline).toBe("Senior Frontend Developer");
   });
 
+  it("applies the nilo preset", () => {
+    const content = resolvePdfContentFromSearch("?preset=nilo");
+
+    expect(content.locationLine).toBe("Open to relocation to Germany");
+    expect(content.headline).toBe("Senior Frontend Engineer");
+    expect(content.summary).toContain("5+ years");
+    expect(content.summary).toContain("Redux Toolkit state management");
+    expect(content.summary).toContain("shared UI infrastructure");
+
+    expect(content.sideProjects.map((project) => project.name)).toEqual([
+      "Cube Shrine",
+      "MooDuck",
+      "Kitchen Madness",
+      "Lyra",
+    ]);
+
+    const skillLabels = content.techStack.map((group) => group.label);
+    expect(skillLabels).toEqual([
+      "Core",
+      "Frontend",
+      "Build & CI",
+      "Quality",
+      "Libraries",
+      "Tools",
+    ]);
+    expect(
+      content.techStack.find((group) => group.label === "Quality")?.items,
+    ).toContain("accessibility basics");
+
+    const seniorBullets = content.jobs
+      .find((job) => job.title === "Senior Frontend Engineer")
+      ?.bullets.map((bullet) => bullet.lead);
+    expect(seniorBullets).toEqual([
+      "Led a Lit → React migration",
+      "Improved frontend state architecture",
+      "Cut build and CI feedback time",
+      "Helped scale frontend delivery",
+      "Raised frontend engineering standards",
+      "Mentor mid-level engineers and interns",
+    ]);
+
+    const internBullet = content.jobs
+      .find((job) => job.title === "Frontend Engineer Intern")
+      ?.bullets.at(0);
+    expect(internBullet?.lead).toBe("Shipped production changes");
+
+    const overridden = resolvePdfContentFromSearch("?preset=nilo&location=uae");
+    expect(overridden.locationLine).toBe("Open to relocation to the UAE");
+  });
+
   it("filters and orders side projects", () => {
     const content = resolvePdfContentFromSearch(
       "?projects=Lyra,%20Cube%20Shrine",
