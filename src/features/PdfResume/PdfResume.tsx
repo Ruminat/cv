@@ -14,17 +14,19 @@ import { asset } from "@/shared/lib/Asset";
  * Query parameters tailor the PDF without editing source:
  * - `location` — `uae-europe` (default), `uae`, `germany`, `poland`, or any custom place
  * - `headline` — role line under your name (e.g. `Senior Frontend Developer`)
- * - `summary` — `default` | `product` | `miral` | `nilo` | `spotify`, or any custom paragraph text
+ * - `summary` — `default` | `product` | `miral` | `nilo` | `spotify` | `d4-insight`, or any custom paragraph text
  * - `projects` — comma-separated side-project names to show, in order
  * - `preset` — named bundle (`miral` for Miral Experiences-style tailoring,
  *   `nilo` for the nilo Senior Frontend Engineer role, `spotify` tailored for
- *   the Spotify Rights Systems application — title stays Senior Frontend Engineer)
+ *   the Spotify Rights Systems application, `d4-insight` for the D4 Insight UI
+ *   Engineer role — the title stays Senior Frontend Engineer in every preset)
  *
  * Examples:
  *   /pdf?location=uae
  *   /pdf?preset=miral
  *   /pdf?preset=nilo
  *   /pdf?preset=spotify
+ *   /pdf?preset=d4-insight
  *   /pdf?location=uae&headline=Senior%20Frontend%20Developer&summary=miral
  */
 

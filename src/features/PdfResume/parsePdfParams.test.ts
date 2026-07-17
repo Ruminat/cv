@@ -175,6 +175,69 @@ describe("resolvePdfContentFromSearch", () => {
     expect(overridden.locationLine).toBe("Open to relocation to Sweden");
   });
 
+  it("applies the d4-insight preset", () => {
+    const content = resolvePdfContentFromSearch("?preset=d4-insight");
+
+    expect(content.locationLine).toBe("Open to relocation to Abu Dhabi, UAE");
+    // The professional title stays unchanged — not a D4 Insight / full-stack label.
+    expect(content.headline).toBe("Senior Frontend Engineer");
+    expect(content.summary).toContain("nearly 6 years");
+    expect(content.summary).toContain("Node.js REST APIs");
+    expect(content.summary).not.toContain("6+ years");
+    expect(content.accentColor).toBe("#0F4C81");
+
+    // Node.js / Express emphasis is present; Python and forbidden tech are not.
+    const skillItems = content.techStack.flatMap((group) => group.items);
+    expect(skillItems).toContain("Express");
+    expect(skillItems).toContain("REST APIs");
+    expect(skillItems).toContain("Node.js");
+    for (const banned of [
+      "Python",
+      "FastAPI",
+      "Flask",
+      "NestJS",
+      "PostgreSQL",
+      "MongoDB",
+      "GraphQL",
+      "AWS",
+      "Azure",
+      "React Native",
+    ]) {
+      expect(skillItems).not.toContain(banned);
+    }
+
+    // MooDuck is surfaced first and re-emphasized for full-stack/Node.js.
+    expect(content.sideProjects.map((project) => project.name)).toEqual([
+      "MooDuck",
+      "Cube Shrine",
+    ]);
+    const mooDuck = content.sideProjects.find(
+      (project) => project.name === "MooDuck",
+    );
+    expect(mooDuck?.desc).toContain("Express");
+    expect(mooDuck?.tags).toContain("REST API");
+
+    const seniorLeads = content.jobs
+      .find((job) => job.title === "Senior Frontend Engineer")
+      ?.bullets.map((bullet) => bullet.lead);
+    expect(seniorLeads?.[0]).toBe(
+      "Build and evolve complex React & TypeScript interfaces",
+    );
+    expect(seniorLeads).toContain(
+      "Partnered with backend engineers on API integration",
+    );
+  });
+
+  it("does not mutate the shared side-project list when patching", () => {
+    resolvePdfContentFromSearch("?preset=d4-insight");
+    const plain = resolvePdfContentFromSearch("");
+    const mooDuck = plain.sideProjects.find(
+      (project) => project.name === "MooDuck",
+    );
+
+    expect(mooDuck?.tags).toEqual(["Telegram", "React", "Express", "Turso"]);
+  });
+
   it("leaves accentColor unset for presets that do not define it", () => {
     expect(resolvePdfContentFromSearch("").accentColor).toBeUndefined();
     expect(resolvePdfContentFromSearch("?preset=nilo").accentColor).toBeUndefined();

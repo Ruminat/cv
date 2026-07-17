@@ -6,6 +6,7 @@ import {
   applyCoreSkillsOverride,
   applyJobBulletPatches,
   applyJobBulletsOverride,
+  applySideProjectPatches,
   jobs,
   orderSideProjects,
   resolveLocationLine,
@@ -73,7 +74,10 @@ export function resolvePdfContent(query: PdfQueryParams): PdfContent {
     techStack:
       preset?.techStack ??
       applyCoreSkillsOverride(techStack, preset?.coreSkills),
-    sideProjects: orderSideProjects(sideProjects, projectNames),
+    sideProjects: orderSideProjects(
+      applySideProjectPatches(sideProjects, preset?.sideProjectPatches),
+      projectNames,
+    ),
     ...(preset?.accentColor ? { accentColor: preset.accentColor } : {}),
   };
 }

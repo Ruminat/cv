@@ -41,6 +41,7 @@ export const LOCATION_PRESETS = {
   poland: "Open to relocation to Poland",
   stockholm: "Open to relocation to Stockholm",
   sweden: "Open to relocation to Sweden",
+  "abu-dhabi": "Open to relocation to Abu Dhabi, UAE",
 } as const;
 
 export type LocationPreset = keyof typeof LOCATION_PRESETS;
@@ -71,6 +72,8 @@ export const SUMMARY_PRESETS = {
     "Senior Frontend Engineer with 5+ years at Yandex building large-scale React and TypeScript products. I specialize in frontend architecture, Redux Toolkit state management, performance, CI/CD, and shared UI infrastructure — with a focus on maintainable, accessible, and secure interfaces.",
   spotify:
     "Senior Frontend Engineer with 5+ years at Yandex, building large-scale React and TypeScript platforms used by thousands of engineers daily. Experienced in complex application state, data-heavy interfaces, multi-step workflows, API-driven products, and legacy modernization — comfortable owning features end to end, from design through production.",
+  "d4-insight":
+    "Senior Frontend Engineer with nearly 6 years at Yandex, building large-scale React and TypeScript platforms used by thousands of engineers. Experienced in complex enterprise workflows, scalable frontend architecture, Redux Toolkit, reusable UI infrastructure, and Node.js REST APIs, with strong ownership from design to production. Open to relocating to Abu Dhabi.",
 } as const;
 
 export type SummaryPreset = keyof typeof SUMMARY_PRESETS;
@@ -102,6 +105,13 @@ export interface JobBulletsOverride {
   bullets: Bullet[];
 }
 
+/** Tweaks a single side project (by name) — e.g. to re-emphasize it for a specific role. */
+export interface SideProjectPatch {
+  name: string;
+  desc?: string;
+  tags?: string[];
+}
+
 export interface PdfPreset {
   location?: LocationPreset;
   headline?: string;
@@ -118,6 +128,8 @@ export interface PdfPreset {
   jobBullets?: JobBulletsOverride[];
   /** Restrained accent color (hex) for the role line and location pin — layout is untouched. */
   accentColor?: string;
+  /** Re-emphasizes individual side projects (by name) without touching the shared list. */
+  sideProjectPatches?: SideProjectPatch[];
 }
 
 /**
@@ -133,6 +145,10 @@ export interface PdfPreset {
  * Example for Spotify (tailored for Rights Systems, Stockholm — title stays
  * Senior Frontend Engineer):
  *   /pdf?preset=spotify
+ *
+ * Example for D4 Insight (UI Engineer, Abu Dhabi — title stays Senior Frontend
+ * Engineer; frontend-first with Node.js/Express emphasis):
+ *   /pdf?preset=d4-insight
  */
 export const PDF_PRESETS: Record<string, PdfPreset> = {
   miral: {
@@ -317,6 +333,82 @@ export const PDF_PRESETS: Record<string, PdfPreset> = {
             text: " with Rspack + SWC and oxlint — ~5× faster builds, ~8× faster linting, ~3× faster CI checks.",
           },
         ],
+      },
+    ],
+  },
+  "d4-insight": {
+    location: "abu-dhabi",
+    summary: "d4-insight",
+    accentColor: "#0F4C81",
+    projects: ["MooDuck", "Cube Shrine"],
+    techStack: [
+      {
+        label: "Core",
+        items: ["TypeScript", "React", "Redux Toolkit", "JavaScript", "Node.js"],
+      },
+      {
+        label: "Frontend",
+        items: [
+          "Frontend architecture",
+          "Component libraries",
+          "State management",
+          "Responsive UI",
+          "Next.js",
+        ],
+      },
+      {
+        label: "Backend & APIs",
+        items: ["Express", "REST APIs", "API integration"],
+      },
+      {
+        label: "Styling & UI",
+        items: ["HTML", "CSS", "SCSS", "CSS Modules", "Gravity UI"],
+      },
+      {
+        label: "Quality",
+        items: ["Vitest", "Playwright", "CI/CD", "Performance", "Accessibility"],
+      },
+      {
+        label: "Build & Tools",
+        items: ["Rspack", "SWC", "oxlint", "Webpack", "Vite", "Docker", "Git"],
+      },
+    ],
+    jobBullets: [
+      {
+        jobTitle: "Senior Frontend Engineer",
+        bullets: [
+          {
+            lead: "Build and evolve complex React & TypeScript interfaces",
+            text: " for an enterprise infrastructure platform used by 2,000+ engineers every day.",
+          },
+          {
+            lead: "Design scalable frontend architecture",
+            text: " for asynchronous workflows, complex application state, reusable dialogs, and independently loaded product modules.",
+          },
+          {
+            lead: "Led a gradual Lit → React migration",
+            text: ", introducing a React-in-Lit interoperability layer that enabled incremental modernization without a disruptive rewrite.",
+          },
+          {
+            lead: "Eliminated a recurring class of state initialization bugs",
+            text: " with self-registering Redux Toolkit modules that load on first use, removing fragile manual wiring.",
+          },
+          {
+            lead: "Partnered with backend engineers on API integration",
+            text: ", wiring frontend workflows to internal REST services and asynchronous operations.",
+          },
+          {
+            lead: "Cut build, lint & CI times",
+            text: " by migrating to Rspack, SWC, and oxlint — ~5× faster builds, ~8× faster linting, ~3× faster CI checks.",
+          },
+        ],
+      },
+    ],
+    sideProjectPatches: [
+      {
+        name: "MooDuck",
+        desc: "Full-stack Telegram mood journal I built solo — a React app and bot on an Express + Drizzle REST backend, in a TypeScript pnpm/Turborepo monorepo.",
+        tags: ["TypeScript", "Node.js", "Express", "REST API", "Turso", "AI"],
       },
     ],
   },
@@ -519,6 +611,29 @@ export function applyJobBulletsOverride(
     );
 
     return override ? { ...job, bullets: override.bullets } : job;
+  });
+}
+
+export function applySideProjectPatches(
+  projects: SideProject[],
+  patches: SideProjectPatch[] | undefined,
+): SideProject[] {
+  if (!patches?.length) {
+    return projects;
+  }
+
+  return projects.map((project) => {
+    const patch = patches.find((candidate) => candidate.name === project.name);
+
+    if (!patch) {
+      return project;
+    }
+
+    return {
+      ...project,
+      ...(patch.desc ? { desc: patch.desc } : {}),
+      ...(patch.tags ? { tags: patch.tags } : {}),
+    };
   });
 }
 
