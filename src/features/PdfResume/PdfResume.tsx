@@ -14,15 +14,17 @@ import { asset } from "@/shared/lib/Asset";
  * Query parameters tailor the PDF without editing source:
  * - `location` — `uae-europe` (default), `uae`, `germany`, `poland`, or any custom place
  * - `headline` — role line under your name (e.g. `Senior Frontend Developer`)
- * - `summary` — `default` | `product` | `miral` | `nilo`, or any custom paragraph text
+ * - `summary` — `default` | `product` | `miral` | `nilo` | `spotify`, or any custom paragraph text
  * - `projects` — comma-separated side-project names to show, in order
  * - `preset` — named bundle (`miral` for Miral Experiences-style tailoring,
- *   `nilo` for the nilo Senior Frontend Engineer role)
+ *   `nilo` for the nilo Senior Frontend Engineer role, `spotify` tailored for
+ *   the Spotify Rights Systems application — title stays Senior Frontend Engineer)
  *
  * Examples:
  *   /pdf?location=uae
  *   /pdf?preset=miral
  *   /pdf?preset=nilo
+ *   /pdf?preset=spotify
  *   /pdf?location=uae&headline=Senior%20Frontend%20Developer&summary=miral
  */
 
@@ -92,11 +94,23 @@ export function PdfResume() {
             <h1 className="text-[32px] font-bold leading-none tracking-tight text-neutral-900">
               Vlad Furman
             </h1>
-            <p className="mt-1.5 text-[15px] font-medium text-orange-600">
+            <p
+              className="mt-1.5 text-[15px] font-medium text-orange-600"
+              style={
+                content.accentColor ? { color: content.accentColor } : undefined
+              }
+            >
               {content.headline}
             </p>
             <p className="mt-1.5 inline-flex items-center gap-1.5 text-[11px] font-medium text-neutral-500">
-              <MapPin className="size-3.5 text-orange-500" />
+              <MapPin
+                className="size-3.5 text-orange-500"
+                style={
+                  content.accentColor
+                    ? { color: content.accentColor }
+                    : undefined
+                }
+              />
               {content.locationLine}
             </p>
             <p className="mt-2.5 max-w-xl text-[13px] leading-relaxed text-neutral-600">

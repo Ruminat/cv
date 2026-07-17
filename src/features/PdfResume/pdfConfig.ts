@@ -29,6 +29,8 @@ export interface PdfContent {
   jobs: Job[];
   techStack: TechStackGroup[];
   sideProjects: SideProject[];
+  /** Optional accent color (hex) for the role line and location pin. Falls back to the default orange when unset. */
+  accentColor?: string;
 }
 
 /** Preset keys for `?location=` — any other value is treated as a custom place name. */
@@ -37,6 +39,8 @@ export const LOCATION_PRESETS = {
   uae: "Open to relocation to the UAE",
   germany: "Open to relocation to Germany",
   poland: "Open to relocation to Poland",
+  stockholm: "Open to relocation to Stockholm",
+  sweden: "Open to relocation to Sweden",
 } as const;
 
 export type LocationPreset = keyof typeof LOCATION_PRESETS;
@@ -65,6 +69,8 @@ export const SUMMARY_PRESETS = {
     "Senior Frontend Developer with 5+ years of experience at Yandex, shipping large-scale React and TypeScript products for thousands of users. I specialize in component architecture, design-system workflows, performance optimization, and responsive interfaces with attention to accessibility — from legacy migrations to modern React applications, with hands-on Next.js experience in side projects.",
   nilo:
     "Senior Frontend Engineer with 5+ years at Yandex building large-scale React and TypeScript products. I specialize in frontend architecture, Redux Toolkit state management, performance, CI/CD, and shared UI infrastructure — with a focus on maintainable, accessible, and secure interfaces.",
+  spotify:
+    "Senior Frontend Engineer with 5+ years at Yandex, building large-scale React and TypeScript platforms used by thousands of engineers daily. Experienced in complex application state, data-heavy interfaces, multi-step workflows, API-driven products, and legacy modernization — comfortable owning features end to end, from design through production.",
 } as const;
 
 export type SummaryPreset = keyof typeof SUMMARY_PRESETS;
@@ -110,6 +116,8 @@ export interface PdfPreset {
   jobBulletPatches?: JobBulletPatch[];
   /** Replaces all bullets for matching jobs — allows reordering and rewording. */
   jobBullets?: JobBulletsOverride[];
+  /** Restrained accent color (hex) for the role line and location pin — layout is untouched. */
+  accentColor?: string;
 }
 
 /**
@@ -121,6 +129,10 @@ export interface PdfPreset {
  *
  * Example for nilo (Senior Frontend Engineer, Berlin):
  *   /pdf?preset=nilo
+ *
+ * Example for Spotify (tailored for Rights Systems, Stockholm — title stays
+ * Senior Frontend Engineer):
+ *   /pdf?preset=spotify
  */
 export const PDF_PRESETS: Record<string, PdfPreset> = {
   miral: {
@@ -235,6 +247,74 @@ export const PDF_PRESETS: Record<string, PdfPreset> = {
           {
             lead: "Shipped production changes",
             text: " to internal infrastructure tools, growing from intern into a full-time engineer.",
+          },
+        ],
+      },
+    ],
+  },
+  spotify: {
+    location: "stockholm",
+    summary: "spotify",
+    accentColor: "#1DB954",
+    projects: ["MooDuck", "Cube Shrine", "Lyra"],
+    techStack: [
+      {
+        label: "Core",
+        items: ["TypeScript", "React", "Redux Toolkit", "Node.js"],
+      },
+      {
+        label: "Frontend",
+        items: [
+          "Frontend architecture",
+          "State management",
+          "Responsive UI",
+          "Accessibility",
+        ],
+      },
+      {
+        label: "APIs & Data",
+        items: ["REST APIs", "API integration", "Large datasets"],
+      },
+      {
+        label: "Quality",
+        items: ["Testing Library", "Vitest", "CI/CD", "Performance"],
+      },
+      {
+        label: "Build & CI",
+        items: ["Rspack", "SWC", "oxlint", "Webpack", "Vite"],
+      },
+      {
+        label: "Libraries & Tools",
+        items: ["Gravity UI", "Lit", "Express", "Git", "Docker"],
+      },
+    ],
+    jobBullets: [
+      {
+        jobTitle: "Senior Frontend Engineer",
+        bullets: [
+          {
+            lead: "Build and evolve a complex React & TypeScript platform",
+            text: " for internal ML/data workflows, used by 2,000+ engineers every day.",
+          },
+          {
+            lead: "Architect application state and async data flows",
+            text: " across large, multi-entity interfaces with long-running operations and multi-step workflows.",
+          },
+          {
+            lead: "Drove a gradual Lit → React migration",
+            text: ", building a React-in-Lit interoperability layer so new features ship without a disruptive rewrite.",
+          },
+          {
+            lead: "Eliminated a recurring class of state bugs",
+            text: " with self-registering Redux Toolkit modules that load on first use, removing fragile manual wiring.",
+          },
+          {
+            lead: "Built reusable frontend infrastructure",
+            text: ", including shared dialog components now used across the team.",
+          },
+          {
+            lead: "Cut build & CI times",
+            text: " with Rspack + SWC and oxlint — ~5× faster builds, ~8× faster linting, ~3× faster CI checks.",
           },
         ],
       },

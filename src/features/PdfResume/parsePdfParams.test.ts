@@ -126,6 +126,60 @@ describe("resolvePdfContentFromSearch", () => {
     expect(overridden.locationLine).toBe("Open to relocation to the UAE");
   });
 
+  it("applies the spotify preset", () => {
+    const content = resolvePdfContentFromSearch("?preset=spotify");
+
+    expect(content.locationLine).toBe("Open to relocation to Stockholm");
+    // The professional title stays unchanged — no vacancy/company/team label.
+    expect(content.headline).toBe("Senior Frontend Engineer");
+    expect(content.summary).toContain("5+ years");
+    expect(content.summary).toContain("multi-step workflows");
+    expect(content.summary).not.toContain("GraphQL");
+    expect(content.summary).not.toContain("gRPC");
+    expect(content.accentColor).toBe("#1DB954");
+
+    expect(content.sideProjects.map((project) => project.name)).toEqual([
+      "MooDuck",
+      "Cube Shrine",
+      "Lyra",
+    ]);
+
+    const skillLabels = content.techStack.map((group) => group.label);
+    expect(skillLabels).toEqual([
+      "Core",
+      "Frontend",
+      "APIs & Data",
+      "Quality",
+      "Build & CI",
+      "Libraries & Tools",
+    ]);
+    const skillItems = content.techStack.flatMap((group) => group.items);
+    expect(skillItems).not.toContain("GraphQL");
+    expect(skillItems).not.toContain("gRPC");
+
+    const seniorLeads = content.jobs
+      .find((job) => job.title === "Senior Frontend Engineer")
+      ?.bullets.map((bullet) => bullet.lead);
+    expect(seniorLeads?.[0]).toBe(
+      "Build and evolve a complex React & TypeScript platform",
+    );
+
+    // The current job title stays "Senior Frontend Engineer" in Experience.
+    expect(content.jobs.map((job) => job.title)).toContain(
+      "Senior Frontend Engineer",
+    );
+
+    const overridden = resolvePdfContentFromSearch(
+      "?preset=spotify&location=sweden",
+    );
+    expect(overridden.locationLine).toBe("Open to relocation to Sweden");
+  });
+
+  it("leaves accentColor unset for presets that do not define it", () => {
+    expect(resolvePdfContentFromSearch("").accentColor).toBeUndefined();
+    expect(resolvePdfContentFromSearch("?preset=nilo").accentColor).toBeUndefined();
+  });
+
   it("filters and orders side projects", () => {
     const content = resolvePdfContentFromSearch(
       "?projects=Lyra,%20Cube%20Shrine",

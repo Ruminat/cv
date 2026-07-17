@@ -74,6 +74,7 @@ export function resolvePdfContent(query: PdfQueryParams): PdfContent {
       preset?.techStack ??
       applyCoreSkillsOverride(techStack, preset?.coreSkills),
     sideProjects: orderSideProjects(sideProjects, projectNames),
+    ...(preset?.accentColor ? { accentColor: preset.accentColor } : {}),
   };
 }
 
