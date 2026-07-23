@@ -40,9 +40,9 @@ const achievements = [
   },
   {
     icon: Zap,
-    title: 'Build & CI Acceleration',
+    title: 'Build, CI & Release Acceleration',
     description:
-      'Rebuilt our tooling — Webpack to Rspack + SWC, ESLint to oxlint — for roughly 5× faster builds, 8× faster linting, and 3× faster CI code checks. Faster feedback for every engineer on the team.',
+      'Rebuilt our tooling — Webpack to Rspack + SWC, ESLint to oxlint — for roughly 5× faster builds, 8× faster linting, and 3× faster CI code checks. Then parallelized the release pipeline and added Docker BuildKit layer caching, cutting deploys from ~90 to ~25 min (~3.5×). Faster feedback for every engineer on the team.',
   },
   {
     icon: BookOpen,

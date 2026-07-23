@@ -424,8 +424,8 @@ export const jobs: Job[] = [
         text: ", building the React-in-Lit bridge and shared dialog infrastructure now used across the team.",
       },
       {
-        lead: "Cut build & CI times",
-        text: " with Rspack + SWC and oxlint — ~5× faster builds, ~8× faster linting, ~3× faster CI code checks.",
+        lead: "Cut build, CI & release times",
+        text: " with Rspack + SWC and oxlint — ~5× faster builds, ~8× faster linting, ~3× faster CI checks — plus a parallelized, Docker BuildKit-cached release pipeline that cut deploys from ~90 to ~25 min (~3.5×).",
       },
       {
         lead: "Decomposed a frontend monorepo",
@@ -451,7 +451,7 @@ export const jobs: Job[] = [
     bullets: [
       {
         lead: "Rewrote high-risk legacy components",
-        text: ", migrating a heavy piece of Nirvana’s legacy option components from Lit to React into a reusable foundation for future work.",
+        text: ", migrating some of Nirvana’s heaviest Lit option components to React into a reusable foundation.",
       },
       {
         lead: "Rebuilt Layers as a standalone service",
